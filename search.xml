@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[MacOS安装Metasploit全攻略]]></title>
+    <url>%2F2018%2F02%2F22%2FMacOS%E5%AE%89%E8%A3%85Metasploit%E5%85%A8%E6%94%BB%E7%95%A5%2F</url>
+    <content type="text"><![CDATA[测试环境 系 统: MacOS Sierra 10.12.6]]></content>
+      <categories>
+        <category>MetaSploit教程</category>
+      </categories>
+      <tags>
+        <tag>MetaSploit</tag>
+        <tag>MacOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo博客调教日记]]></title>
+    <url>%2F2018%2F02%2F21%2FHexo%E5%8D%9A%E5%AE%A2%E8%B0%83%E6%95%99%E6%97%A5%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[Hexo 安装与配置Hexo安装 自行百度 | 官方文档 测试环境 操作系统: MacOS Sierra 10.12.6博客主题: next 启动搜索功能首先到博客根目录(这里指你 Hexo init 后的博客目录)执行:1npm install hexo-generator-search --save 然后到你的主题目录下修改 _config.yml 文件我使用的是Next主题，进入博客根目录，找到 themes/next/_config.yml 文件，搜索 local_search:会看到如下内容：1234567891011# Local search# Dependencies: https://github.com/theme-next/hexo-generator-searchdblocal_search: enable: false # if auto, trigger search by changing input # if manual, trigger search by pressing enter key or search button trigger: auto # show top n results per article, show all results by setting to -1 top_n_per_article: 1 # unescape html strings to the readable one unescape: false 将 enable: false 改成 enable: true 即可启用本地搜索功能。然后在 themes/next/_config.yml 文件中添加:123456# Searchsearch: path: search.xml field: post format: html limit: 10000 启用本地图片博客中往往会频繁使用到图片，外链图片到博客最简单的方法就是1!(图片描述 可选)[图片链接] 但是往往去找一个靠谱的图床是一件很头疼的事情，如果你的服务器带宽够大，可以选择使用本地图片，开启本地图片的方法:首先进入博客根目录，编辑 _config.yml 文件，找到 post_asset_folder:false 修改为 post_asset_folder:true然后在博客根目录执行1npm install https://github.com/CodeFalling/hexo-asset-image --save 此时你使用 hexo new &quot;一篇博客&quot; 的时候，会在博客根目录下 source/_posts/ 下创建与博客同名的文件夹用于存放本地图片，方便在博客中调用。博客调用本地图片时如下:1![“图片描述”（可以不写）](/文件夹名/你的图片名字.JPG) 插入音乐例如网易云，直接获取播放器外链，iframe代码直接写到Blog中即可。 启用标签页首先执行:1hexo new page &quot;tags&quot; 新建一个页面为 tags 的标签云页面，然后会自动在博客根目录下的 source/_posts/ 生成一个 tags 的目录，里面有一个 index.md打开看看内容如下：1234---title: &quot;tags&quot;date: 2018-02-22 11:44:07--- 修改成如下123456---title: 标签云date: 2018-02-22 11:44:07type: &quot;tags&quot;comments: false--- 这里就是需要添加一个 type 字段，类型值为 tags 如果启用过 多说 或者是 Disqus 等评论插件，默认页面也会带评论，需要关闭则添加 comments 字段，并设置值为 false 进入博客根目录 ，找到 themes/next/_config.yml ，找到主题配置文件，修改其 menu 标签。12345menu: home: / || home tags: /tags/ || tags categories: /categories/ || th archives: /archives/ || archive 这里吧 tags 标签前面的注释去掉即可。 博客中添加标签的方法在 source/_posts 中找到你创建的博客，编辑头部内容，格式如下:123456789---title: Hexo博客调教日记date: 2018-02-21 17:16:03categories: &quot;Hexo教程&quot;tags: - Hexo - Nextdescription: 记录自己安装与使用Hexo时踩过的坑与解决方法--- 当然 tags 标签也可以这么写12345---... (此处省略前后文)tags: [Hexo,Next]...--- categories 字段为分类，description 字段为描述。 标签删除的方法理论上在 MD 文件的头部可以删除标签 然后重新生成可以更新 tags 标签页如果无法成功删除的时候，可以尝试下面的方法:删除根目录的 db.json 然后 hexo clean &amp;&amp; hexo g 各种坑和解决方法导航解析错误 问题描述: 你发现你写的MD格式都是正常的，但是发现Next自动解析的导航，却不合人意，甚至你可以发现正文的代码段混乱什么的情况 解决方法: 找找全文代码段中的 ` 三个点末尾是否出现空格，删除之，解决。12345678### ERROR Deployer not found: git&gt; 问题描述:在执行 `hexo d` 的时候，出现 `ERROR Deployer not found: git`错误&gt; 解决方案:进入博客根目录，执行： npm install hexo-deployer-git –save`]]></content>
+      <categories>
+        <category>Hexo教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo的next主题个性化教程:打造炫酷网站]]></title>
+    <url>%2F2018%2F02%2F02%2FHexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E6%95%99%E7%A8%8B-%E6%89%93%E9%80%A0%E7%82%AB%E9%85%B7%E7%BD%91%E7%AB%99%2F</url>
+    <content type="text"><![CDATA[via: https://www.jianshu.com/p/f054333ac9e6]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+</search>
