@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[MacOS安装Metasploit全攻略]]></title>
     <url>%2F2018%2F02%2F22%2FMacOS%E5%AE%89%E8%A3%85Metasploit%E5%85%A8%E6%94%BB%E7%95%A5%2F</url>
-    <content type="text"><![CDATA[测试环境 系 统: MacOS Sierra 10.12.6 待续]]></content>
+    <content type="text"><![CDATA[测试环境 系 统: MacOS Sierra 10.12.6 下载MetaSploit官方最新版MetaSploit Framework 最新版 下载地址 下载完成，双击安装。此时终端输入 msfconsole 提示找不到，是因为环境变量没有设置。 添加环境变量正常的方法是: 1vim /etc/profile 然后添加 1export PATH="/opt/metasploit-framework/bin:$PATH" 使环境变量立刻生效 1source /etc/profile 如果你使用的是 zsh 那么则是下面的方法: 1vim ~/.zshrc 然后添加 1export PATH="/opt/metasploit-framework/bin:$PATH" 使环境变量立刻生效 1source ~/.zshrc 运行与更新终端输入 msf 并按 Tab 键，看是否能出现 1234➜ ~ msfmsfbinscan msfdb msfpescan msfrpc msfvenom msfconsole msfelfscan msfremove msfrpcd msfd msfmachscan msfrop msfupdate 若出现上面结果，代表环境变量已经生效。 接下来更新Metasploit： 终端执行 msfupdate OK]]></content>
       <categories>
         <category>MetaSploit教程</category>
       </categories>

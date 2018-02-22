@@ -103,18 +103,18 @@
   <meta name="keywords" content="MetaSploit,MacOS," />
 
 
-<meta name="description" content="教你如何在MacOS上安装MetaSploit">
+<meta name="description" content="教你如何在MacOS上安装MetaSploit,更多内容请阅读全文">
 <meta name="keywords" content="MetaSploit,MacOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MacOS安装Metasploit全攻略">
 <meta property="og:url" content="http://lfoder.github.io/2018/02/22/MacOS安装Metasploit全攻略/index.html">
 <meta property="og:site_name" content="默小文">
-<meta property="og:description" content="教你如何在MacOS上安装MetaSploit">
+<meta property="og:description" content="教你如何在MacOS上安装MetaSploit,更多内容请阅读全文">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-22T05:54:58.000Z">
+<meta property="og:updated_time" content="2018-02-22T08:57:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MacOS安装Metasploit全攻略">
-<meta name="twitter:description" content="教你如何在MacOS上安装MetaSploit">
+<meta name="twitter:description" content="教你如何在MacOS上安装MetaSploit,更多内容请阅读全文">
 
 
 
@@ -378,7 +378,7 @@
           
 
           
-              <div class="post-description">教你如何在MacOS上安装MetaSploit</div>
+              <div class="post-description">教你如何在MacOS上安装MetaSploit,更多内容请阅读全文</div>
           
 
         </div>
@@ -397,7 +397,26 @@
         <h2 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h2><ul>
 <li>系 统: <code>MacOS Sierra 10.12.6</code></li>
 </ul>
-<p>待续</p>
+<h2 id="下载MetaSploit官方最新版"><a href="#下载MetaSploit官方最新版" class="headerlink" title="下载MetaSploit官方最新版"></a>下载MetaSploit官方最新版</h2><p>MetaSploit Framework 最新版  <a href="http://osx.metasploit.com/metasploitframework-latest.pkg" target="_blank" rel="noopener">下载地址</a></p>
+<p>下载完成，双击安装。此时终端输入 <code>msfconsole</code> 提示找不到，是因为环境变量没有设置。</p>
+<h2 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h2><p>正常的方法是:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+<p>然后添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"/opt/metasploit-framework/bin:<span class="variable">$PATH</span>"</span></span><br></pre></td></tr></table></figure>
+<p>使环境变量立刻生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+<p>如果你使用的是 <code>zsh</code> 那么则是下面的方法: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>然后添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"/opt/metasploit-framework/bin:<span class="variable">$PATH</span>"</span></span><br></pre></td></tr></table></figure>
+<p>使环境变量立刻生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<h2 id="运行与更新"><a href="#运行与更新" class="headerlink" title="运行与更新"></a>运行与更新</h2><p>终端输入 <code>msf</code>  并按 <code>Tab</code> 键，看是否能出现</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ msf</span><br><span class="line">msfbinscan   msfdb        msfpescan    msfrpc       msfvenom                </span><br><span class="line">msfconsole   msfelfscan   msfremove    msfrpcd                            </span><br><span class="line">msfd         msfmachscan  msfrop       msfupdate</span><br></pre></td></tr></table></figure>
+<p>若出现上面结果，代表环境变量已经生效。</p>
+<p>接下来更新Metasploit：</p>
+<p>终端执行 <code>msfupdate</code></p>
+<p>OK</p>
 
       
     </div>
@@ -591,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#测试环境"><span class="nav-number">1.</span> <span class="nav-text">测试环境</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#测试环境"><span class="nav-number">1.</span> <span class="nav-text">测试环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载MetaSploit官方最新版"><span class="nav-number">2.</span> <span class="nav-text">下载MetaSploit官方最新版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加环境变量"><span class="nav-number">3.</span> <span class="nav-text">添加环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行与更新"><span class="nav-number">4.</span> <span class="nav-text">运行与更新</span></a></li></ol></div>
             
 
           </div>
