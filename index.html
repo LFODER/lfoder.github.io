@@ -103,16 +103,16 @@
   <meta name="keywords" content="Hexo, NexT" />
 
 
-<meta name="description" content="不为装B，只是单纯做笔记">
+<meta name="description" content="只为做笔记">
 <meta property="og:type" content="website">
 <meta property="og:title" content="默小文">
 <meta property="og:url" content="http://lfoder.github.io/index.html">
 <meta property="og:site_name" content="默小文">
-<meta property="og:description" content="不为装B，只是单纯做笔记">
+<meta property="og:description" content="只为做笔记">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="默小文">
-<meta name="twitter:description" content="不为装B，只是单纯做笔记">
+<meta name="twitter:description" content="只为做笔记">
 
 
 
@@ -192,7 +192,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">只为做笔记而已</p>
+        <p class="site-subtitle">当你在眺望深渊时，深渊也在眺望你</p>
       
   </div>
 
@@ -307,6 +307,184 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lfoder.github.io/2018/02/23/树莓派创建钓鱼WiFi实战全过程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lfoder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="默小文">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/23/树莓派创建钓鱼WiFi实战全过程/" itemprop="url">树莓派创建钓鱼WiFi实战全过程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-23T14:59:20+08:00">2018-02-23</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><ul>
+<li><p>攻击机：树莓派3代 B   <code>kali 2.0 armhf</code></p>
+<ul>
+<li>免驱无线网卡</li>
+</ul>
+</li>
+<li><p>受害机：MacBook  <code>MacOS Sierra 10.12.6</code></p>
+<p>​</p>
+</li>
+</ul>
+<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>####安装必要工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install hostapd dnsmasq</span><br></pre></td></tr></table></figure>
+<p>安装 <code>nodejs</code> ，访问 <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">官方下载页面</a> ，找到Source Code源码包<a href="https://nodejs.org/dist/v8.9.4/node-v8.9.4.tar.gz" target="_blank" rel="noopener">下载地址</a></p>
+<p>依次执行进行 下载、解包、编译、安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v8.9.4/node-v8.9.4.tar.gz</span><br><span class="line">tar zxvf node-v8.9.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> node-v9.6.1</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p><strong> 这里还要安装一个神器 <code>Closurether</code> </strong>  未完待续</p>
+<h4 id="修改-hostapd-配置文件"><a href="#修改-hostapd-配置文件" class="headerlink" title="修改 hostapd 配置文件"></a>修改 <code>hostapd</code> 配置文件</h4><p>安装好后，分别来修改配置文件，首先修改 <code>hostapd</code>的配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/hostapd/hostapd.conf</span><br></pre></td></tr></table></figure>
+<p>查找并修改以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 你即将建立热点的无线网卡名字  可以用 ifconfig 或者 iw list 查看</span></span><br><span class="line">interface=wlan1</span><br><span class="line"><span class="meta">#</span><span class="bash"> 无线网卡驱动</span></span><br><span class="line">driver=nl80211</span><br><span class="line"><span class="meta">#</span><span class="bash"> 热点名字</span></span><br><span class="line">ssid=RaspberryPi</span><br><span class="line">hw_mode=g</span><br><span class="line">channel=11</span><br><span class="line"><span class="meta">#</span><span class="bash"> auth_alg 设置为1 表示开放网络 具体你可以选择 百度一下这个字段</span></span><br><span class="line">auth_alg=1</span><br><span class="line">wmm_enabled=0</span><br></pre></td></tr></table></figure>
+<p>当然你也可以设置 <strong>加密</strong> 的WiFi热点，具体配置方法，请 <a href="https://www.jianshu.com/p/1fca72a710d5" target="_blank" rel="noopener">参考这里</a> 。</p>
+<h4 id="修改-dnsmasq-配置文件"><a href="#修改-dnsmasq-配置文件" class="headerlink" title="修改 dnsmasq 配置文件"></a>修改 <code>dnsmasq</code> 配置文件</h4><p>接下来修改 <code>dnsmasq</code> 的配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/dnsmasq.conf</span><br></pre></td></tr></table></figure>
+<p>找到修改或添加以下内容:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 你即将建立热点的无线网卡名字 可以用 ifconfig 或 iw list 查看</span></span><br><span class="line">interface=wlan1</span><br><span class="line"><span class="meta">#</span><span class="bash"> DNS</span></span><br><span class="line">listen-address=192.168.22.1</span><br><span class="line">bind-interface</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置你的热点可分配IP范围和租用周期。</span></span><br><span class="line">dhcp-range=192.168.22.2,192.168.22.254,12h</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置子网掩码</span></span><br><span class="line">dhcp-option=1,255.255.255.0</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3是网关  6具体是什么意思 忘记了  我只记得又一个是DNS配置 具体需要查阅资料</span></span><br><span class="line">dhcp-option=3,192.168.22.1</span><br><span class="line">dhcp-option=6,192.168.22.1</span><br><span class="line"><span class="meta">#</span><span class="bash"> 所有连接上热点的客户端 所有流量全解析到 192.168.22.1  </span></span><br><span class="line">address=/#/192.168.22.1</span><br></pre></td></tr></table></figure>
+<p>关于 <code>dnsmasq</code> 相关推荐：</p>
+<ul>
+<li><a href="https://biji.io/2017/4738.html" target="_blank" rel="noopener">通过Dnsmasq自建干净的DNS服务</a></li>
+<li><a href="https://www.v2ex.com/t/253201" target="_blank" rel="noopener">DNS非标准端口设置问题</a></li>
+</ul>
+<p>设置 IPv4 转发</p>
+<p>设置 IPv4 转发，通过修改文件配置来打开 IPv4 转发。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+<p>找到 <code>net.ipv4.ip_forward=1</code>，去掉注释符号，使其生效。</p>
+<p>但是这样设置，需要在下次重启后才会生效，如果不想重启直接执行下面命令即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh -c <span class="string">"echo 1 &gt;/proc/sys/net/ipv4/ip_forward"</span></span><br></pre></td></tr></table></figure>
+<h4 id="修改防火墙设置"><a href="#修改防火墙设置" class="headerlink" title="修改防火墙设置"></a>修改防火墙设置</h4><p>我这里是将以太网 <code>eth0</code> 接口共享给树莓派外接网卡 <code>wlan1</code> 接口上网，需要配置NAT，需要先对防火墙进行操作：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -t nat -APOSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line">sudo iptables -A FORWARD -i eth0 -o wlan1 -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line">sudo iptables -A FORWARD -i wlan1 -o eth0 -j ACCEPT</span><br></pre></td></tr></table></figure>
+<p>当然如果不想每次都设置，可以使用以下命令设置为开机自启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh -c <span class="string">"iptables-save&gt; /etc/iptables.ipv4.nat"</span></span><br></pre></td></tr></table></figure>
+<h3 id="启动钓鱼热点"><a href="#启动钓鱼热点" class="headerlink" title="启动钓鱼热点"></a>启动钓鱼热点</h3><p>这里给出一个 <code>bash</code>  脚本，作用很简单， 开启和关闭钓鱼热点，保存文件到任何目录</p>
+<p>假设你存储的文件名为 <code>apapap.sh</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line">case $1 in</span><br><span class="line">    "start")</span><br><span class="line">       sleep 1</span><br><span class="line">       ifconfig wlan1 192.168.22.1 netmask 255.255.255.0  </span><br><span class="line">       sleep 1</span><br><span class="line">       echo "1" &gt;/proc/sys/net/ipv4/ip_forward</span><br><span class="line">       sleep 1</span><br><span class="line">       iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE     </span><br><span class="line">       sleep 1</span><br><span class="line">       /etc/init.d/hostapd start</span><br><span class="line">       sleep 1</span><br><span class="line">       /etc/init.d/dnsmasq start</span><br><span class="line">    ;;</span><br><span class="line">    "stop")</span><br><span class="line">       /etc/init.d/dnsmasq stop</span><br><span class="line">       /etc/init.d/hostapd stop</span><br><span class="line">       sleep 1</span><br><span class="line">       iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE  </span><br><span class="line">       sleep 1</span><br><span class="line">       echo "0" &gt;/proc/sys/net/ipv4/ip_forward</span><br><span class="line">       sleep 1</span><br><span class="line">    ;;</span><br><span class="line">    *)</span><br><span class="line">       echo "Usage $0 &#123;start|stop&#125;"</span><br><span class="line">    ;;</span><br><span class="line">    esac</span><br></pre></td></tr></table></figure>
+<p>首先要给文件执行权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 755 apapap.sh</span><br></pre></td></tr></table></figure>
+<p>然后执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./apapap.sh</span><br></pre></td></tr></table></figure>
+<p>正常会出现：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~<span class="comment"># ./apapap.sh </span></span><br><span class="line">Usage ./apapap.sh &#123;start|stop&#125;</span><br><span class="line">root@kali:~<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<p>用法一目了然，看看正常启动的状态。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~<span class="comment"># ./apapap.sh start</span></span><br><span class="line">[ ok ] Starting hostapd (via systemctl): hostapd.service.</span><br><span class="line">[ ok ] Starting dnsmasq (via systemctl): dnsmasq.service.</span><br><span class="line">root@kali:~<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<p>不出意外的话，执行完成了就是这样，此时你去查看Wifi热点，看是否成功开启了。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1foqfkel5jgj30fs0xm40p.jpg" alt=""></p>
+<p>已经开启了热点，现在连入wifi的所有客户端浏览都经过树莓派网卡。</p>
+<p>一些😈邪恶的玩法 ，请参考这里：<a href="http://www.freebuf.com/articles/web/43353.html" target="_blank" rel="noopener">http://www.freebuf.com/articles/web/43353.html</a> </p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://lfoder.github.io/2018/02/22/MacOS安装Metasploit全攻略/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -394,7 +572,7 @@
 
       
         
-          教你如何在MacOS上安装MetaSploit,更多内容请阅读全文
+          MacOS上安装MetaSploit,更多内容请阅读全文
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/02/22/MacOS安装Metasploit全攻略/">
@@ -778,7 +956,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">lfoder</p>
-              <p class="site-description motion-element" itemprop="description">不为装B，只是单纯做笔记</p>
+              <p class="site-description motion-element" itemprop="description">只为做笔记</p>
           </div>
 
           
@@ -788,7 +966,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -824,7 +1002,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
