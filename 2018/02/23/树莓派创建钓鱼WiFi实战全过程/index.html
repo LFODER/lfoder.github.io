@@ -103,19 +103,19 @@
   <meta name="keywords" content="钓鱼WiFi,中间人劫持,树莓派," />
 
 
-<meta name="description" content="测试环境 攻击机：树莓派3代 B   kali 2.0 armhf  免驱无线网卡   受害机：MacBook  MacOS Sierra 10.12.6 ​   环境搭建####安装必要工具 1sudo apt-get install hostapd dnsmasq 安装 nodejs ，访问 官方下载页面 ，找到Source Code源码包下载地址 依次执行进行 下载、解包、编译、安装。 12">
+<meta name="description" content="使用树莓派开启热点，让所有连接上的客户端流量经过树莓派，劫持中间流量，实施中间人攻击。">
 <meta name="keywords" content="钓鱼WiFi,中间人劫持,树莓派">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派创建钓鱼WiFi实战全过程">
 <meta property="og:url" content="http://lfoder.github.io/2018/02/23/树莓派创建钓鱼WiFi实战全过程/index.html">
 <meta property="og:site_name" content="默小文">
-<meta property="og:description" content="测试环境 攻击机：树莓派3代 B   kali 2.0 armhf  免驱无线网卡   受害机：MacBook  MacOS Sierra 10.12.6 ​   环境搭建####安装必要工具 1sudo apt-get install hostapd dnsmasq 安装 nodejs ，访问 官方下载页面 ，找到Source Code源码包下载地址 依次执行进行 下载、解包、编译、安装。 12">
+<meta property="og:description" content="使用树莓派开启热点，让所有连接上的客户端流量经过树莓派，劫持中间流量，实施中间人攻击。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1foqfkel5jgj30fs0xm40p.jpg">
-<meta property="og:updated_time" content="2018-02-24T13:49:09.000Z">
+<meta property="og:updated_time" content="2018-02-28T05:36:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树莓派创建钓鱼WiFi实战全过程">
-<meta name="twitter:description" content="测试环境 攻击机：树莓派3代 B   kali 2.0 armhf  免驱无线网卡   受害机：MacBook  MacOS Sierra 10.12.6 ​   环境搭建####安装必要工具 1sudo apt-get install hostapd dnsmasq 安装 nodejs ，访问 官方下载页面 ，找到Source Code源码包下载地址 依次执行进行 下载、解包、编译、安装。 12">
+<meta name="twitter:description" content="使用树莓派开启热点，让所有连接上的客户端流量经过树莓派，劫持中间流量，实施中间人攻击。">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1foqfkel5jgj30fs0xm40p.jpg">
 
 
@@ -362,6 +362,8 @@
           
 
           
+              <div class="post-description">使用树莓派开启热点，让所有连接上的客户端流量经过树莓派，劫持中间流量，实施中间人攻击。</div>
+          
 
         </div>
       </header>
@@ -388,9 +390,17 @@
 </ul>
 <h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>####安装必要工具</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install hostapd dnsmasq</span><br></pre></td></tr></table></figure>
-<p>安装 <code>nodejs</code> ，访问 <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">官方下载页面</a> ，找到Source Code源码包<a href="https://nodejs.org/dist/v8.9.4/node-v8.9.4.tar.gz" target="_blank" rel="noopener">下载地址</a></p>
+<p>安装 <code>nodejs</code> , 你可以直接执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>当安装上面命令安装失败时尝试下面方法：</p>
+<p>访问 <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">官方下载页面</a> ，找到Source Code源码包<a href="https://nodejs.org/dist/v8.9.4/node-v8.9.4.tar.gz" target="_blank" rel="noopener">下载地址</a></p>
 <p>依次执行进行 下载、解包、编译、安装。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v8.9.4/node-v8.9.4.tar.gz</span><br><span class="line">tar zxvf node-v8.9.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> node-v9.6.1</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;wget https://nodejs.org/dist/v8.9.4/node-v8.9.4.tar.gz</span><br><span class="line">&gt;tar zxvf node-v8.9.4.tar.gz</span><br><span class="line">&gt;<span class="built_in">cd</span> node-v9.6.1</span><br><span class="line">&gt;./configure</span><br><span class="line">&gt;make</span><br><span class="line">&gt;make install </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>下载 <code>Closurether</code> 神器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/LFODER/closurether.git</span><br></pre></td></tr></table></figure>
+<p>通过 <code>git</code> 克隆到本地，开始运行</p>
 <p><strong> 这里还要安装一个神器 <code>Closurether</code> </strong>  未完待续</p>
 <h4 id="修改-hostapd-配置文件"><a href="#修改-hostapd-配置文件" class="headerlink" title="修改 hostapd 配置文件"></a>修改 <code>hostapd</code> 配置文件</h4><p>安装好后，分别来修改配置文件，首先修改 <code>hostapd</code>的配置文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/hostapd/hostapd.conf</span><br></pre></td></tr></table></figure>
