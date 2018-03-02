@@ -111,12 +111,14 @@
 <meta property="og:site_name" content="默小文">
 <meta property="og:description" content="Hexo静态博客的搭建与配置，以及自己踩过的坑">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-01T04:28:24.000Z">
+<meta property="og:updated_time" content="2018-03-01T04:36:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客调教日记">
 <meta name="twitter:description" content="Hexo静态博客的搭建与配置，以及自己踩过的坑">
 
 
+
+  <link rel="alternate" href="/atom.xml" title="默小文" type="application/atom+xml" />
 
 
 
@@ -407,6 +409,15 @@
 <p>但是往往去找一个靠谱的图床是一件很头疼的事情，如果你的服务器带宽够大，可以选择使用本地图片，开启本地图片的方法:<br>首先进入博客根目录，编辑 <code>_config.yml</code> 文件，找到 <code>post_asset_folder:false</code> 修改为 <code>post_asset_folder:true</code><br>然后在博客根目录执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure></p>
 <p>此时你使用 <code>hexo new &quot;一篇博客&quot;</code> 的时候，会在博客根目录下 <code>source/_posts/</code> 下创建与博客同名的文件夹用于存放本地图片，方便在博客中调用。<br>博客调用本地图片时如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![“图片描述”（可以不写）](/文件夹名/你的图片名字.JPG)</span><br></pre></td></tr></table></figure></p>
 <h3 id="插入音乐"><a href="#插入音乐" class="headerlink" title="插入音乐"></a>插入音乐</h3><p>例如网易云，直接获取播放器外链，iframe代码直接写到Blog中即可。</p>
+<h3 id="启用分类页"><a href="#启用分类页" class="headerlink" title="启用分类页"></a>启用分类页</h3><p>首先执行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;categories&quot;</span><br></pre></td></tr></table></figure></p>
+<p>新建一个页面为 <code>categories</code> 的分类页面，然后会自动在博客根目录下的 <code>source/_posts/</code> 生成一个 <code>categories</code> 的目录，里面有一个 <code>index.md</code><br>打开看看内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &quot;categories&quot;</span><br><span class="line">date: 2018-02-22 11:44:07</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<p>修改成如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2018-02-22 11:44:07</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<p>这里就是需要添加一个 <code>type</code> 字段，类型值为 <code>categories</code></p>
+<blockquote>
+<p>如果启用过 <code>多说</code> 或者是 <code>Disqus</code> 等评论插件，默认页面也会带评论，需要关闭则添加 <code>comments</code> 字段，并设置值为 <code>false</code></p>
+</blockquote>
+<p>进入博客根目录 ，找到 <code>themes/next/_config.yml</code> ，找到主题配置文件，修改其 <code>menu</code> 标签。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br></pre></td></tr></table></figure></p>
+<p>这里把 categories 标签前面的注释  <code>#</code> 去掉即可。</p>
 <h3 id="启用标签页"><a href="#启用标签页" class="headerlink" title="启用标签页"></a>启用标签页</h3><p>首先执行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;tags&quot;</span><br></pre></td></tr></table></figure></p>
 <p>新建一个页面为 <code>tags</code> 的标签云页面，然后会自动在博客根目录下的 <code>source/_posts/</code> 生成一个 <code>tags</code> 的目录，里面有一个 <code>index.md</code><br>打开看看内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &quot;tags&quot;</span><br><span class="line">date: 2018-02-22 11:44:07</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
 <p>修改成如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签云</span><br><span class="line">date: 2018-02-22 11:44:07</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
@@ -415,7 +426,7 @@
 <p>如果启用过 <code>多说</code> 或者是 <code>Disqus</code> 等评论插件，默认页面也会带评论，需要关闭则添加 <code>comments</code> 字段，并设置值为 <code>false</code></p>
 </blockquote>
 <p>进入博客根目录 ，找到 <code>themes/next/_config.yml</code> ，找到主题配置文件，修改其 <code>menu</code> 标签。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br></pre></td></tr></table></figure></p>
-<p>这里吧 tags 标签前面的注释去掉即可。</p>
+<p>这里把 tags 标签前面的注释  <code>#</code> 去掉即可。</p>
 <h4 id="博客中添加标签的方法"><a href="#博客中添加标签的方法" class="headerlink" title="博客中添加标签的方法"></a>博客中添加标签的方法</h4><p>在 <code>source/_posts</code> 中找到你创建的博客，编辑头部内容，格式如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo博客调教日记</span><br><span class="line">date: 2018-02-21 17:16:03</span><br><span class="line">categories: &quot;Hexo教程&quot;</span><br><span class="line">tags:</span><br><span class="line">    - Hexo</span><br><span class="line">    - Next</span><br><span class="line">description: 记录自己安装与使用Hexo时踩过的坑与解决方法</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
 <p>当然 <code>tags</code> 标签也可以这么写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">... (此处省略前后文)</span><br><span class="line">tags: [Hexo,Next]</span><br><span class="line">...</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
 <p><code>categories</code> 字段为分类，<code>description</code> 字段为描述。</p>
@@ -559,7 +570,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -569,7 +580,7 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  
+                  <a href="/categories/index.html">
                     
                     
                       
@@ -578,7 +589,7 @@
                     
                     <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">分类</span>
-                  
+                  </a>
                 </div>
               
 
@@ -601,7 +612,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -609,6 +624,13 @@
             </nav>
           
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
@@ -637,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-安装与配置"><span class="nav-number">1.</span> <span class="nav-text">Hexo 安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo安装"><span class="nav-number">1.1.</span> <span class="nav-text">Hexo安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试环境"><span class="nav-number">1.2.</span> <span class="nav-text">测试环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动搜索功能"><span class="nav-number">1.3.</span> <span class="nav-text">启动搜索功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用本地图片"><span class="nav-number">1.4.</span> <span class="nav-text">启用本地图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入音乐"><span class="nav-number">1.5.</span> <span class="nav-text">插入音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用标签页"><span class="nav-number">1.6.</span> <span class="nav-text">启用标签页</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#博客中添加标签的方法"><span class="nav-number">1.6.1.</span> <span class="nav-text">博客中添加标签的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签删除的方法"><span class="nav-number">1.7.</span> <span class="nav-text">标签删除的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各种坑和解决方法"><span class="nav-number">2.</span> <span class="nav-text">各种坑和解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导航解析错误"><span class="nav-number">2.1.</span> <span class="nav-text">导航解析错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ERROR-Deployer-not-found-git"><span class="nav-number">2.2.</span> <span class="nav-text">ERROR Deployer not found: git</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-安装与配置"><span class="nav-number">1.</span> <span class="nav-text">Hexo 安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo安装"><span class="nav-number">1.1.</span> <span class="nav-text">Hexo安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试环境"><span class="nav-number">1.2.</span> <span class="nav-text">测试环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动搜索功能"><span class="nav-number">1.3.</span> <span class="nav-text">启动搜索功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用本地图片"><span class="nav-number">1.4.</span> <span class="nav-text">启用本地图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入音乐"><span class="nav-number">1.5.</span> <span class="nav-text">插入音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用分类页"><span class="nav-number">1.6.</span> <span class="nav-text">启用分类页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用标签页"><span class="nav-number">1.7.</span> <span class="nav-text">启用标签页</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#博客中添加标签的方法"><span class="nav-number">1.7.1.</span> <span class="nav-text">博客中添加标签的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签删除的方法"><span class="nav-number">1.8.</span> <span class="nav-text">标签删除的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各种坑和解决方法"><span class="nav-number">2.</span> <span class="nav-text">各种坑和解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导航解析错误"><span class="nav-number">2.1.</span> <span class="nav-text">导航解析错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ERROR-Deployer-not-found-git"><span class="nav-number">2.2.</span> <span class="nav-text">ERROR Deployer not found: git</span></a></li></ol></li></ol></div>
             
 
           </div>
