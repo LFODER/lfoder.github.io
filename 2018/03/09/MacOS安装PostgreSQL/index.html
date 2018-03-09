@@ -100,19 +100,21 @@
 
 
   
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="MacOS,PostgreSQL,Database," />
 
 
-<meta name="description" content="只为做笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="默小文">
-<meta property="og:url" content="http://lfoder.github.io/tags/中间人劫持/index.html">
+<meta name="description" content="在MacOS上安装 `PostgreSQL` 并正常配置使用。">
+<meta name="keywords" content="MacOS,PostgreSQL,Database">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MacOS安装PostgreSQL">
+<meta property="og:url" content="http://lfoder.github.io/2018/03/09/MacOS安装PostgreSQL/index.html">
 <meta property="og:site_name" content="默小文">
-<meta property="og:description" content="只为做笔记">
+<meta property="og:description" content="在MacOS上安装 `PostgreSQL` 并正常配置使用。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-09T04:42:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="默小文">
-<meta name="twitter:description" content="只为做笔记">
+<meta name="twitter:title" content="MacOS安装PostgreSQL">
+<meta name="twitter:description" content="在MacOS上安装 `PostgreSQL` 并正常配置使用。">
 
 
 
@@ -121,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://lfoder.github.io/tags/中间人劫持/"/>
+  <link rel="canonical" href="http://lfoder.github.io/2018/03/09/MacOS安装PostgreSQL/"/>
 
 
 
@@ -130,7 +132,7 @@
     sidebar: "",
   };
 </script>
-  <title>标签: 中间人劫持 | 默小文</title>
+  <title>MacOS安装PostgreSQL | 默小文</title>
   
 
 
@@ -177,7 +179,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -292,58 +294,186 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>中间人劫持<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lfoder.github.io/2018/03/09/MacOS安装PostgreSQL/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lfoder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="默小文">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/02/23/树莓派创建钓鱼WiFi实战全过程/" itemprop="url">
-              
-                <span itemprop="name">树莓派创建钓鱼WiFi实战全过程</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">MacOS安装PostgreSQL</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-23T14:59:20+08:00"
-              content="2018-02-23" >
-          02-23
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-09T12:31:29+08:00">2018-03-09</time>
+            
 
-    </header>
-  </article>
+            
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">在MacOS上安装 `PostgreSQL` 并正常配置使用。</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><ul>
+<li>macOS Sierra <code>10.12.6</code></li>
+</ul>
+<h3 id="安装-PostgreSQL"><a href="#安装-PostgreSQL" class="headerlink" title="安装 PostgreSQL"></a>安装 PostgreSQL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install postgresql</span><br></pre></td></tr></table></figure>
+<h3 id="配置-PostgreSQL"><a href="#配置-PostgreSQL" class="headerlink" title="配置 PostgreSQL"></a>配置 PostgreSQL</h3><p>####查看版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ pg_ctl -V</span><br><span class="line">pg_ctl (PostgreSQL) 10.3</span><br></pre></td></tr></table></figure>
+<p>安装成功之后，安装路径为：<code>/usr/local/var/postgres</code></p>
+<h4 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">initdb /usr/local/var/postgres</span><br></pre></td></tr></table></figure>
+<h4 id="手动启动-PostgreSQL"><a href="#手动启动-PostgreSQL" class="headerlink" title="手动启动 PostgreSQL"></a>手动启动 PostgreSQL</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start</span><br></pre></td></tr></table></figure>
+<h4 id="查看-PostgreSQL-运行状态"><a href="#查看-PostgreSQL-运行状态" class="headerlink" title="查看 PostgreSQL 运行状态"></a>查看 PostgreSQL 运行状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log status</span><br></pre></td></tr></table></figure>
+<h4 id="手动停止-PostgreSQL"><a href="#手动停止-PostgreSQL" class="headerlink" title="手动停止 PostgreSQL"></a>手动停止 PostgreSQL</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop -s -m fast</span><br></pre></td></tr></table></figure>
+<h4 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps auxwww | grep postgres</span><br></pre></td></tr></table></figure>
+<h4 id="创建用户和数据库"><a href="#创建用户和数据库" class="headerlink" title="创建用户和数据库"></a>创建用户和数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#createuser will prompt you for a password, enter it twice.</span><br><span class="line">$ createuser  -P test</span><br><span class="line">$ createdb -Otest -Eutf8 test_db</span><br><span class="line">$ psql</span><br><span class="line">postgres=# GRANT ALL PRIVILEGES ON test TO test;</span><br><span class="line">postgres=# \q</span><br></pre></td></tr></table></figure>
+<h4 id="进入命令行模式"><a href="#进入命令行模式" class="headerlink" title="进入命令行模式"></a>进入命令行模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psql -U test test_db -h localhost -W</span><br></pre></td></tr></table></figure>
+<h3 id="错误解决"><a href="#错误解决" class="headerlink" title="错误解决"></a>错误解决</h3><h4 id="FATAL-Ident-authentication-failed-for-user"><a href="#FATAL-Ident-authentication-failed-for-user" class="headerlink" title="FATAL: Ident authentication failed for user"></a>FATAL: Ident authentication failed for user</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This is because by default PostgreSQL uses ‘ident’ authentication i.e it checks if the username exists on the system. You need to change authentication mode to ‘trust’ as we do not want to add a system user. Modify the settings in “pg_hba.conf” to use ‘trust’ authentication.</span><br></pre></td></tr></table></figure>
+<p>请修改 <code>/usr/local/var/postgres/pg_hba.conf</code> 为：</p>
+<p>安装 pgadmin，下载地址：<a href="http://www.pgadmin.org/download/macosx.php" target="_blank" rel="noopener">http://www.pgadmin.org/download/macosx.php</a></p>
+<p>via：<a href="https://yq.aliyun.com/articles/25638" target="_blank" rel="noopener">https://yq.aliyun.com/articles/25638</a></p>
 
       
     </div>
 
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MacOS/" rel="tag"># MacOS</a>
+          
+            <a href="/tags/PostgreSQL/" rel="tag"># PostgreSQL</a>
+          
+            <a href="/tags/Database/" rel="tag"># Database</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/02/天翼光猫破解超级管理员账号密码/" rel="next" title="天翼光猫破解超级管理员账号密码">
+                <i class="fa fa-chevron-left"></i> 天翼光猫破解超级管理员账号密码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -364,8 +494,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -463,6 +602,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试环境"><span class="nav-number">1.</span> <span class="nav-text">测试环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-PostgreSQL"><span class="nav-number">2.</span> <span class="nav-text">安装 PostgreSQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-PostgreSQL"><span class="nav-number">3.</span> <span class="nav-text">配置 PostgreSQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化数据库"><span class="nav-number">3.1.</span> <span class="nav-text">初始化数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手动启动-PostgreSQL"><span class="nav-number">3.2.</span> <span class="nav-text">手动启动 PostgreSQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看-PostgreSQL-运行状态"><span class="nav-number">3.3.</span> <span class="nav-text">查看 PostgreSQL 运行状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手动停止-PostgreSQL"><span class="nav-number">3.4.</span> <span class="nav-text">手动停止 PostgreSQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看进程"><span class="nav-number">3.5.</span> <span class="nav-text">查看进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建用户和数据库"><span class="nav-number">3.6.</span> <span class="nav-text">创建用户和数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进入命令行模式"><span class="nav-number">3.7.</span> <span class="nav-text">进入命令行模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误解决"><span class="nav-number">4.</span> <span class="nav-text">错误解决</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#FATAL-Ident-authentication-failed-for-user"><span class="nav-number">4.1.</span> <span class="nav-text">FATAL: Ident authentication failed for user</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -597,6 +752,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.4"></script>
+
+
 
   
 
