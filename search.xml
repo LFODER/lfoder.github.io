@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Mounty挂载失败解决方法]]></title>
+    <url>%2F2018%2F03%2F12%2FMounty%E6%8C%82%E8%BD%BD%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[错误过程： 开机启动 Mounty 挂载NTFS磁盘时出现挂载失败的情况，磁盘在win下面没有安全删除就拔出来了，导致文件系统中有错误区块，所以在MAC中不能挂载成读写模式。 卷”BOOTCAMP “不可重新挂载 解决方案： 到 win 下 对不可挂载的NTFS磁盘，进行 chkdsk /f 操作 ，并在结束后安全移除磁盘]]></content>
+      <tags>
+        <tag>Mounty</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[MacOS安装PostgreSQL]]></title>
     <url>%2F2018%2F03%2F09%2FMacOS%E5%AE%89%E8%A3%85PostgreSQL%2F</url>
-    <content type="text"><![CDATA[测试环境 macOS Sierra 10.12.6 安装 PostgreSQL1brew install postgresql 配置 PostgreSQL查看版本12➜ ~ pg_ctl -Vpg_ctl (PostgreSQL) 10.3 安装成功之后，安装路径为：/usr/local/var/postgres 初始化数据库1initdb /usr/local/var/postgres 手动启动 PostgreSQL1pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start 查看 PostgreSQL 运行状态1pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log status 手动停止 PostgreSQL1pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop -s -m fast 查看进程1ps auxwww | grep postgres 创建用户和数据库123456#createuser will prompt you for a password, enter it twice.$ createuser -P test$ createdb -Otest -Eutf8 test_db$ psqlpostgres=# GRANT ALL PRIVILEGES ON test TO test;postgres=# \q 进入命令行模式1psql -U test test_db -h localhost -W 错误解决FATAL: Ident authentication failed for user1This is because by default PostgreSQL uses ‘ident’ authentication i.e it checks if the username exists on the system. You need to change authentication mode to ‘trust’ as we do not want to add a system user. Modify the settings in “pg_hba.conf” to use ‘trust’ authentication. 请修改 /usr/local/var/postgres/pg_hba.conf 为： 安装 pgadmin，下载地址：http://www.pgadmin.org/download/macosx.php via：https://yq.aliyun.com/articles/25638]]></content>
+    <content type="text"><![CDATA[测试环境 macOS Sierra 10.12.6 安装 PostgreSQL1brew install postgresql 配置 PostgreSQL查看版本12➜ ~ pg_ctl -Vpg_ctl (PostgreSQL) 10.3 安装成功之后，安装路径为：/usr/local/var/postgres 初始化数据库1initdb /usr/local/var/postgres 手动启动 PostgreSQL1pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start 查看 PostgreSQL 运行状态1pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log status 手动停止 PostgreSQL1pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop -s -m fast 查看进程1ps auxwww | grep postgres 创建用户和数据库123456#createuser will prompt you for a password, enter it twice.$ createuser -U postgres -P 123456$ createdb -O postgres -E utf8 test_db$ psqlpostgres=# GRANT ALL PRIVILEGES ON postgres TO postgres;postgres=# \q 进入命令行模式1psql -U test test_db -h localhost -W 错误解决FATAL: Ident authentication failed for user1This is because by default PostgreSQL uses ‘ident’ authentication i.e it checks if the username exists on the system. You need to change authentication mode to ‘trust’ as we do not want to add a system user. Modify the settings in “pg_hba.conf” to use ‘trust’ authentication. 请修改 /usr/local/var/postgres/pg_hba.conf 为： 安装 pgadmin，下载地址：http://www.pgadmin.org/download/macosx.php via：https://yq.aliyun.com/articles/25638]]></content>
       <tags>
         <tag>MacOS</tag>
         <tag>PostgreSQL</tag>
@@ -48,8 +56,8 @@
         <category>MetaSploit教程</category>
       </categories>
       <tags>
-        <tag>MetaSploit</tag>
         <tag>MacOS</tag>
+        <tag>MetaSploit</tag>
       </tags>
   </entry>
   <entry>
