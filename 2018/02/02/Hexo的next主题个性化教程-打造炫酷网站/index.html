@@ -103,18 +103,18 @@
   <meta name="keywords" content="Hexo," />
 
 
-<meta name="description" content="via: https://www.jianshu.com/p/f054333ac9e6">
+<meta name="description" content="via: https://www.jianshu.com/p/f054333ac9e6 https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/">
 <meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo的next主题个性化教程:打造炫酷网站">
 <meta property="og:url" content="http://lfoder.github.io/2018/02/02/Hexo的next主题个性化教程-打造炫酷网站/index.html">
 <meta property="og:site_name" content="默小文">
-<meta property="og:description" content="via: https://www.jianshu.com/p/f054333ac9e6">
+<meta property="og:description" content="via: https://www.jianshu.com/p/f054333ac9e6 https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-01T05:16:06.000Z">
+<meta property="og:updated_time" content="2018-03-27T14:41:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo的next主题个性化教程:打造炫酷网站">
-<meta name="twitter:description" content="via: https://www.jianshu.com/p/f054333ac9e6">
+<meta name="twitter:description" content="via: https://www.jianshu.com/p/f054333ac9e6 https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/">
 
 
 
@@ -395,6 +395,7 @@
 
       
         <p>via: <a href="https://www.jianshu.com/p/f054333ac9e6" target="_blank" rel="noopener">https://www.jianshu.com/p/f054333ac9e6</a></p>
+<p><a href="https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</a></p>
 
       
     </div>
@@ -505,7 +506,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -557,7 +558,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -770,7 +775,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "search.xml";
+    var search_path = "search.json";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
@@ -815,6 +820,19 @@
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
       
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
 
       $.ajax({
         url: path,
@@ -849,6 +867,8 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
                 
                 var contentInLowerCase = content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);

@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="默小文">
 <meta property="og:description" content="Hexo静态博客的搭建与配置，以及自己踩过的坑">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-01T04:36:17.000Z">
+<meta property="og:updated_time" content="2018-03-27T14:00:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客调教日记">
 <meta name="twitter:description" content="Hexo静态博客的搭建与配置，以及自己踩过的坑">
@@ -431,6 +431,21 @@
 <p>当然 <code>tags</code> 标签也可以这么写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">... (此处省略前后文)</span><br><span class="line">tags: [Hexo,Next]</span><br><span class="line">...</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
 <p><code>categories</code> 字段为分类，<code>description</code> 字段为描述。</p>
 <h3 id="标签删除的方法"><a href="#标签删除的方法" class="headerlink" title="标签删除的方法"></a>标签删除的方法</h3><p>理论上在 MD 文件的头部可以删除标签 然后重新生成可以更新 <code>tags</code> 标签页<br>如果无法成功删除的时候，可以尝试下面的方法:<br>删除根目录的 <code>db.json</code> 然后 <code>hexo clean &amp;&amp; hexo g</code></p>
+<h3 id="添加RSS"><a href="#添加RSS" class="headerlink" title="添加RSS"></a>添加RSS</h3><p>需要安装 <code>hexo-generator-feed</code> 插件</p>
+<p>RSS还需要一个Feed链接，而这个链接是通过 <code>hexo-generator-feed</code>  插件生成的，所以要先安装插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
+<p>然后去配置 <strong>站点配置文件</strong> 里的Feed信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim _config.yml</span><br></pre></td></tr></table></figure>
+<p>找到如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 配置RSS</span><br><span class="line">feed:</span><br><span class="line">  type: atom</span><br><span class="line">  path: atom.xml</span><br><span class="line">  limit: 20</span><br><span class="line">  content: &apos;true&apos;</span><br></pre></td></tr></table></figure>
+<p><code>feed</code> 属性下的各个子属性的含义借用feed官方英文解释如下：</p>
+<ul>
+<li>type - Feed type. (atom/rss2)</li>
+<li>path - Feed path. (Default: atom.xml/rss2.xml)</li>
+<li>limit - Maximum number of posts in the feed (Use 0 or false to show all posts)</li>
+<li>hub - URL of the PubSubHubbub hubs (Leave it empty if you don’t use it)</li>
+<li>content - (optional) set to ‘true’ to include the contents of the entire post in the feed.</li>
+</ul>
 <h2 id="各种坑和解决方法"><a href="#各种坑和解决方法" class="headerlink" title="各种坑和解决方法"></a>各种坑和解决方法</h2><h3 id="导航解析错误"><a href="#导航解析错误" class="headerlink" title="导航解析错误"></a>导航解析错误</h3><blockquote>
 <p>问题描述:</p>
 </blockquote>
@@ -570,7 +585,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -622,7 +637,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -665,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-安装与配置"><span class="nav-number">1.</span> <span class="nav-text">Hexo 安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo安装"><span class="nav-number">1.1.</span> <span class="nav-text">Hexo安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试环境"><span class="nav-number">1.2.</span> <span class="nav-text">测试环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动搜索功能"><span class="nav-number">1.3.</span> <span class="nav-text">启动搜索功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用本地图片"><span class="nav-number">1.4.</span> <span class="nav-text">启用本地图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入音乐"><span class="nav-number">1.5.</span> <span class="nav-text">插入音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用分类页"><span class="nav-number">1.6.</span> <span class="nav-text">启用分类页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用标签页"><span class="nav-number">1.7.</span> <span class="nav-text">启用标签页</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#博客中添加标签的方法"><span class="nav-number">1.7.1.</span> <span class="nav-text">博客中添加标签的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签删除的方法"><span class="nav-number">1.8.</span> <span class="nav-text">标签删除的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各种坑和解决方法"><span class="nav-number">2.</span> <span class="nav-text">各种坑和解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导航解析错误"><span class="nav-number">2.1.</span> <span class="nav-text">导航解析错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ERROR-Deployer-not-found-git"><span class="nav-number">2.2.</span> <span class="nav-text">ERROR Deployer not found: git</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-安装与配置"><span class="nav-number">1.</span> <span class="nav-text">Hexo 安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo安装"><span class="nav-number">1.1.</span> <span class="nav-text">Hexo安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试环境"><span class="nav-number">1.2.</span> <span class="nav-text">测试环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动搜索功能"><span class="nav-number">1.3.</span> <span class="nav-text">启动搜索功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用本地图片"><span class="nav-number">1.4.</span> <span class="nav-text">启用本地图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入音乐"><span class="nav-number">1.5.</span> <span class="nav-text">插入音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用分类页"><span class="nav-number">1.6.</span> <span class="nav-text">启用分类页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用标签页"><span class="nav-number">1.7.</span> <span class="nav-text">启用标签页</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#博客中添加标签的方法"><span class="nav-number">1.7.1.</span> <span class="nav-text">博客中添加标签的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签删除的方法"><span class="nav-number">1.8.</span> <span class="nav-text">标签删除的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加RSS"><span class="nav-number">1.9.</span> <span class="nav-text">添加RSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各种坑和解决方法"><span class="nav-number">2.</span> <span class="nav-text">各种坑和解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导航解析错误"><span class="nav-number">2.1.</span> <span class="nav-text">导航解析错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ERROR-Deployer-not-found-git"><span class="nav-number">2.2.</span> <span class="nav-text">ERROR Deployer not found: git</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -851,7 +870,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "search.xml";
+    var search_path = "search.json";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
@@ -896,6 +915,19 @@
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
       
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
 
       $.ajax({
         url: path,
@@ -930,6 +962,8 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
                 
                 var contentInLowerCase = content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
