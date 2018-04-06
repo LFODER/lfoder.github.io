@@ -1,0 +1,8 @@
+User-agent: * Allow: /
+Allow: /archives/
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Sitemap: http://lfoder.github.io/sitemap.xml
+Sitemap: http://lfoder.github.io/baidusitemap.xml

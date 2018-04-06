@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="默小文">
 <meta property="og:description" content="Hexo静态博客的搭建与配置，以及自己踩过的坑">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-06T13:33:54.000Z">
+<meta property="og:updated_time" content="2018-04-06T13:36:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客调教日记">
 <meta name="twitter:description" content="Hexo静态博客的搭建与配置，以及自己踩过的坑">
@@ -452,7 +452,7 @@
 <h4 id="添加Sitemap文件"><a href="#添加Sitemap文件" class="headerlink" title="添加Sitemap文件"></a>添加Sitemap文件</h4><p>安装以下2个插件，然后重启hexo后，网站根目录（source）下会生成sitemap.xml与baidusitemap.xml文件，搜索引擎在爬取时会参照文件中的url去收录。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save-dev</span><br><span class="line">hexo d -g</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save-dev</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
 <h4 id="添加robots-txt"><a href="#添加robots-txt" class="headerlink" title="添加robots.txt"></a>添加robots.txt</h4><p>新建robots.txt文件，添加以下文件内容，把robots.txt放在hexo站点的source文件下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">User-agent: * Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line">Sitemap: http://lfoder.github.io/sitemap.xml</span><br><span class="line">Sitemap: http://lfoder.github.io/baidusitemap.xml</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">User-agent: * Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Sitemap: http://lfoder.github.io/sitemap.xml</span><br><span class="line">Sitemap: http://lfoder.github.io/baidusitemap.xml</span><br></pre></td></tr></table></figure>
 <h2 id="各种坑和解决方法"><a href="#各种坑和解决方法" class="headerlink" title="各种坑和解决方法"></a>各种坑和解决方法</h2><h3 id="导航解析错误"><a href="#导航解析错误" class="headerlink" title="导航解析错误"></a>导航解析错误</h3><blockquote>
 <p>问题描述:</p>
 </blockquote>
