@@ -109,28 +109,6 @@
   </entry>
   
   <entry>
-    <title>天翼光猫破解超级管理员账号密码</title>
-    <link href="https://lfoder.github.io/2018/03/02/%E5%A4%A9%E7%BF%BC%E5%85%89%E7%8C%AB%E7%A0%B4%E8%A7%A3%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/"/>
-    <id>https://lfoder.github.io/2018/03/02/天翼光猫破解超级管理员账号密码/</id>
-    <published>2018-03-02T15:34:19.000Z</published>
-    <updated>2018-03-02T15:41:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="获取密码的步骤"><a href="#获取密码的步骤" class="headerlink" title="获取密码的步骤"></a>获取密码的步骤</h3><ol><li><p>首先去光猫底部看看，你会发现一个普通用户的账号和密码，登录之。</p><p>​</p></li><li><p>假设你的光猫IP是 <code>192.168.1.1</code> 访问 <a href="http://192.168.1.1/backupsettings.conf" target="_blank" rel="noopener">http://192.168.1.1/backupsettings.conf</a> 这个连接下载配置文件。</p></li><li><p>重命名配置文件  <code>backupsettings.conf</code>  为 <code>backupsettings.conf.txt</code>  。</p></li><li><p>找到类似这样的地方，就是账号和密码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;X_CT-COM_TeleComAccount&gt;</span><br><span class="line">        &lt;Password&gt;telecomadmin88888888&lt;/Password&gt;</span><br><span class="line">&lt;/X_CT-COM_TeleComAccount&gt;</span><br></pre></td></tr></table></figure><p>其中通用账号是：<code>telecomadmin</code></p><p>密码则是：<code>telecomadmin88888888</code></p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      获取天翼上网光猫的超级管理员账号和密码
-    
-    </summary>
-    
-    
-      <category term="路由器" scheme="https://lfoder.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
-    
-      <category term="光猫" scheme="https://lfoder.github.io/tags/%E5%85%89%E7%8C%AB/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Linux搭建Socks5服务端</title>
     <link href="https://lfoder.github.io/2018/03/02/Linux%E6%90%AD%E5%BB%BASocks5%E6%9C%8D%E5%8A%A1%E7%AB%AF/"/>
     <id>https://lfoder.github.io/2018/03/02/Linux搭建Socks5服务端/</id>
@@ -149,6 +127,28 @@
       <category term="代理" scheme="https://lfoder.github.io/tags/%E4%BB%A3%E7%90%86/"/>
     
       <category term="Socks5" scheme="https://lfoder.github.io/tags/Socks5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>天翼光猫破解超级管理员账号密码</title>
+    <link href="https://lfoder.github.io/2018/03/02/%E5%A4%A9%E7%BF%BC%E5%85%89%E7%8C%AB%E7%A0%B4%E8%A7%A3%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/"/>
+    <id>https://lfoder.github.io/2018/03/02/天翼光猫破解超级管理员账号密码/</id>
+    <published>2018-03-02T15:34:19.000Z</published>
+    <updated>2018-03-02T15:41:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="获取密码的步骤"><a href="#获取密码的步骤" class="headerlink" title="获取密码的步骤"></a>获取密码的步骤</h3><ol><li><p>首先去光猫底部看看，你会发现一个普通用户的账号和密码，登录之。</p><p>​</p></li><li><p>假设你的光猫IP是 <code>192.168.1.1</code> 访问 <a href="http://192.168.1.1/backupsettings.conf" target="_blank" rel="noopener">http://192.168.1.1/backupsettings.conf</a> 这个连接下载配置文件。</p></li><li><p>重命名配置文件  <code>backupsettings.conf</code>  为 <code>backupsettings.conf.txt</code>  。</p></li><li><p>找到类似这样的地方，就是账号和密码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;X_CT-COM_TeleComAccount&gt;</span><br><span class="line">        &lt;Password&gt;telecomadmin88888888&lt;/Password&gt;</span><br><span class="line">&lt;/X_CT-COM_TeleComAccount&gt;</span><br></pre></td></tr></table></figure><p>其中通用账号是：<code>telecomadmin</code></p><p>密码则是：<code>telecomadmin88888888</code></p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      获取天翼上网光猫的超级管理员账号和密码
+    
+    </summary>
+    
+    
+      <category term="路由器" scheme="https://lfoder.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    
+      <category term="光猫" scheme="https://lfoder.github.io/tags/%E5%85%89%E7%8C%AB/"/>
     
   </entry>
   
@@ -216,9 +216,9 @@
       <category term="MetaSploit教程" scheme="https://lfoder.github.io/categories/MetaSploit%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="MacOS" scheme="https://lfoder.github.io/tags/MacOS/"/>
-    
       <category term="MetaSploit" scheme="https://lfoder.github.io/tags/MetaSploit/"/>
+    
+      <category term="MacOS" scheme="https://lfoder.github.io/tags/MacOS/"/>
     
   </entry>
   

