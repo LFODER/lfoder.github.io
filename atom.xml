@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lfoder.github.io/"/>
-  <updated>2018-05-12T09:53:44.000Z</updated>
+  <updated>2018-05-12T09:54:47.000Z</updated>
   <id>http://lfoder.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://lfoder.github.io/2018/05/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E9%85%8D%E7%BD%AEVNC%E6%9C%8D%E5%8A%A1%E5%B9%B6%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/"/>
     <id>http://lfoder.github.io/2018/05/12/树莓派配置配置VNC服务并开机启动/</id>
     <published>2018-05-12T09:39:20.000Z</published>
-    <updated>2018-05-12T09:53:44.000Z</updated>
+    <updated>2018-05-12T09:54:47.000Z</updated>
     
     <content type="html"><![CDATA[<p>首先进入SSH进入树莓派系统</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure><p>进入树莓派配置页面</p><p>选择 第5项  <strong>5 Interfacing Options</strong>，回车进入</p><p>然后选择第3项 <strong>P3 VNC</strong>， 回车进入，选择 <code>yes</code></p><p>然后Finish  重启树莓派 SSH 登录。</p><p>开始配置树莓派VNC服务启动脚本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/init.d/vncserver</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">### BEGIN INIT INFO</span><br><span class="line"># Provides:          vncserver</span><br><span class="line"># Required-Start:    $local_fs</span><br><span class="line"># Required-Stop:     $local_fs</span><br><span class="line"># Default-Start:     2 3 4 5</span><br><span class="line"># Default-Stop:      0 1 6</span><br><span class="line"># Short-Description: Start/stop vncserver</span><br><span class="line">### END INIT INFO</span><br><span class="line"> </span><br><span class="line"># More details see:</span><br><span class="line"># http://www.penguintutor.com/linux/vnc</span><br><span class="line"> </span><br><span class="line">### Customize this entry</span><br><span class="line"># Set the USER variable to the name of the user to start vncserver under</span><br><span class="line">export USER=&apos;pi&apos;</span><br><span class="line">### End customization required</span><br><span class="line"> </span><br><span class="line">eval cd ~$USER</span><br><span class="line"> </span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">  start)</span><br><span class="line">    # 启动命令行。此处自定义分辨率、控制台号码或其它参数。</span><br><span class="line">    su $USER -c &apos;/usr/bin/vncserver -depth 16 -geometry 1024x768 :1&apos;</span><br><span class="line">    echo &quot;Starting VNC server for $USER &quot;</span><br><span class="line">    ;;</span><br><span class="line">  stop)</span><br><span class="line">    # 终止命令行。此处控制台号码与启动一致。</span><br><span class="line">    su $USER -c &apos;/usr/bin/vncserver -kill :1&apos;</span><br><span class="line">    echo &quot;vncserver stopped&quot;</span><br><span class="line">    ;;</span><br><span class="line">  *)</span><br><span class="line">    echo &quot;Usage: /etc/init.d/vncserver &#123;start|stop&#125;&quot;</span><br><span class="line">    exit 1</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure><p>写入以上内容，保存退出。</p><p>然后 修改权限</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 755 /etc/init.d/vncserver</span><br></pre></td></tr></table></figure><p>然后 添加开机启动项</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-rc.d vncserver defaults</span><br></pre></td></tr></table></figure><p>最后 重启树莓派</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -31,6 +31,12 @@
     
     </summary>
     
+      <category term="Raspberry Pi 笔记" scheme="http://lfoder.github.io/categories/Raspberry-Pi-%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="树莓派" scheme="http://lfoder.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+      <category term="Raspberry Pi" scheme="http://lfoder.github.io/tags/Raspberry-Pi/"/>
     
   </entry>
   
@@ -245,28 +251,6 @@
   </entry>
   
   <entry>
-    <title>天翼光猫破解超级管理员账号密码</title>
-    <link href="http://lfoder.github.io/2018/03/02/%E5%A4%A9%E7%BF%BC%E5%85%89%E7%8C%AB%E7%A0%B4%E8%A7%A3%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/"/>
-    <id>http://lfoder.github.io/2018/03/02/天翼光猫破解超级管理员账号密码/</id>
-    <published>2018-03-02T15:34:19.000Z</published>
-    <updated>2018-03-02T15:41:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="获取密码的步骤"><a href="#获取密码的步骤" class="headerlink" title="获取密码的步骤"></a>获取密码的步骤</h3><ol><li><p>首先去光猫底部看看，你会发现一个普通用户的账号和密码，登录之。</p><p>​</p></li><li><p>假设你的光猫IP是 <code>192.168.1.1</code> 访问 <a href="http://192.168.1.1/backupsettings.conf" target="_blank" rel="noopener">http://192.168.1.1/backupsettings.conf</a> 这个连接下载配置文件。</p></li><li><p>重命名配置文件  <code>backupsettings.conf</code>  为 <code>backupsettings.conf.txt</code>  。</p></li><li><p>找到类似这样的地方，就是账号和密码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;X_CT-COM_TeleComAccount&gt;</span><br><span class="line">        &lt;Password&gt;telecomadmin88888888&lt;/Password&gt;</span><br><span class="line">&lt;/X_CT-COM_TeleComAccount&gt;</span><br></pre></td></tr></table></figure><p>其中通用账号是：<code>telecomadmin</code></p><p>密码则是：<code>telecomadmin88888888</code></p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      获取天翼上网光猫的超级管理员账号和密码
-    
-    </summary>
-    
-    
-      <category term="路由器" scheme="http://lfoder.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
-    
-      <category term="光猫" scheme="http://lfoder.github.io/tags/%E5%85%89%E7%8C%AB/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Linux搭建Socks5服务端</title>
     <link href="http://lfoder.github.io/2018/03/02/Linux%E6%90%AD%E5%BB%BASocks5%E6%9C%8D%E5%8A%A1%E7%AB%AF/"/>
     <id>http://lfoder.github.io/2018/03/02/Linux搭建Socks5服务端/</id>
@@ -291,6 +275,28 @@
       <category term="Socks5" scheme="http://lfoder.github.io/tags/Socks5/"/>
     
       <category term="隧道技术" scheme="http://lfoder.github.io/tags/%E9%9A%A7%E9%81%93%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>天翼光猫破解超级管理员账号密码</title>
+    <link href="http://lfoder.github.io/2018/03/02/%E5%A4%A9%E7%BF%BC%E5%85%89%E7%8C%AB%E7%A0%B4%E8%A7%A3%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/"/>
+    <id>http://lfoder.github.io/2018/03/02/天翼光猫破解超级管理员账号密码/</id>
+    <published>2018-03-02T15:34:19.000Z</published>
+    <updated>2018-03-02T15:41:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="获取密码的步骤"><a href="#获取密码的步骤" class="headerlink" title="获取密码的步骤"></a>获取密码的步骤</h3><ol><li><p>首先去光猫底部看看，你会发现一个普通用户的账号和密码，登录之。</p><p>​</p></li><li><p>假设你的光猫IP是 <code>192.168.1.1</code> 访问 <a href="http://192.168.1.1/backupsettings.conf" target="_blank" rel="noopener">http://192.168.1.1/backupsettings.conf</a> 这个连接下载配置文件。</p></li><li><p>重命名配置文件  <code>backupsettings.conf</code>  为 <code>backupsettings.conf.txt</code>  。</p></li><li><p>找到类似这样的地方，就是账号和密码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;X_CT-COM_TeleComAccount&gt;</span><br><span class="line">        &lt;Password&gt;telecomadmin88888888&lt;/Password&gt;</span><br><span class="line">&lt;/X_CT-COM_TeleComAccount&gt;</span><br></pre></td></tr></table></figure><p>其中通用账号是：<code>telecomadmin</code></p><p>密码则是：<code>telecomadmin88888888</code></p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      获取天翼上网光猫的超级管理员账号和密码
+    
+    </summary>
+    
+    
+      <category term="路由器" scheme="http://lfoder.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    
+      <category term="光猫" scheme="http://lfoder.github.io/tags/%E5%85%89%E7%8C%AB/"/>
     
   </entry>
   
