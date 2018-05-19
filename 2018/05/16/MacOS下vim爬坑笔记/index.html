@@ -102,18 +102,18 @@
 
 
 
-  <meta name="description" content="MacOS安装配置与使用lrzsz文件传输工具，MacOS上使用 rz 和 sz 命令进行文件相互传输。">
-<meta name="keywords" content="lrzsz,linux文件传输">
+  <meta name="description" content="针对MacOS系统的vim安装、配置、优化、插件管理、可视化编程等...">
+<meta name="keywords" content="MacOS,vim">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MacOS安装配置与使用lrzsz文件传输工具">
-<meta property="og:url" content="http://lfoder.github.io/2018/04/27/MacOS安装配置与使用lrzsz文件传输工具/index.html">
+<meta property="og:title" content="MacOS下vim爬坑笔记">
+<meta property="og:url" content="http://lfoder.github.io/2018/05/16/MacOS下vim爬坑笔记/index.html">
 <meta property="og:site_name" content="An0nyMouS">
-<meta property="og:description" content="MacOS安装配置与使用lrzsz文件传输工具，MacOS上使用 rz 和 sz 命令进行文件相互传输。">
+<meta property="og:description" content="针对MacOS系统的vim安装、配置、优化、插件管理、可视化编程等...">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-13T15:28:04.000Z">
+<meta property="og:updated_time" content="2018-05-16T06:01:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MacOS安装配置与使用lrzsz文件传输工具">
-<meta name="twitter:description" content="MacOS安装配置与使用lrzsz文件传输工具，MacOS上使用 rz 和 sz 命令进行文件相互传输。">
+<meta name="twitter:title" content="MacOS下vim爬坑笔记">
+<meta name="twitter:description" content="针对MacOS系统的vim安装、配置、优化、插件管理、可视化编程等...">
 
 
 
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://lfoder.github.io/2018/04/27/MacOS安装配置与使用lrzsz文件传输工具/"/>
+  <link rel="canonical" href="http://lfoder.github.io/2018/05/16/MacOS下vim爬坑笔记/"/>
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>MacOS安装配置与使用lrzsz文件传输工具 | An0nyMouS</title>
+  <title>MacOS下vim爬坑笔记 | An0nyMouS</title>
   
 
 
@@ -335,7 +335,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lfoder.github.io/2018/04/27/MacOS安装配置与使用lrzsz文件传输工具/">
+    <link itemprop="mainEntityOfPage" href="http://lfoder.github.io/2018/05/16/MacOS下vim爬坑笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lfoder">
@@ -352,7 +352,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">MacOS安装配置与使用lrzsz文件传输工具
+          <h2 class="post-title" itemprop="name headline">MacOS下vim爬坑笔记
               
             
           </h2>
@@ -377,47 +377,17 @@
                 
               
 
-              <time title="创建时间：2018-04-27 10:53:26" itemprop="dateCreated datePublished" datetime="2018-04-27T10:53:26+08:00">2018-04-27</time>
+              <time title="创建时间：2018-05-16 11:04:43 / 修改时间：14:01:41" itemprop="dateCreated datePublished" datetime="2018-05-16T11:04:43+08:00">2018-05-16</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-13 23:28:04" itemprop="dateModified" datetime="2018-05-13T23:28:04+08:00">2018-05-13</time>
               
             
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MacOS-笔记/" itemprop="url" rel="index"><span itemprop="name">MacOS 笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -431,7 +401,7 @@
           
 
           
-              <div class="post-description">MacOS安装配置与使用lrzsz文件传输工具，MacOS上使用 rz 和 sz 命令进行文件相互传输。</div>
+              <div class="post-description">针对MacOS系统的vim安装、配置、优化、插件管理、可视化编程等...</div>
           
 
         </div>
@@ -447,44 +417,32 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>rz 可以很方便的从客户端传文件到服务器，sz也可以很方便的从服务器传文件到客户端，就算中间隔着跳板机也不影响。在mac下试了一下，mac的终端是不支持的，需要下载item2。另外不能在mac下用expect 自动登录服务器、执行rz或sz等操作，否则终端会挂掉。</p>
-<h2 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h2><h3 id="安装iTerm2"><a href="#安装iTerm2" class="headerlink" title="安装iTerm2"></a>安装iTerm2</h3><p>官方下载地址:</p>
-<p><a href="http://iterm2.com/downloads.html" target="_blank" rel="noopener">http://iterm2.com/downloads.html</a></p>
-<p>下载完成后，解压得到 iTerm2.app 拖放到 自己应用程序(Applocation) 中即可。</p>
-<h3 id="安装lrszs"><a href="#安装lrszs" class="headerlink" title="安装lrszs"></a>安装lrszs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install lrzsz</span><br></pre></td></tr></table></figure>
-<p>检查是否安装成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -lah /usr/local/bin/sz</span><br><span class="line">ls -lah /usr/local/bin/rz</span><br></pre></td></tr></table></figure>
-<h3 id="下载iTerm2-zmodem"><a href="#下载iTerm2-zmodem" class="headerlink" title="下载iTerm2-zmodem"></a>下载iTerm2-zmodem</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https://raw.github.com/mmastrac/iterm2-zmodem/master/iterm2-send-zmodem.sh -O /usr/local/bin/iterm2-send-zmodem.sh</span><br><span class="line"></span><br><span class="line">sudo wget https://raw.github.com/mmastrac/iterm2-zmodem/master/iterm2-recv-zmodem.sh -O /usr/local/bin/iterm2-recv-zmodem.sh</span><br><span class="line"></span><br><span class="line">sudo chmod 777 /usr/local/bin/iterm2-*</span><br></pre></td></tr></table></figure>
-<h3 id="配置iTerm2-添加触发Trigger"><a href="#配置iTerm2-添加触发Trigger" class="headerlink" title="配置iTerm2 添加触发Trigger"></a>配置iTerm2 添加触发Trigger</h3><p>给终端iTerm2 添加触发Trigger 事件</p>
-<p>打开iTerm2  ==&gt; 按下 组合件 <code>command</code> + <code>,</code>   ==&gt; 找到 <code>Triggers</code> 下面的<code>Edit</code> 点击 ==&gt; 弹出一个窗口</p>
-<p>内容写如下配置:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Reguler Expression</th>
-<th style="text-align:center">Action</th>
-<th style="text-align:center">Parameters</th>
-<th style="text-align:center">Instant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">\*\*B0100</td>
-<td style="text-align:center">Run Slient Coprocess…</td>
-<td style="text-align:center">/usr/local/bin/iterm2-send-zmodem.sh</td>
-<td style="text-align:center">✔</td>
-</tr>
-<tr>
-<td style="text-align:center">\*\*B00000000000000</td>
-<td style="text-align:center">Run Slient Coprocess…</td>
-<td style="text-align:center">/usr/local/bin/iterm2-recv-zmodem.sh</td>
-<td style="text-align:center">✔</td>
-</tr>
-</tbody>
-</table>
-<p>配置完成，现在你可以使用MacOS下的iTerm2终端操作lrzsz 来传输文件了。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="从本地传输文件到远程"><a href="#从本地传输文件到远程" class="headerlink" title="从本地传输文件到远程"></a>从本地传输文件到远程</h3><p>在MacOS刚配置好的iTerm2终端下使用ssh远程登录到一台你的VPS或虚拟机上，在ssh中输入 <code>rz</code> 命令，会弹出一个选择文件的窗口，选择确定后会直接传入到远程SSH的机器上。</p>
-<h3 id="从远程传输文件到本地"><a href="#从远程传输文件到本地" class="headerlink" title="从远程传输文件到本地"></a>从远程传输文件到本地</h3><p>在MacOS刚配置好的iTerm2终端下使用ssh远程登录到一台你的VPS或虚拟机上，在ssh中输入 <code>sz</code> 命令加你要传回来的文件路径 (例如 : <code>sz /root/lfoder.txt</code>)，会弹出一个文件保存的窗口，选择位置后直接确定，即开始从远程将文件传输至本地。</p>
+        <h2 id="MacOS下的VIM爬坑笔记"><a href="#MacOS下的VIM爬坑笔记" class="headerlink" title="MacOS下的VIM爬坑笔记"></a>MacOS下的VIM爬坑笔记</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install vim</span><br></pre></td></tr></table></figure>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>MacOS下的vim配置文件 <code>vimrc</code> 在 <code>/usr/share/vim/vimrc</code> 这个位置。</p>
+<p>以下是我的配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&quot; Configuration file for vim</span><br><span class="line">set modelines=0     &quot; CVE-2007-2438</span><br><span class="line"></span><br><span class="line">&quot; Normally we use vim-extensions. If you want true vi-compatibility</span><br><span class="line">&quot; remove change the following statements</span><br><span class="line">set nocompatible    &quot; Use Vim defaults instead of 100% vi compatibility</span><br><span class="line">set backspace=2     &quot; more powerful backspacing</span><br><span class="line"></span><br><span class="line">&quot; Don&apos;t write backup file if vim is being called by &quot;crontab -e&quot;</span><br><span class="line">au BufWrite /private/tmp/crontab.* set nowritebackup nobackup</span><br><span class="line">&quot; Don&apos;t write backup file if vim is being called by &quot;chpass&quot;</span><br><span class="line">au BufWrite /private/etc/pw.* set nowritebackup nobackup</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot; Custom Configure Start</span><br><span class="line"></span><br><span class="line">&quot; 自动检测语法高亮</span><br><span class="line">syntax on</span><br><span class="line">&quot; Tab替换为4个空格</span><br><span class="line">set ts=4</span><br><span class="line">set expandtab</span><br><span class="line">&quot; 搜索结果高亮 (取消方法  :nohls)</span><br><span class="line">set hlsearch</span><br><span class="line"></span><br><span class="line">&quot; Custom Configure End</span><br></pre></td></tr></table></figure>
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><h4 id="安装插件管理器"><a href="#安装插件管理器" class="headerlink" title="安装插件管理器"></a>安装插件管理器</h4><p>vim插件管理工具可以让插件安装变得简单快捷，vim的插件管理工具也有很多，这里选用 <a href="https://github.com/tpope/vim-pathogen" target="_blank" rel="noopener">vim-pathogen</a> （<a href="https://github.com/tpope/vim-pathogen" target="_blank" rel="noopener">https://github.com/tpope/vim-pathogen</a>），安装很简单</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/.vim/autoload ~/.vim/bundle</span><br></pre></td></tr></table></figure>
+<p>下载 vim-pathogen 到 ~/.vim/autoload</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim</span><br></pre></td></tr></table></figure>
+<p>编辑  <code>/usr/share/vim/vimrc</code>  ，加入如下几行内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">execute pathogen#infect()</span><br><span class="line">syntax on</span><br><span class="line">filetype plugin indent on</span><br></pre></td></tr></table></figure>
+<p>重启vim 即可安装成功，之后如果想要安装其他插件，只需把插件放到 ~/.vim/bundle 目录下， 重启vim ，vim-pathogen就会帮你自动安装好插件。例如安装</p>
+<p>markdown：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.vim/bundle/</span><br><span class="line">git clone https://github.com/plasticboy/vim-markdown.git</span><br></pre></td></tr></table></figure>
+<p>然后重启vim即可</p>
+<h4 id="添加-vim-go-插件"><a href="#添加-vim-go-插件" class="headerlink" title="添加 vim-go 插件"></a>添加 vim-go 插件</h4><p>vim-go 是一款go代码高亮和语法检查的插件</p>
+<p>如上所示安装方法，clone vim-go 到 ~/.vim/bundle 目录下即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.vim/bundle/</span><br><span class="line">git clone https://github.com/fatih/vim-go.git</span><br></pre></td></tr></table></figure>
+<p>Via:<a href="https://blog.csdn.net/zhang197093/article/details/78559903?locationNum=5&amp;fps=1" target="_blank" rel="noopener">https://blog.csdn.net/zhang197093/article/details/78559903?locationNum=5&amp;fps=1</a></p>
+<blockquote>
+<p>启动vim出现错误：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim-go requires Vim 7.4.1689 or Neovim, but you&apos;re using an older version.</span><br><span class="line">Please update your Vim for the best vim-go experience.</span><br><span class="line">If you really want to continue you can set this to make the error go away:</span><br><span class="line">    let g:go_version_warning = 0</span><br><span class="line">Note that some features may error out or behave incorrectly.</span><br><span class="line">Please do not report bugs unless you&apos;re using Vim 7.4.1689 or newer.</span><br><span class="line"></span><br><span class="line">Press ENTER or type command to continue</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>解决方案：</p>
+</blockquote>
+<p>添加 <code>let g:go_version_warning = 0</code> 到 vimrc文件中。</p>
 
       
     </div>
@@ -505,9 +463,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/lrzsz/" rel="tag"># lrzsz</a>
+            <a href="/tags/MacOS/" rel="tag"># MacOS</a>
           
-            <a href="/tags/linux文件传输/" rel="tag"># linux文件传输</a>
+            <a href="/tags/vim/" rel="tag"># vim</a>
           
         </div>
       
@@ -520,8 +478,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/26/CentOS安装图形化操作界面/" rel="next" title="CentOS安装图形化操作界面">
-                <i class="fa fa-chevron-left"></i> CentOS安装图形化操作界面
+              <a href="/2018/05/12/树莓派配置配置VNC服务并开机启动/" rel="next" title="树莓派配置配置VNC服务并开机启动">
+                <i class="fa fa-chevron-left"></i> 树莓派配置配置VNC服务并开机启动
               </a>
             
           </div>
@@ -530,8 +488,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/06/树莓派下使用dd克隆系统/" rel="prev" title="树莓派下使用dd克隆系统">
-                树莓派下使用dd克隆系统 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/19/Adobe-Photoshop-CS6-for-Mac-支持Retina屏-官方简体破解版/" rel="prev" title="Adobe Photoshop CS6 for Mac (支持Retina屏) 官方简体破解版">
+                Adobe Photoshop CS6 for Mac (支持Retina屏) 官方简体破解版 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -747,7 +705,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装与配置"><span class="nav-number">2.</span> <span class="nav-text">安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装iTerm2"><span class="nav-number">2.1.</span> <span class="nav-text">安装iTerm2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装lrszs"><span class="nav-number">2.2.</span> <span class="nav-text">安装lrszs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载iTerm2-zmodem"><span class="nav-number">2.3.</span> <span class="nav-text">下载iTerm2-zmodem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置iTerm2-添加触发Trigger"><span class="nav-number">2.4.</span> <span class="nav-text">配置iTerm2 添加触发Trigger</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从本地传输文件到远程"><span class="nav-number">3.1.</span> <span class="nav-text">从本地传输文件到远程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从远程传输文件到本地"><span class="nav-number">3.2.</span> <span class="nav-text">从远程传输文件到本地</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MacOS下的VIM爬坑笔记"><span class="nav-number">1.</span> <span class="nav-text">MacOS下的VIM爬坑笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">1.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件"><span class="nav-number">1.3.</span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装插件管理器"><span class="nav-number">1.3.1.</span> <span class="nav-text">安装插件管理器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加-vim-go-插件"><span class="nav-number">1.3.2.</span> <span class="nav-text">添加 vim-go 插件</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
