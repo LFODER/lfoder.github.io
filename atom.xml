@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lfoder.github.io/"/>
-  <updated>2018-05-20T06:34:38.000Z</updated>
+  <updated>2018-06-06T02:52:57.000Z</updated>
   <id>http://lfoder.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iTunes备份iPhone系统在MacOS上的备份文件路径</title>
+    <link href="http://lfoder.github.io/2018/06/06/iTunes%E5%A4%87%E4%BB%BDiPhone%E7%B3%BB%E7%BB%9F%E5%9C%A8MacOS%E4%B8%8A%E7%9A%84%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84/"/>
+    <id>http://lfoder.github.io/2018/06/06/iTunes备份iPhone系统在MacOS上的备份文件路径/</id>
+    <published>2018-06-06T02:47:13.000Z</published>
+    <updated>2018-06-06T02:52:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>MacOS 的存储空间相当有限，用来存储iPhone的手机备份相当浪费，一个备份20多个G，伤不起…. 于是有了本文。</p><p>最简单的找到备份文件位置的方法：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Library/Application\ Support/MobileSync/Backup</span><br><span class="line">open .</span><br></pre></td></tr></table></figure><p>此时弹出MacOS的Finder窗口，有一个Backup文件夹，这里面就是iPhone通过iTunes在MacOS上的备份文件路径，你可以拷贝到移动硬盘上以节省空间。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;MacOS 的存储空间相当有限，用来存储iPhone的手机备份相当浪费，一个备份20多个G，伤不起…. 于是有了本文。&lt;/p&gt;
+&lt;p&gt;最简单的找到备份文件位置的方法：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cla
+      
+    
+    </summary>
+    
+    
+      <category term="iOS备份" scheme="http://lfoder.github.io/tags/iOS%E5%A4%87%E4%BB%BD/"/>
+    
+      <category term="iTunes" scheme="http://lfoder.github.io/tags/iTunes/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CTF比赛训练路线全导航</title>
-    <link href="http://lfoder.github.io/2018/05/20/CTF%E6%AF%94%E8%B5%9B%E8%AE%AD%E7%BB%83%E8%B7%AF%E7%BA%BF%E5%85%A8%E5%AF%BC%E8%88%AA/"/>
-    <id>http://lfoder.github.io/2018/05/20/CTF比赛训练路线全导航/</id>
-    <published>2018-05-19T17:01:27.000Z</published>
-    <updated>2018-05-20T06:34:38.000Z</updated>
+    <link href="http://lfoder.github.io/2018/06/05/CTF%E6%AF%94%E8%B5%9B%E8%AE%AD%E7%BB%83%E8%B7%AF%E7%BA%BF%E5%85%A8%E5%AF%BC%E8%88%AA/"/>
+    <id>http://lfoder.github.io/2018/06/05/CTF比赛训练路线全导航/</id>
+    <published>2018-06-05T03:19:27.000Z</published>
+    <updated>2018-06-05T03:19:42.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="CTF资讯信息"><a href="#CTF资讯信息" class="headerlink" title="CTF资讯信息"></a>CTF资讯信息</h3><h4 id="CTF-比赛资讯"><a href="#CTF-比赛资讯" class="headerlink" title="CTF 比赛资讯"></a>CTF 比赛资讯</h4><ul><li><a href="https://www.xctf.org.cn/" target="_blank" rel="noopener">XCTF社区</a></li><li><a href="https://www.ctftime.org" target="_blank" rel="noopener">CTFTime</a></li><li><a href="https://www.ctfrank.org/" target="_blank" rel="noopener">CTFRank</a></li></ul><h4 id="全球安全信息资讯"><a href="#全球安全信息资讯" class="headerlink" title="全球安全信息资讯"></a>全球安全信息资讯</h4><h5 id="国内安全资讯"><a href="#国内安全资讯" class="headerlink" title="国内安全资讯"></a>国内安全资讯</h5><ul><li><a href="http://www.freebuf.com" target="_blank" rel="noopener">Freebuf</a></li><li><a href="https://www.seebug.org/" target="_blank" rel="noopener">知道创宇</a></li><li><a href="http://www.sebug.org/" target="_blank" rel="noopener">SOBUG</a></li><li><a href="https://wiki.ioin.in/" target="_blank" rel="noopener">Sec-News</a></li><li><a href="http://www.4hou.com/" target="_blank" rel="noopener">嘶吼</a></li><li><p><a href="https://xz.aliyun.com/" target="_blank" rel="noopener">先知白帽社区</a></p><h5 id="国外安全资讯"><a href="#国外安全资讯" class="headerlink" title="国外安全资讯"></a>国外安全资讯</h5></li><li><p><a href="https://securitytracker.com/" target="_blank" rel="noopener">SecurityTracker</a></p></li><li><a href="https://www.securityfocus.com/" target="_blank" rel="noopener">SecurityFocus</a></li><li><a href="http://securityvulns.com/" target="_blank" rel="noopener">SecurityVulns</a></li><li><a href="http://www.securiteam.com/" target="_blank" rel="noopener">SecuriTeam</a></li><li><a href="https://packetstormsecurity.com/" target="_blank" rel="noopener">PacketStormSecurity</a></li><li><a href="https://www.blackmoreops.com/" target="_blank" rel="noopener">BlackMoreOps</a></li><li><a href="http://techgenix.com/top-tech-news/" target="_blank" rel="noopener">TechGenix</a></li></ul><h3 id="CTF综合训练营"><a href="#CTF综合训练营" class="headerlink" title="CTF综合训练营"></a>CTF综合训练营</h3><h4 id="国内CTF训练营"><a href="#国内CTF训练营" class="headerlink" title="国内CTF训练营"></a>国内CTF训练营</h4><ul><li><a href="http://ctf.bugku.com/" target="_blank" rel="noopener">BugKu</a></li><li><a href="http://ctf.nuptsast.com/" target="_blank" rel="noopener">南京邮电大学网络攻防训练平台</a></li><li><a href="http://www.sniperoj.com/" target="_blank" rel="noopener">SniperOJ</a></li><li><a href="https://www.jarvisoj.com/" target="_blank" rel="noopener">Jarvisoj</a></li><li><a href="http://www.fj543.com/hack/" target="_blank" rel="noopener">黑客丛林之旅</a>  </li><li><a href="http://monyer.com/game/game1/" target="_blank" rel="noopener">梦之光芒</a></li><li><a href="http://oj.xctf.org.cn/" target="_blank" rel="noopener">XCTF_OJ竞赛平台</a></li><li><a href="http://www.baimaoxueyuan.com/ctf" target="_blank" rel="noopener">白帽学院</a></li><li><a href="https://www.ichunqiu.com/battalion" target="_blank" rel="noopener">i春秋CTF训练营</a></li><li><a href="http://www.hetianlab.com/CTFrace.html" target="_blank" rel="noopener">合天网安实验室CTF训练平台</a></li><li><a href="http://www.shiyanbar.com/ctf/practice" target="_blank" rel="noopener">实验吧CTF训练平台</a></li><li><a href="https://ctf-wiki.github.io/ctf-wiki/introduction/resources/" target="_blank" rel="noopener">CTF WiKi</a></li><li><a href="https://ctflearn.com/" target="_blank" rel="noopener">CTFLearn</a></li></ul><h4 id="国外CTF训练营"><a href="#国外CTF训练营" class="headerlink" title="国外CTF训练营"></a>国外CTF训练营</h4><ul><li><a href="http://www.wechall.net/" target="_blank" rel="noopener">WeChall.Net</a></li><li><a href="http://wargame.kr/" target="_blank" rel="noopener">WarGame.Kr</a></li><li><a href="http://webhacking.kr/" target="_blank" rel="noopener">WebHacking.Kr</a></li><li><a href="http://fun.coolshell.cn/" target="_blank" rel="noopener">CoolShell.cn</a></li><li><a href="https://backdoor.sdslabs.co/" target="_blank" rel="noopener">SdsLabs.co</a></li><li><a href="http://smashthestack.org/" target="_blank" rel="noopener">SmashTheStack</a></li></ul><h4 id="CTF-Writeup-知识库"><a href="#CTF-Writeup-知识库" class="headerlink" title="CTF Writeup 知识库"></a>CTF Writeup 知识库</h4><ul><li><a href="http://bobao.360.cn/ctf/" target="_blank" rel="noopener">安全客CTF攻略</a></li><li><a href="https://github.com/ctfs/" target="_blank" rel="noopener">Github CTFs WriteUp</a></li><li><a href="https://github.com/p4-team/ctf" target="_blank" rel="noopener">Github CTF WriteUp P4-Team</a></li><li><a href="http://yka.me/#!index.md" target="_blank" rel="noopener">Yka.me</a></li><li><a href="https://github.com/VulnHub/ctf-writeups" target="_blank" rel="noopener">VulnHub-CTFTime</a></li><li><a href="http://captf.com/" target="_blank" rel="noopener">Capture the Flag</a></li><li><a href="http://www.blue-lotus.net/" target="_blank" rel="noopener">Blue-Lotus</a></li><li><a href="http://blog.0ops.net/" target="_blank" rel="noopener">Oops.Net</a></li><li><a href="http://www.programlife.net/category/ctf" target="_blank" rel="noopener">ProgramLife</a></li><li><a href="https://bl4ck.in/" target="_blank" rel="noopener">Bl4ck.in</a></li></ul><h3 id="CTF分项训练营"><a href="#CTF分项训练营" class="headerlink" title="CTF分项训练营"></a>CTF分项训练营</h3><h4 id="逆向-Reverse"><a href="#逆向-Reverse" class="headerlink" title="逆向 Reverse"></a>逆向 Reverse</h4><ul><li><a href="https://www.52pojie.cn/forum-67-1.html" target="_blank" rel="noopener">吾爱破解论坛 2014 CrackMe安全挑战赛</a></li><li><a href="https://www.52pojie.cn/forum-71-1.html" target="_blank" rel="noopener">吾爱破解论坛 2016 CrackMe安全挑战赛</a></li><li><a href="https://ctf.pediy.com/" target="_blank" rel="noopener">看雪技术论坛 CTF安全挑战赛</a> </li><li><a href="https://www.kanxue.com/chm.htm" target="_blank" rel="noopener">看学技术论坛知识库</a></li><li><a href="http://reversing.kr/" target="_blank" rel="noopener">Reversing.Kr</a></li><li><a href="http://pwnable.kr/" target="_blank" rel="noopener">Pwnable.Kr</a></li><li><a href="https://exploit-exercises.com/" target="_blank" rel="noopener">Exploit Exercises</a></li><li><a href="http://overthewire.org/wargames/" target="_blank" rel="noopener">OverTheWire</a></li><li><a href="http://security.cs.rpi.edu/courses/binexp-spring2015/" target="_blank" rel="noopener">Modern Binary Exploitation</a></li><li><a href="https://github.com/CHYbeta/Software-Security-Learning" target="_blank" rel="noopener">SoftWare-Security-Learning</a></li></ul><h4 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h4><ul><li><a href="http://pwnhub.cn/" target="_blank" rel="noopener">PwnHub</a></li></ul><h4 id="Web攻防"><a href="#Web攻防" class="headerlink" title="Web攻防"></a>Web攻防</h4><h5 id="SQLi-注入"><a href="#SQLi-注入" class="headerlink" title="SQLi 注入"></a>SQLi 注入</h5><ul><li><a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">SQLi-Labs</a></li><li><a href="http://redtiger.labs.overthewire.org/" target="_blank" rel="noopener">OverTheWire - SQLi</a></li></ul><h5 id="XSS-跨站攻击"><a href="#XSS-跨站攻击" class="headerlink" title="XSS 跨站攻击"></a>XSS 跨站攻击</h5><ul><li><a href="http://prompt.ml/0" target="_blank" rel="noopener">Prompt.ML</a></li><li><a href="http://xss-quiz.int21h.jp/" target="_blank" rel="noopener">XSS Challenges</a></li><li><a href="https://alf.nu/alert1" target="_blank" rel="noopener">Alert(1) To Win</a></li><li><a href="https://github.com/evilcos/papers" target="_blank" rel="noopener">GitHub XSS Papers</a></li><li><a href="http://www.thespanner.co.uk/" target="_blank" rel="noopener">TheSpanner.co.uk</a></li><li><a href="http://xssor.io/" target="_blank" rel="noopener">XSS’OR</a></li><li><a href="https://github.com/CHYbeta/Web-Security-Learning" target="_blank" rel="noopener">Web-Security-Learning</a></li></ul><h4 id="Misc-脑洞"><a href="#Misc-脑洞" class="headerlink" title="Misc 脑洞"></a>Misc 脑洞</h4><ul><li><a href="http://www.ussrback.com/archives/Misc%20&amp;%20tools/" target="_blank" rel="noopener">Misc &amp; Tools</a></li></ul><h3 id="CTF-学习路线"><a href="#CTF-学习路线" class="headerlink" title="CTF 学习路线"></a>CTF 学习路线</h3><ul><li><a href="https://skills.bugbank.cn/" target="_blank" rel="noopener">漏洞银行技能树</a></li><li><a href="https://github.com/phith0n/Mind-Map" target="_blank" rel="noopener">GitHub 安全学习脑图</a></li><li><a href="http://evilcos.me/security_skill_tree_basic/index.html" target="_blank" rel="noopener">安全技能树简版</a></li><li><a href="http://blog.knownsec.com/Knownsec_RD_Checklist/index.html" target="_blank" rel="noopener">知道创宇技能树</a></li><li><a href="https://butian.360.cn/School/index" target="_blank" rel="noopener">360补天平台 - 白帽众学</a></li><li><a href="http://toutiao.secjia.com/ctf-game-experience" target="_blank" rel="noopener">CTF赛棍夺旗经验分享</a></li></ul><h3 id="CTF-刷题常用工具集"><a href="#CTF-刷题常用工具集" class="headerlink" title="CTF 刷题常用工具集"></a>CTF 刷题常用工具集</h3><ul><li><a href="http://ctf.ssleye.com/" target="_blank" rel="noopener">CTF在线工具集(SSLEyes)</a></li><li><a href="http://tool.bugku.com/" target="_blank" rel="noopener">CTF在线工具集(BugKu)</a></li><li><a href="https://tools.pediy.com/" target="_blank" rel="noopener">看雪逆向工具</a></li><li><a href="https://www.ctftools.com/down/" target="_blank" rel="noopener">CTFTools</a></li><li><a href="https://github.com/zardus/ctf-tools" target="_blank" rel="noopener">CTF Tools for Github</a></li><li><a href="http://www.s0ftpj.org/" target="_blank" rel="noopener">s0ftpj.org</a></li><li><a href="http://www.ussrback.com/files.html" target="_blank" rel="noopener">UssrBack</a></li><li><a href="https://www.soldierx.com/Tools" target="_blank" rel="noopener">Soldierx - Tools</a></li></ul>]]></content>
     
@@ -450,28 +477,6 @@
     <summary type="html">
     
       Hexo静态博客的搭建与配置，以及自己踩过的坑
-    
-    </summary>
-    
-      <category term="Hexo 笔记" scheme="http://lfoder.github.io/categories/Hexo-%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Hexo" scheme="http://lfoder.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo改造中… (持续更新) </title>
-    <link href="http://lfoder.github.io/2018/02/02/Hexo%E6%94%B9%E9%80%A0%E4%B8%AD.../"/>
-    <id>http://lfoder.github.io/2018/02/02/Hexo改造中.../</id>
-    <published>2018-02-02T07:48:20.000Z</published>
-    <updated>2018-05-13T15:28:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>via: <a href="https://www.jianshu.com/p/f054333ac9e6" target="_blank" rel="noopener">https://www.jianshu.com/p/f054333ac9e6</a></p><p><a href="https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</a></p><blockquote><p>Hexo 文章加密过程</p></blockquote><p><a href="http://www.shangyang.me/2016/12/16/hexo-base-concept/#hexo-%E5%8A%A0%E5%AF%86" target="_blank" rel="noopener">http://www.shangyang.me/2016/12/16/hexo-base-concept/#hexo-%E5%8A%A0%E5%AF%86</a></p><p><a href="https://lxmymjr.github.io/contents/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B.html#%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE" target="_blank" rel="noopener">https://lxmymjr.github.io/contents/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B.html#%E5%8A%A0%E5%AF%86%E8%AE%BF%E9%97%AE</a></p>]]></content>
-    
-    <summary type="html">
-    
-      对 Hexo 主题的优化细节，技术资料
     
     </summary>
     
