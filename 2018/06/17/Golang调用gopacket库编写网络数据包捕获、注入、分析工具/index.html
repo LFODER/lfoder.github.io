@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Golang调用gopacket库编写网络数据包捕获、注入、分析工具，使用Google推出的  github.com/google/gopacket 包来实现对网络数据包的操作，gopacket基于libpcap。 1. libpcap 介绍gopacket是基于libpcap（数据包捕获函数库）的，该库提供的C函数接口用于捕捉经过指定网络接口的数据包，该接口应该是被设为混杂模式。著名的软件TCP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang调用gopacket库编写网络数据包捕获、注入、分析工具">
+<meta property="og:url" content="http://lfoder.github.io/2018/06/17/Golang调用gopacket库编写网络数据包捕获、注入、分析工具/index.html">
+<meta property="og:site_name" content="An0nyMouS">
+<meta property="og:description" content="Golang调用gopacket库编写网络数据包捕获、注入、分析工具，使用Google推出的  github.com/google/gopacket 包来实现对网络数据包的操作，gopacket基于libpcap。 1. libpcap 介绍gopacket是基于libpcap（数据包捕获函数库）的，该库提供的C函数接口用于捕捉经过指定网络接口的数据包，该接口应该是被设为混杂模式。著名的软件TCP">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-17T15:26:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Golang调用gopacket库编写网络数据包捕获、注入、分析工具">
+<meta name="twitter:description" content="Golang调用gopacket库编写网络数据包捕获、注入、分析工具，使用Google推出的  github.com/google/gopacket 包来实现对网络数据包的操作，gopacket基于libpcap。 1. libpcap 介绍gopacket是基于libpcap（数据包捕获函数库）的，该库提供的C函数接口用于捕捉经过指定网络接口的数据包，该接口应该是被设为混杂模式。著名的软件TCP">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="An0nyMouS" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://lfoder.github.io/2018/06/17/Golang调用gopacket库编写网络数据包捕获、注入、分析工具/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Golang调用gopacket库编写网络数据包捕获、注入、分析工具 | An0nyMouS</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">An0nyMouS</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">当你在凝望深渊时，深渊也在凝望你</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+    <a href="/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lfoder.github.io/2018/06/17/Golang调用gopacket库编写网络数据包捕获、注入、分析工具/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lfoder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="An0nyMouS">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Golang调用gopacket库编写网络数据包捕获、注入、分析工具
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-17 22:59:02 / 修改时间：23:26:11" itemprop="dateCreated datePublished" datetime="2018-06-17T22:59:02+08:00">2018-06-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Golang调用gopacket库编写网络数据包捕获、注入、分析工具，使用Google推出的  <code>github.com/google/gopacket</code> 包来实现对网络数据包的操作，gopacket基于libpcap。</p>
+<h3 id="1-libpcap-介绍"><a href="#1-libpcap-介绍" class="headerlink" title="1. libpcap 介绍"></a>1. libpcap 介绍</h3><p>gopacket是基于libpcap（数据包捕获函数库）的，该库提供的C函数接口用于捕捉经过指定网络接口的数据包，该接口应该是被设为混杂模式。<br>著名的软件TCPDUMP就是在Libpcap的基础上开发而成的。Libpcap提供的接口函数实现和封装了与数据包截获有关的过程。Libpcap可以在绝大多数Linux平台上运行。 </p>
+<p>主要有以下功能： </p>
+<ul>
+<li>数据包捕获：捕获流经网卡的原始数据包 </li>
+<li>自定义数据包发送：构造任何格式的原始数据包 </li>
+<li>流量采集与统计：采集网络中的流量信息 </li>
+<li>规则过滤：提供自带规则过滤功能，按需要选择过滤规则</li>
+</ul>
+<h3 id="2-准备工作"><a href="#2-准备工作" class="headerlink" title="2. 准备工作"></a>2. 准备工作</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Get the gopacket <span class="keyword">package</span> from GitHub</span><br><span class="line"><span class="keyword">go</span> get github.com/google/gopacket</span><br><span class="line"># Pcap dev headers might be necessary</span><br><span class="line">sudo apt-get install libpcap-dev</span><br></pre></td></tr></table></figure>
+<p>从Github上获取 <code>Gopacket</code> 包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get -u -v github.com/google/gopacket</span><br></pre></td></tr></table></figure>
+<p>在你的系统上安装 <code>libpcap-dev</code> 包</p>
+<ul>
+<li><p>MacOS (默认已经安装)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install libpcap</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Ubuntu</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install libpcap-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CentOS</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install libpcap-dev</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3-代码部分"><a href="#3-代码部分" class="headerlink" title="3. 代码部分"></a>3. 代码部分</h3><h4 id="获取所有网络设备"><a href="#获取所有网络设备" class="headerlink" title="获取所有网络设备"></a>获取所有网络设备</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"log"</span></span><br><span class="line">    <span class="string">"github.com/google/gopacket/pcap"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// Find all devices</span></span><br><span class="line">    devices, err := pcap.FindAllDevs()</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(err)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Print device information</span></span><br><span class="line">    fmt.Println(<span class="string">"Devices found:"</span>)</span><br><span class="line">    <span class="keyword">for</span> _, device := <span class="keyword">range</span> devices &#123;</span><br><span class="line">        fmt.Println(<span class="string">"\nName: "</span>, device.Name)</span><br><span class="line">        fmt.Println(<span class="string">"Description: "</span>, device.Description)</span><br><span class="line">        fmt.Println(<span class="string">"Devices addresses: "</span>, device.Description)</span><br><span class="line">        <span class="keyword">for</span> _, address := <span class="keyword">range</span> device.Addresses &#123;</span><br><span class="line">            fmt.Println(<span class="string">"- IP address: "</span>, address.IP)</span><br><span class="line">            fmt.Println(<span class="string">"- Subnet mask: "</span>, address.Netmask)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="打开设备实时捕捉"><a href="#打开设备实时捕捉" class="headerlink" title="打开设备实时捕捉"></a>打开设备实时捕捉</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"github.com/google/gopacket"</span></span><br><span class="line">    <span class="string">"github.com/google/gopacket/pcap"</span></span><br><span class="line">    <span class="string">"log"</span></span><br><span class="line">    <span class="string">"time"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">    device       <span class="keyword">string</span> = <span class="string">"eth0"</span></span><br><span class="line">    snapshot_len <span class="keyword">int32</span>  = <span class="number">1024</span></span><br><span class="line">    promiscuous  <span class="keyword">bool</span>   = <span class="literal">false</span></span><br><span class="line">    err          error</span><br><span class="line">    timeout      time.Duration = <span class="number">30</span> * time.Second</span><br><span class="line">    handle       *pcap.Handle</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// Open device</span></span><br><span class="line">    handle, err = pcap.OpenLive(device, snapshot_len, promiscuous, timeout)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;log.Fatal(err) &#125;</span><br><span class="line">    <span class="keyword">defer</span> handle.Close()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Use the handle as a packet source to process all packets</span></span><br><span class="line">    packetSource := gopacket.NewPacketSource(handle, handle.LinkType())</span><br><span class="line">    <span class="keyword">for</span> packet := <span class="keyword">range</span> packetSource.Packets() &#123;</span><br><span class="line">        <span class="comment">// Process packet here</span></span><br><span class="line">        fmt.Println(packet)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="抓取结果保存为pcap格式文件"><a href="#抓取结果保存为pcap格式文件" class="headerlink" title="抓取结果保存为pcap格式文件"></a>抓取结果保存为pcap格式文件</h4><blockquote>
+<p>要写一个pcap格式的文件，我们必须使用gapacket / pcapgo包。这是一个Writer接口和两个有用的函数：WriteFileHeader（）和WritePacket（）</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"os"</span></span><br><span class="line">	<span class="string">"time"</span></span><br><span class="line"></span><br><span class="line">	<span class="string">"github.com/google/gopacket"</span></span><br><span class="line">	<span class="string">"github.com/google/gopacket/layers"</span></span><br><span class="line">	<span class="string">"github.com/google/gopacket/pcap"</span></span><br><span class="line">	<span class="string">"github.com/google/gopacket/pcapgo"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">	deviceName  <span class="keyword">string</span> = <span class="string">"eth0"</span></span><br><span class="line">	snapshotLen <span class="keyword">int32</span>  = <span class="number">1024</span></span><br><span class="line">	promiscuous <span class="keyword">bool</span>   = <span class="literal">false</span></span><br><span class="line">	err         error</span><br><span class="line">	timeout     time.Duration = <span class="number">-1</span> * time.Second</span><br><span class="line">	handle      *pcap.Handle</span><br><span class="line">	packetCount <span class="keyword">int</span> = <span class="number">0</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// Open output pcap file and write header </span></span><br><span class="line">	f, _ := os.Create(<span class="string">"test.pcap"</span>)</span><br><span class="line">	w := pcapgo.NewWriter(f)</span><br><span class="line">	w.WriteFileHeader(snapshotLen, layers.LinkTypeEthernet)</span><br><span class="line">	<span class="keyword">defer</span> f.Close()</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Open the device for capturing</span></span><br><span class="line">	handle, err = pcap.OpenLive(deviceName, snapshotLen, promiscuous, timeout)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"Error opening device %s: %v"</span>, deviceName, err)</span><br><span class="line">		os.Exit(<span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> handle.Close()</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Start processing packets</span></span><br><span class="line">	packetSource := gopacket.NewPacketSource(handle, handle.LinkType())</span><br><span class="line">	<span class="keyword">for</span> packet := <span class="keyword">range</span> packetSource.Packets() &#123;</span><br><span class="line">		<span class="comment">// Process packet here</span></span><br><span class="line">		fmt.Println(packet)</span><br><span class="line">		w.WritePacket(packet.Metadata().CaptureInfo, packet.Data())</span><br><span class="line">		packetCount++</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// Only capture 100 and then stop</span></span><br><span class="line">		<span class="keyword">if</span> packetCount &gt; <span class="number">100</span> &#123;</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="读取pcap格式文件来查看分析网络数据包"><a href="#读取pcap格式文件来查看分析网络数据包" class="headerlink" title="读取pcap格式文件来查看分析网络数据包"></a>读取pcap格式文件来查看分析网络数据包</h4><blockquote>
+<p>我们不用打开一个设备进行实时捕获，也可以打开pcap文件进行离线检查。您可以使用tcpdump创建要使用的测试文件。</p>
+</blockquote>
+<p>抓包：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Capture packets to test.pcap file</span></span><br><span class="line">sudo tcpdump -w test.pcap</span><br></pre></td></tr></table></figure></p>
+<p>代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">// Use tcpdump to create a test file</span><br><span class="line">// tcpdump -w test.pcap</span><br><span class="line">// or use the example above for writing pcap files</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">    &quot;fmt&quot;</span><br><span class="line">    &quot;github.com/google/gopacket&quot;</span><br><span class="line">    &quot;github.com/google/gopacket/pcap&quot;</span><br><span class="line">    &quot;log&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">var (</span><br><span class="line">    pcapFile string = &quot;test.pcap&quot;</span><br><span class="line">    handle   *pcap.Handle</span><br><span class="line">    err      error</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    // Open file instead of device</span><br><span class="line">    handle, err = pcap.OpenOffline(pcapFile)</span><br><span class="line">    if err != nil &#123; log.Fatal(err) &#125;</span><br><span class="line">    defer handle.Close()</span><br><span class="line"></span><br><span class="line">    // Loop through packets in file</span><br><span class="line">    packetSource := gopacket.NewPacketSource(handle, handle.LinkType())</span><br><span class="line">    for packet := range packetSource.Packets() &#123;</span><br><span class="line">        fmt.Println(packet)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="设置过滤器"><a href="#设置过滤器" class="headerlink" title="设置过滤器"></a>设置过滤器</h4><blockquote>
+<p>只抓取tcp协议80端口的数据</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"github.com/google/gopacket"</span></span><br><span class="line">    <span class="string">"github.com/google/gopacket/pcap"</span></span><br><span class="line">    <span class="string">"log"</span></span><br><span class="line">    <span class="string">"time"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">    device       <span class="keyword">string</span> = <span class="string">"eth0"</span></span><br><span class="line">    snapshot_len <span class="keyword">int32</span>  = <span class="number">1024</span></span><br><span class="line">    promiscuous  <span class="keyword">bool</span>   = <span class="literal">false</span></span><br><span class="line">    err          error</span><br><span class="line">    timeout      time.Duration = <span class="number">30</span> * time.Second</span><br><span class="line">    handle       *pcap.Handle</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// Open device</span></span><br><span class="line">    handle, err = pcap.OpenLive(device, snapshot_len, promiscuous, timeout)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(err)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">defer</span> handle.Close()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Set filter</span></span><br><span class="line">    <span class="keyword">var</span> filter <span class="keyword">string</span> = <span class="string">"tcp and port 80"</span></span><br><span class="line">    err = handle.SetBPFFilter(filter)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="string">"Only capturing TCP port 80 packets."</span>)</span><br><span class="line"></span><br><span class="line">    packetSource := gopacket.NewPacketSource(handle, handle.LinkType())</span><br><span class="line">    <span class="keyword">for</span> packet := <span class="keyword">range</span> packetSource.Packets() &#123;</span><br><span class="line">        <span class="comment">// Do something with a packet here.</span></span><br><span class="line">        fmt.Println(packet)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="解码抓取的数据"><a href="#解码抓取的数据" class="headerlink" title="解码抓取的数据"></a>解码抓取的数据</h4><blockquote>
+<p>我们可以使用原始数据包，并且可将其转换为已知格式。它与不同的层兼容，所以我们可以轻松访问以太网，IP和TCP层。layers包是Go库中新增的，在底层pcap库中不可用。这是一个令人难以置信的有用的包，它是gopacket库的一部分。它允许我们容易地识别包是否包含特定类型的层。该代码示例将显示如何使用layers包来查看数据包是以太网，IP和TCP，并轻松访问这些头文件中的元素。 查找有效载荷取决于所涉及的所有层。每个协议是不同的，必须相应地计算。这就是layer包的魅力所在。 gopacket的作者花了时间为诸如以太网，IP，UDP和TCP等众多已知层创建了相应类型。有效载荷是应用层的一部分。</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"github.com/google/gopacket"</span></span><br><span class="line">    <span class="string">"github.com/google/gopacket/layers"</span></span><br><span class="line">    <span class="string">"github.com/google/gopacket/pcap"</span></span><br><span class="line">    <span class="string">"log"</span></span><br><span class="line">    <span class="string">"strings"</span></span><br><span class="line">    <span class="string">"time"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">    device      <span class="keyword">string</span> = <span class="string">"eth0"</span></span><br><span class="line">    snapshotLen <span class="keyword">int32</span>  = <span class="number">1024</span></span><br><span class="line">    promiscuous <span class="keyword">bool</span>   = <span class="literal">false</span></span><br><span class="line">    err         error</span><br><span class="line">    timeout     time.Duration = <span class="number">30</span> * time.Second</span><br><span class="line">    handle      *pcap.Handle</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// Open device</span></span><br><span class="line">    handle, err = pcap.OpenLive(device, snapshotLen, promiscuous, timeout)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;log.Fatal(err) &#125;</span><br><span class="line">    <span class="keyword">defer</span> handle.Close()</span><br><span class="line"></span><br><span class="line">    packetSource := gopacket.NewPacketSource(handle, handle.LinkType())</span><br><span class="line">    <span class="keyword">for</span> packet := <span class="keyword">range</span> packetSource.Packets() &#123;</span><br><span class="line">        printPacketInfo(packet)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">printPacketInfo</span><span class="params">(packet gopacket.Packet)</span></span> &#123;</span><br><span class="line">    <span class="comment">// Let's see if the packet is an ethernet packet</span></span><br><span class="line">    ethernetLayer := packet.Layer(layers.LayerTypeEthernet)</span><br><span class="line">    <span class="keyword">if</span> ethernetLayer != <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">"Ethernet layer detected."</span>)</span><br><span class="line">        ethernetPacket, _ := ethernetLayer.(*layers.Ethernet)</span><br><span class="line">        fmt.Println(<span class="string">"Source MAC: "</span>, ethernetPacket.SrcMAC)</span><br><span class="line">        fmt.Println(<span class="string">"Destination MAC: "</span>, ethernetPacket.DstMAC)</span><br><span class="line">        <span class="comment">// Ethernet type is typically IPv4 but could be ARP or other</span></span><br><span class="line">        fmt.Println(<span class="string">"Ethernet type: "</span>, ethernetPacket.EthernetType)</span><br><span class="line">        fmt.Println()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Let's see if the packet is IP (even though the ether type told us)</span></span><br><span class="line">    ipLayer := packet.Layer(layers.LayerTypeIPv4)</span><br><span class="line">    <span class="keyword">if</span> ipLayer != <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">"IPv4 layer detected."</span>)</span><br><span class="line">        ip, _ := ipLayer.(*layers.IPv4)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// IP layer variables:</span></span><br><span class="line">        <span class="comment">// Version (Either 4 or 6)</span></span><br><span class="line">        <span class="comment">// IHL (IP Header Length in 32-bit words)</span></span><br><span class="line">        <span class="comment">// TOS, Length, Id, Flags, FragOffset, TTL, Protocol (TCP?),</span></span><br><span class="line">        <span class="comment">// Checksum, SrcIP, DstIP</span></span><br><span class="line">        fmt.Printf(<span class="string">"From %s to %s\n"</span>, ip.SrcIP, ip.DstIP)</span><br><span class="line">        fmt.Println(<span class="string">"Protocol: "</span>, ip.Protocol)</span><br><span class="line">        fmt.Println()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Let's see if the packet is TCP</span></span><br><span class="line">    tcpLayer := packet.Layer(layers.LayerTypeTCP)</span><br><span class="line">    <span class="keyword">if</span> tcpLayer != <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">"TCP layer detected."</span>)</span><br><span class="line">        tcp, _ := tcpLayer.(*layers.TCP)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// TCP layer variables:</span></span><br><span class="line">        <span class="comment">// SrcPort, DstPort, Seq, Ack, DataOffset, Window, Checksum, Urgent</span></span><br><span class="line">        <span class="comment">// Bool flags: FIN, SYN, RST, PSH, ACK, URG, ECE, CWR, NS</span></span><br><span class="line">        fmt.Printf(<span class="string">"From port %d to %d\n"</span>, tcp.SrcPort, tcp.DstPort)</span><br><span class="line">        fmt.Println(<span class="string">"Sequence number: "</span>, tcp.Seq)</span><br><span class="line">        fmt.Println()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Iterate over all layers, printing out each layer type</span></span><br><span class="line">    fmt.Println(<span class="string">"All packet layers:"</span>)</span><br><span class="line">    <span class="keyword">for</span> _, layer := <span class="keyword">range</span> packet.Layers() &#123;</span><br><span class="line">        fmt.Println(<span class="string">"- "</span>, layer.LayerType())</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// When iterating through packet.Layers() above,</span></span><br><span class="line">    <span class="comment">// if it lists Payload layer then that is the same as</span></span><br><span class="line">    <span class="comment">// this applicationLayer. applicationLayer contains the payload</span></span><br><span class="line">    applicationLayer := packet.ApplicationLayer()</span><br><span class="line">    <span class="keyword">if</span> applicationLayer != <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">"Application layer/Payload found."</span>)</span><br><span class="line">        fmt.Printf(<span class="string">"%s\n"</span>, applicationLayer.Payload())</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Search for a string inside the payload</span></span><br><span class="line">        <span class="keyword">if</span> strings.Contains(<span class="keyword">string</span>(applicationLayer.Payload()), <span class="string">"HTTP"</span>) &#123;</span><br><span class="line">            fmt.Println(<span class="string">"HTTP found!"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Check for errors</span></span><br><span class="line">    <span class="keyword">if</span> err := packet.ErrorLayer(); err != <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">"Error decoding some part of the packet:"</span>, err)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="构造发送数据包"><a href="#构造发送数据包" class="headerlink" title="构造发送数据包"></a>构造发送数据包</h4><blockquote>
+<p>这个例子做了几件事情。首先将显示如何使用网络设备发送原始字节。这样就可以像串行连接一样使用它来发送数据。这对于真正的低层数据传输非常有用，但如果您想与应用程序进行交互，您应该构建可以识别该数据包的其他硬件和软件。接下来，它将显示如何使用以太网，IP和TCP层创建一个数据包。一切都是默认空的。要完成它，我们创建另一个数据包，但实际上填写了以太网层的一些MAC地址，IPv4的一些IP地址和TCP层的端口号。你应该看到如何伪装数据包和仿冒网络设备。TCP层结构体具有可读取和可设置的SYN，FIN，ACK标志。这有助于操纵和模糊TCP三次握手，会话和端口扫描。pcap库提供了一种发送字节的简单方法，但gopacket中的图层可帮助我们为多层创建字节结构。</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"github.com/google/gopacket"</span></span><br><span class="line">    <span class="string">"github.com/google/gopacket/layers"</span></span><br><span class="line">    <span class="string">"github.com/google/gopacket/pcap"</span></span><br><span class="line">    <span class="string">"log"</span></span><br><span class="line">    <span class="string">"net"</span></span><br><span class="line">    <span class="string">"time"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">    device       <span class="keyword">string</span> = <span class="string">"eth0"</span></span><br><span class="line">    snapshot_len <span class="keyword">int32</span>  = <span class="number">1024</span></span><br><span class="line">    promiscuous  <span class="keyword">bool</span>   = <span class="literal">false</span></span><br><span class="line">    err          error</span><br><span class="line">    timeout      time.Duration = <span class="number">30</span> * time.Second</span><br><span class="line">    handle       *pcap.Handle</span><br><span class="line">    buffer       gopacket.SerializeBuffer</span><br><span class="line">    options      gopacket.SerializeOptions</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// Open device</span></span><br><span class="line">    handle, err = pcap.OpenLive(device, snapshot_len, promiscuous, timeout)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;log.Fatal(err) &#125;</span><br><span class="line">    <span class="keyword">defer</span> handle.Close()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Send raw bytes over wire</span></span><br><span class="line">    rawBytes := []<span class="keyword">byte</span>&#123;<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>&#125;</span><br><span class="line">    err = handle.WritePacketData(rawBytes)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(err)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Create a properly formed packet, just with</span></span><br><span class="line">    <span class="comment">// empty details. Should fill out MAC addresses,</span></span><br><span class="line">    <span class="comment">// IP addresses, etc.</span></span><br><span class="line">    buffer = gopacket.NewSerializeBuffer()</span><br><span class="line">    gopacket.SerializeLayers(buffer, options,</span><br><span class="line">        &amp;layers.Ethernet&#123;&#125;,</span><br><span class="line">        &amp;layers.IPv4&#123;&#125;,</span><br><span class="line">        &amp;layers.TCP&#123;&#125;,</span><br><span class="line">        gopacket.Payload(rawBytes),</span><br><span class="line">    )</span><br><span class="line">    outgoingPacket := buffer.Bytes()</span><br><span class="line">    <span class="comment">// Send our packet</span></span><br><span class="line">    err = handle.WritePacketData(outgoingPacket)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(err)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// This time lets fill out some information</span></span><br><span class="line">    ipLayer := &amp;layers.IPv4&#123;</span><br><span class="line">        SrcIP: net.IP&#123;<span class="number">127</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>&#125;,</span><br><span class="line">        DstIP: net.IP&#123;<span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>&#125;,</span><br><span class="line">    &#125;</span><br><span class="line">    ethernetLayer := &amp;layers.Ethernet&#123;</span><br><span class="line">        SrcMAC: net.HardwareAddr&#123;<span class="number">0xFF</span>, <span class="number">0xAA</span>, <span class="number">0xFA</span>, <span class="number">0xAA</span>, <span class="number">0xFF</span>, <span class="number">0xAA</span>&#125;,</span><br><span class="line">        DstMAC: net.HardwareAddr&#123;<span class="number">0xBD</span>, <span class="number">0xBD</span>, <span class="number">0xBD</span>, <span class="number">0xBD</span>, <span class="number">0xBD</span>, <span class="number">0xBD</span>&#125;,</span><br><span class="line">    &#125;</span><br><span class="line">    tcpLayer := &amp;layers.TCP&#123;</span><br><span class="line">        SrcPort: layers.TCPPort(<span class="number">4321</span>),</span><br><span class="line">        DstPort: layers.TCPPort(<span class="number">80</span>),</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// And create the packet with the layers</span></span><br><span class="line">    buffer = gopacket.NewSerializeBuffer()</span><br><span class="line">    gopacket.SerializeLayers(buffer, options,</span><br><span class="line">        ethernetLayer,</span><br><span class="line">        ipLayer,</span><br><span class="line">        tcpLayer,</span><br><span class="line">        gopacket.Payload(rawBytes),</span><br><span class="line">    )</span><br><span class="line">    outgoingPacket = buffer.Bytes()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="更多的解码-构造数据包的例子"><a href="#更多的解码-构造数据包的例子" class="headerlink" title="更多的解码/构造数据包的例子"></a>更多的解码/构造数据包的例子</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"github.com/google/gopacket"</span></span><br><span class="line">    <span class="string">"github.com/google/gopacket/layers"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// If we don't have a handle to a device or a file, but we have a bunch</span></span><br><span class="line">    <span class="comment">// of raw bytes, we can try to decode them in to packet information</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// NewPacket() takes the raw bytes that make up the packet as the first parameter</span></span><br><span class="line">    <span class="comment">// The second parameter is the lowest level layer you want to decode. It will</span></span><br><span class="line">    <span class="comment">// decode that layer and all layers on top of it. The third layer</span></span><br><span class="line">    <span class="comment">// is the type of decoding: default(all at once), lazy(on demand), and NoCopy</span></span><br><span class="line">    <span class="comment">// which will not create a copy of the buffer</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Create an packet with ethernet, IP, TCP, and payload layers</span></span><br><span class="line">    <span class="comment">// We are creating one we know will be decoded properly but</span></span><br><span class="line">    <span class="comment">// your byte source could be anything. If any of the packets</span></span><br><span class="line">    <span class="comment">// come back as nil, that means it could not decode it in to</span></span><br><span class="line">    <span class="comment">// the proper layer (malformed or incorrect packet type)</span></span><br><span class="line">    payload := []<span class="keyword">byte</span>&#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>&#125;</span><br><span class="line">    options := gopacket.SerializeOptions&#123;&#125;</span><br><span class="line">    buffer := gopacket.NewSerializeBuffer()</span><br><span class="line">    gopacket.SerializeLayers(buffer, options,</span><br><span class="line">        &amp;layers.Ethernet&#123;&#125;,</span><br><span class="line">        &amp;layers.IPv4&#123;&#125;,</span><br><span class="line">        &amp;layers.TCP&#123;&#125;,</span><br><span class="line">        gopacket.Payload(payload),</span><br><span class="line">    )</span><br><span class="line">    rawBytes := buffer.Bytes()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Decode an ethernet packet</span></span><br><span class="line">    ethPacket :=</span><br><span class="line">        gopacket.NewPacket(</span><br><span class="line">            rawBytes,</span><br><span class="line">            layers.LayerTypeEthernet,</span><br><span class="line">            gopacket.Default,</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="comment">// with Lazy decoding it will only decode what it needs when it needs it</span></span><br><span class="line">    <span class="comment">// This is not concurrency safe. If using concurrency, use default</span></span><br><span class="line">    ipPacket :=</span><br><span class="line">        gopacket.NewPacket(</span><br><span class="line">            rawBytes,</span><br><span class="line">            layers.LayerTypeIPv4,</span><br><span class="line">            gopacket.Lazy,</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="comment">// With the NoCopy option, the underlying slices are referenced</span></span><br><span class="line">    <span class="comment">// directly and not copied. If the underlying bytes change so will</span></span><br><span class="line">    <span class="comment">// the packet</span></span><br><span class="line">    tcpPacket :=</span><br><span class="line">        gopacket.NewPacket(</span><br><span class="line">            rawBytes,</span><br><span class="line">            layers.LayerTypeTCP,</span><br><span class="line">            gopacket.NoCopy,</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    fmt.Println(ethPacket)</span><br><span class="line">    fmt.Println(ipPacket)</span><br><span class="line">    fmt.Println(tcpPacket)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="自定义layer"><a href="#自定义layer" class="headerlink" title="自定义layer"></a>自定义layer</h4><blockquote>
+<p>下一个程序将显示如何创建自己的layer。构建gopacket layer包不包含的协议。如果您要创建自己的l33t协议，甚至不使用TCP / IP或以太网，这是很有用的。</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"github.com/google/gopacket"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create custom layer structure</span></span><br><span class="line"><span class="keyword">type</span> CustomLayer <span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="comment">// This layer just has two bytes at the front</span></span><br><span class="line">    SomeByte    <span class="keyword">byte</span></span><br><span class="line">    AnotherByte <span class="keyword">byte</span></span><br><span class="line">    restOfData  []<span class="keyword">byte</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Register the layer type so we can use it</span></span><br><span class="line"><span class="comment">// The first argument is an ID. Use negative</span></span><br><span class="line"><span class="comment">// or 2000+ for custom layers. It must be unique</span></span><br><span class="line"><span class="keyword">var</span> CustomLayerType = gopacket.RegisterLayerType(</span><br><span class="line">    <span class="number">2001</span>,</span><br><span class="line">    gopacket.LayerTypeMetadata&#123;</span><br><span class="line">        <span class="string">"CustomLayerType"</span>,</span><br><span class="line">        gopacket.DecodeFunc(decodeCustomLayer),</span><br><span class="line">    &#125;,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// When we inquire about the type, what type of layer should</span></span><br><span class="line"><span class="comment">// we say it is? We want it to return our custom layer type</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l CustomLayer)</span> <span class="title">LayerType</span><span class="params">()</span> <span class="title">gopacket</span>.<span class="title">LayerType</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> CustomLayerType</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// LayerContents returns the information that our layer</span></span><br><span class="line"><span class="comment">// provides. In this case it is a header layer so</span></span><br><span class="line"><span class="comment">// we return the header information</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l CustomLayer)</span> <span class="title">LayerContents</span><span class="params">()</span> []<span class="title">byte</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> []<span class="keyword">byte</span>&#123;l.SomeByte, l.AnotherByte&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// LayerPayload returns the subsequent layer built</span></span><br><span class="line"><span class="comment">// on top of our layer or raw payload</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l CustomLayer)</span> <span class="title">LayerPayload</span><span class="params">()</span> []<span class="title">byte</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> l.restOfData</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Custom decode function. We can name it whatever we want</span></span><br><span class="line"><span class="comment">// but it should have the same arguments and return value</span></span><br><span class="line"><span class="comment">// When the layer is registered we tell it to use this decode function</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">decodeCustomLayer</span><span class="params">(data []<span class="keyword">byte</span>, p gopacket.PacketBuilder)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">    <span class="comment">// AddLayer appends to the list of layers that the packet has</span></span><br><span class="line">    p.AddLayer(&amp;CustomLayer&#123;data[<span class="number">0</span>], data[<span class="number">1</span>], data[<span class="number">2</span>:]&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// The return value tells the packet what layer to expect</span></span><br><span class="line">    <span class="comment">// with the rest of the data. It could be another header layer,</span></span><br><span class="line">    <span class="comment">// nothing, or a payload layer.</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// nil means this is the last layer. No more decoding</span></span><br><span class="line">    <span class="comment">// return nil</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Returning another layer type tells it to decode</span></span><br><span class="line">    <span class="comment">// the next layer with that layer's decoder function</span></span><br><span class="line">    <span class="comment">// return p.NextDecoder(layers.LayerTypeEthernet)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Returning payload type means the rest of the data</span></span><br><span class="line">    <span class="comment">// is raw payload. It will set the application layer</span></span><br><span class="line">    <span class="comment">// contents with the payload</span></span><br><span class="line">    <span class="keyword">return</span> p.NextDecoder(gopacket.LayerTypePayload)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// If you create your own encoding and decoding you can essentially</span></span><br><span class="line">    <span class="comment">// create your own protocol or implement a protocol that is not</span></span><br><span class="line">    <span class="comment">// already defined in the layers package. In our example we are just</span></span><br><span class="line">    <span class="comment">// wrapping a normal ethernet packet with our own layer.</span></span><br><span class="line">    <span class="comment">// Creating your own protocol is good if you want to create</span></span><br><span class="line">    <span class="comment">// some obfuscated binary data type that was difficult for others</span></span><br><span class="line">    <span class="comment">// to decode</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Finally, decode your packets:</span></span><br><span class="line">    rawBytes := []<span class="keyword">byte</span>&#123;<span class="number">0xF0</span>, <span class="number">0x0F</span>, <span class="number">65</span>, <span class="number">65</span>, <span class="number">66</span>, <span class="number">67</span>, <span class="number">68</span>&#125;</span><br><span class="line">    packet := gopacket.NewPacket(</span><br><span class="line">        rawBytes,</span><br><span class="line">        CustomLayerType,</span><br><span class="line">        gopacket.Default,</span><br><span class="line">    )</span><br><span class="line">    fmt.Println(<span class="string">"Created packet out of raw bytes."</span>)</span><br><span class="line">    fmt.Println(packet)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Decode the packet as our custom layer</span></span><br><span class="line">    customLayer := packet.Layer(CustomLayerType)</span><br><span class="line">    <span class="keyword">if</span> customLayer != <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">"Packet was successfully decoded with custom layer decoder."</span>)</span><br><span class="line">        customLayerContent, _ := customLayer.(*CustomLayer)</span><br><span class="line">        <span class="comment">// Now we can access the elements of the custom struct</span></span><br><span class="line">        fmt.Println(<span class="string">"Payload: "</span>, customLayerContent.LayerPayload())</span><br><span class="line">        fmt.Println(<span class="string">"SomeByte element:"</span>, customLayerContent.SomeByte)</span><br><span class="line">        fmt.Println(<span class="string">"AnotherByte element:"</span>, customLayerContent.AnotherByte)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="更快地解码数据包"><a href="#更快地解码数据包" class="headerlink" title="更快地解码数据包"></a>更快地解码数据包</h4><blockquote>
+<p>如果我们知道我们要预期的得到的层，我们可以使用现有的结构来存储分组信息，而不是为每个需要时间和内存的分组创建新的结构。使用DecodingLayerParser更快。就像编组和解组数据一样。</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"github.com/google/gopacket"</span></span><br><span class="line">    <span class="string">"github.com/google/gopacket/layers"</span></span><br><span class="line">    <span class="string">"github.com/google/gopacket/pcap"</span></span><br><span class="line">    <span class="string">"log"</span></span><br><span class="line">    <span class="string">"time"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">    device       <span class="keyword">string</span> = <span class="string">"eth0"</span></span><br><span class="line">    snapshot_len <span class="keyword">int32</span>  = <span class="number">1024</span></span><br><span class="line">    promiscuous  <span class="keyword">bool</span>   = <span class="literal">false</span></span><br><span class="line">    err          error</span><br><span class="line">    timeout      time.Duration = <span class="number">30</span> * time.Second</span><br><span class="line">    handle       *pcap.Handle</span><br><span class="line">    <span class="comment">// Will reuse these for each packet</span></span><br><span class="line">    ethLayer layers.Ethernet</span><br><span class="line">    ipLayer  layers.IPv4</span><br><span class="line">    tcpLayer layers.TCP</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// Open device</span></span><br><span class="line">    handle, err = pcap.OpenLive(device, snapshot_len, promiscuous, timeout)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(err)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">defer</span> handle.Close()</span><br><span class="line"></span><br><span class="line">    packetSource := gopacket.NewPacketSource(handle, handle.LinkType())</span><br><span class="line">    <span class="keyword">for</span> packet := <span class="keyword">range</span> packetSource.Packets() &#123;</span><br><span class="line">        parser := gopacket.NewDecodingLayerParser(</span><br><span class="line">            layers.LayerTypeEthernet,</span><br><span class="line">            &amp;ethLayer,</span><br><span class="line">            &amp;ipLayer,</span><br><span class="line">            &amp;tcpLayer,</span><br><span class="line">        )</span><br><span class="line">        foundLayerTypes := []gopacket.LayerType&#123;&#125;</span><br><span class="line"></span><br><span class="line">        err := parser.DecodeLayers(packet.Data(), &amp;foundLayerTypes)</span><br><span class="line">        <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">            fmt.Println(<span class="string">"Trouble decoding layers: "</span>, err)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> _, layerType := <span class="keyword">range</span> foundLayerTypes &#123;</span><br><span class="line">            <span class="keyword">if</span> layerType == layers.LayerTypeIPv4 &#123;</span><br><span class="line">                fmt.Println(<span class="string">"IPv4: "</span>, ipLayer.SrcIP, <span class="string">"-&gt;"</span>, ipLayer.DstIP)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> layerType == layers.LayerTypeTCP &#123;</span><br><span class="line">                fmt.Println(<span class="string">"TCP Port: "</span>, tcpLayer.SrcPort, <span class="string">"-&gt;"</span>, tcpLayer.DstPort)</span><br><span class="line">                fmt.Println(<span class="string">"TCP SYN:"</span>, tcpLayer.SYN, <span class="string">" | ACK:"</span>, tcpLayer.ACK)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="TCP流重组"><a href="#TCP流重组" class="headerlink" title="TCP流重组"></a>TCP流重组</h4><blockquote>
+<p>gopacket包提供了一些名为Flow和Endpoint的类型。我没有机会深入探索这些文档，但文档中有一个使用它来将特定TCP流发送到数据包通道的示例。<a href="https://godoc.org/github.com/google/gopacket" target="_blank" rel="noopener">https://godoc.org/github.com/google/gopacket</a></p>
+</blockquote>
+<h3 id="4-简述"><a href="#4-简述" class="headerlink" title="4. 简述"></a>4. 简述</h3><p>写这篇博文是因为gopacket这个包资料案例不是很多，百度上唯一一篇质量还可以的文章是来自<a href="https://blog.csdn.net/ptmozhu/article/details/72652310" target="_blank" rel="noopener">虾米的博客</a> 发布在CSDN上的一篇关于gopacket的golang语言代码实现的文章，但是CSS出现问题，导致阅读障碍，为了防止文章资源丢失，这里特此将文章内容通过更简洁的方式重写，并在后期针对于对Google推出的 <a href="https://godoc.org/github.com/google/gopacket" target="_blank" rel="noopener">GoPacket包</a> 的理解续写这篇文章，感谢作者 <a href="https://blog.csdn.net/ptmozhu" target="_blank" rel="noopener">@ptmozhu</a> 提供的精彩文章内容。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/17/Navicat-Premium-v12-0-4-Cracked-汉化破解版/" rel="next" title="Navicat Premium v12.0.4 Cracked 汉化破解版">
+                <i class="fa fa-chevron-left"></i> Navicat Premium v12.0.4 Cracked 汉化破解版
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzM0Ni8xMzg4MA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">lfoder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-libpcap-介绍"><span class="nav-number">1.</span> <span class="nav-text">1. libpcap 介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-准备工作"><span class="nav-number">2.</span> <span class="nav-text">2. 准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-代码部分"><span class="nav-number">3.</span> <span class="nav-text">3. 代码部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取所有网络设备"><span class="nav-number">3.1.</span> <span class="nav-text">获取所有网络设备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打开设备实时捕捉"><span class="nav-number">3.2.</span> <span class="nav-text">打开设备实时捕捉</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抓取结果保存为pcap格式文件"><span class="nav-number">3.3.</span> <span class="nav-text">抓取结果保存为pcap格式文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#读取pcap格式文件来查看分析网络数据包"><span class="nav-number">3.4.</span> <span class="nav-text">读取pcap格式文件来查看分析网络数据包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置过滤器"><span class="nav-number">3.5.</span> <span class="nav-text">设置过滤器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解码抓取的数据"><span class="nav-number">3.6.</span> <span class="nav-text">解码抓取的数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造发送数据包"><span class="nav-number">3.7.</span> <span class="nav-text">构造发送数据包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更多的解码-构造数据包的例子"><span class="nav-number">3.8.</span> <span class="nav-text">更多的解码/构造数据包的例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义layer"><span class="nav-number">3.9.</span> <span class="nav-text">自定义layer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更快地解码数据包"><span class="nav-number">3.10.</span> <span class="nav-text">更快地解码数据包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP流重组"><span class="nav-number">3.11.</span> <span class="nav-text">TCP流重组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-简述"><span class="nav-number">4.</span> <span class="nav-text">4. 简述</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lfoder</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.2.0</div>
+
+
+
+
+<br />
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273743080'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1273743080%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.2.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.2.0"></script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
