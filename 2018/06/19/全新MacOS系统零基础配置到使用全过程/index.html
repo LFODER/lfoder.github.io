@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="An0nyMouS">
 <meta property="og:description" content="纯属个人笔记，从全新的MacOS系统开始一步一步配置MacOS成为一台超级顺手的SuperComputer">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-19T08:25:45.000Z">
+<meta property="og:updated_time" content="2018-06-26T10:04:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="全新MacOS系统零基础配置到使用全过程">
 <meta name="twitter:description" content="纯属个人笔记，从全新的MacOS系统开始一步一步配置MacOS成为一台超级顺手的SuperComputer">
@@ -377,12 +377,24 @@
                 
               
 
-              <time title="创建时间：2018-06-19 16:18:47 / 修改时间：16:25:45" itemprop="dateCreated datePublished" datetime="2018-06-19T16:18:47+08:00">2018-06-19</time>
+              <time title="创建时间：2018-06-19 16:18:47" itemprop="dateCreated datePublished" datetime="2018-06-19T16:18:47+08:00">2018-06-19</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-26 18:04:25" itemprop="dateModified" datetime="2018-06-26T18:04:25+08:00">2018-06-26</time>
               
             
           </span>
@@ -458,6 +470,33 @@
 <h3 id="电池显示电量百分比"><a href="#电池显示电量百分比" class="headerlink" title="电池显示电量百分比"></a>电池显示电量百分比</h3><p>右上角电池图标🔋 =&gt; 点击 =&gt; 显示百分比</p>
 <h3 id="时间设置为24小时制"><a href="#时间设置为24小时制" class="headerlink" title="时间设置为24小时制"></a>时间设置为24小时制</h3><p>系统偏好设置 =&gt; 时间与日期 =&gt; 时间 =&gt; 勾选 <code>在时间中显示秒钟</code>和<code>使用24小时格式时钟</code>和<code>显示日期</code></p>
 <h3 id="设置蓝牙图标在顶部状态栏显示"><a href="#设置蓝牙图标在顶部状态栏显示" class="headerlink" title="设置蓝牙图标在顶部状态栏显示"></a>设置蓝牙图标在顶部状态栏显示</h3><p>系统偏好设置 =&gt; 蓝牙 =&gt; 勾上 在菜单栏显示蓝牙</p>
+<h3 id="设置-允许任何应用安装"><a href="#设置-允许任何应用安装" class="headerlink" title="设置 允许任何应用安装"></a>设置 允许任何应用安装</h3><p>系统偏好设置 =&gt; 通用 =&gt; 允许从以下位置下载的应用</p>
+<p>可以看到  没有勾选上 <code>任何来源</code> 甚至没有这个选项，执行 <code>sudo spctl --master-disable</code> 即可。</p>
+<h3 id="禁用-Spotlight"><a href="#禁用-Spotlight" class="headerlink" title="禁用 Spotlight"></a>禁用 Spotlight</h3><p>禁用方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist</span><br><span class="line"><span class="comment"># 去掉状态栏图标</span></span><br><span class="line"><span class="built_in">cd</span> /System/Library/CoreServices/</span><br><span class="line">sudo mv Search.bundle/ Search.bundle.bak/</span><br></pre></td></tr></table></figure>
+<p>恢复方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist</span><br><span class="line"><span class="comment"># 状态栏图标</span></span><br><span class="line"><span class="built_in">cd</span> /System/Library/CoreServices/</span><br><span class="line">sudo mv Search.bundle.bak/ Search.bundle/</span><br></pre></td></tr></table></figure>
+<p>设置后需要重启。</p>
+<h3 id="显示隐藏文件"><a href="#显示隐藏文件" class="headerlink" title="显示隐藏文件"></a>显示隐藏文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示</span></span><br><span class="line">defaults write com.apple.finder AppleShowAllFiles YES</span><br><span class="line"><span class="comment"># 重启Finder</span></span><br><span class="line">killall Finder</span><br></pre></td></tr></table></figure>
+<p>隐藏只需将 <code>YES</code> 改成 <code>No</code> 执行即可。</p>
+<h3 id="禁用Dashboard功能"><a href="#禁用Dashboard功能" class="headerlink" title="禁用Dashboard功能"></a>禁用Dashboard功能</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dashboard mcx-disabled -boolean YES</span><br><span class="line">killall Dock</span><br></pre></td></tr></table></figure>
+<p>恢复开启状态只需将 <code>YES</code> 改成 <code>NO</code> 执行即可。</p>
+<h3 id="设置电脑名称"><a href="#设置电脑名称" class="headerlink" title="设置电脑名称"></a>设置电脑名称</h3><blockquote>
+<p> 注意：执行时需要管理员密码</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scutil --<span class="built_in">set</span> ComputerName <span class="string">"lfoder MacBook Pro"</span></span><br><span class="line">scutil --<span class="built_in">set</span> LocalHostName <span class="string">"lfoder-MacBook-Pro"</span></span><br><span class="line">scutil --<span class="built_in">set</span> HostName <span class="string">"lfoder"</span></span><br></pre></td></tr></table></figure>
+<p>查看只需要将 <code>--set</code> 换成 <code>--get</code> 执行即可。</p>
+<p>三个名称的区别：</p>
+<ul>
+<li><strong>Computer Name</strong>：共享设置里的电脑名称，可以使用汉字等特殊字符；</li>
+<li><strong>Local Host Name</strong>：Computer Name的别名，把特殊字符转换为ASCII字符，比如汉字转为拼音，空格转为<code>-</code>，同样在共享设置里可以看到；</li>
+<li><strong>Host Name</strong>: 这个会显示在终端里。</li>
+</ul>
+<p>在局域网里可以通过 <strong>Local Host Name</strong> 加上 <code>.local</code> 来访问 Mac 电脑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl lfoder-MacBook-Pro.local</span><br><span class="line">ping lfoder-MacBook-Pro.local</span><br></pre></td></tr></table></figure>
+<p>也可以通过设置 WINS 里的 NetBIOS 名称来访问。</p>
+<h3 id="设置英文输入法下长按为连续输入"><a href="#设置英文输入法下长按为连续输入" class="headerlink" title="设置英文输入法下长按为连续输入"></a>设置英文输入法下长按为连续输入</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo defaults write -globalDomain ApplePressAndHoldEnabled -bool NO</span><br></pre></td></tr></table></figure>
+<p> 恢复将 <code>NO</code> 改成 <code>YES</code> 执行即可。</p>
 <h2 id="应用程序配置"><a href="#应用程序配置" class="headerlink" title="应用程序配置"></a>应用程序配置</h2><h3 id="安装与配置搜狗输入法"><a href="#安装与配置搜狗输入法" class="headerlink" title="安装与配置搜狗输入法"></a>安装与配置搜狗输入法</h3><ol>
 <li>访问 <a href="http://pinyin.sogou.com" target="_blank" rel="noopener">http://pinyin.sogou.com</a> 下载安装</li>
 <li>安装向导按照你自己的喜好配置完毕。</li>
@@ -584,6 +623,21 @@
 </li>
 <li><p>升级可以更新的软件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo port upgrade outdated</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>列出所有可用软件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">port list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看软件包详细信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">port info &lt;appname&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看软件包依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">port deps &lt;appname&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除软件包安装过程中释放的零碎文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">port clean --all &lt;appname&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看需要此依赖包的所有软件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">port dependents &lt;依赖包名&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>举个例子：</strong></p>
@@ -893,7 +947,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#全新MacOS系统从零开始配置到顺手使用调教全过程"><span class="nav-number">1.</span> <span class="nav-text">全新MacOS系统从零开始配置到顺手使用调教全过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#当前系统环境"><span class="nav-number">1.1.</span> <span class="nav-text">当前系统环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础操作配置"><span class="nav-number">1.2.</span> <span class="nav-text">基础操作配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#调整触摸板到最佳备战状态"><span class="nav-number">1.2.1.</span> <span class="nav-text">调整触摸板到最佳备战状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改键盘操作到最佳备战状态"><span class="nav-number">1.3.</span> <span class="nav-text">修改键盘操作到最佳备战状态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改Macbook电脑名称"><span class="nav-number">1.3.1.</span> <span class="nav-text">修改Macbook电脑名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改MacBook插上电源时不休眠"><span class="nav-number">1.3.2.</span> <span class="nav-text">修改MacBook插上电源时不休眠</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电池显示电量百分比"><span class="nav-number">1.3.3.</span> <span class="nav-text">电池显示电量百分比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间设置为24小时制"><span class="nav-number">1.3.4.</span> <span class="nav-text">时间设置为24小时制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置蓝牙图标在顶部状态栏显示"><span class="nav-number">1.3.5.</span> <span class="nav-text">设置蓝牙图标在顶部状态栏显示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用程序配置"><span class="nav-number">1.4.</span> <span class="nav-text">应用程序配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装与配置搜狗输入法"><span class="nav-number">1.4.1.</span> <span class="nav-text">安装与配置搜狗输入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Typora"><span class="nav-number">1.4.2.</span> <span class="nav-text">安装 Typora</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Java-1-8-JDK"><span class="nav-number">1.4.3.</span> <span class="nav-text">安装 Java 1.8 JDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-ICEWorks"><span class="nav-number">1.4.4.</span> <span class="nav-text">安装 ICEWorks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Navicat-Premium-12-破解版"><span class="nav-number">1.4.5.</span> <span class="nav-text">安装Navicat Premium 12 破解版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Charles-抓包工具"><span class="nav-number">1.4.6.</span> <span class="nav-text">安装 Charles 抓包工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他第三方程序列表"><span class="nav-number">1.4.7.</span> <span class="nav-text">其他第三方程序列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行工具安装与配置"><span class="nav-number">1.5.</span> <span class="nav-text">命令行工具安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Homebrew-MacOS下的包管理器，类似于CentOS的yum、Debian的apt"><span class="nav-number">1.5.1.</span> <span class="nav-text">Homebrew (MacOS下的包管理器，类似于CentOS的yum、Debian的apt)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#oh-my-zsh-终端便捷操作工具"><span class="nav-number">1.5.2.</span> <span class="nav-text">oh-my-zsh 终端便捷操作工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-metasploit、tmux、nmap、masscan"><span class="nav-number">1.5.3.</span> <span class="nav-text">安装 metasploit、tmux、nmap、masscan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo安装与配置"><span class="nav-number">1.5.4.</span> <span class="nav-text">Hexo安装与配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MacPorts-MacOS下的包管理器，类似于CentOS的yum、Debian的apt"><span class="nav-number">1.5.5.</span> <span class="nav-text">MacPorts  (MacOS下的包管理器，类似于CentOS的yum、Debian的apt)</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#全新MacOS系统从零开始配置到顺手使用调教全过程"><span class="nav-number">1.</span> <span class="nav-text">全新MacOS系统从零开始配置到顺手使用调教全过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#当前系统环境"><span class="nav-number">1.1.</span> <span class="nav-text">当前系统环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础操作配置"><span class="nav-number">1.2.</span> <span class="nav-text">基础操作配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#调整触摸板到最佳备战状态"><span class="nav-number">1.2.1.</span> <span class="nav-text">调整触摸板到最佳备战状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改键盘操作到最佳备战状态"><span class="nav-number">1.3.</span> <span class="nav-text">修改键盘操作到最佳备战状态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改Macbook电脑名称"><span class="nav-number">1.3.1.</span> <span class="nav-text">修改Macbook电脑名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改MacBook插上电源时不休眠"><span class="nav-number">1.3.2.</span> <span class="nav-text">修改MacBook插上电源时不休眠</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电池显示电量百分比"><span class="nav-number">1.3.3.</span> <span class="nav-text">电池显示电量百分比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间设置为24小时制"><span class="nav-number">1.3.4.</span> <span class="nav-text">时间设置为24小时制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置蓝牙图标在顶部状态栏显示"><span class="nav-number">1.3.5.</span> <span class="nav-text">设置蓝牙图标在顶部状态栏显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置-允许任何应用安装"><span class="nav-number">1.3.6.</span> <span class="nav-text">设置 允许任何应用安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#禁用-Spotlight"><span class="nav-number">1.3.7.</span> <span class="nav-text">禁用 Spotlight</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示隐藏文件"><span class="nav-number">1.3.8.</span> <span class="nav-text">显示隐藏文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#禁用Dashboard功能"><span class="nav-number">1.3.9.</span> <span class="nav-text">禁用Dashboard功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置电脑名称"><span class="nav-number">1.3.10.</span> <span class="nav-text">设置电脑名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置英文输入法下长按为连续输入"><span class="nav-number">1.3.11.</span> <span class="nav-text">设置英文输入法下长按为连续输入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用程序配置"><span class="nav-number">1.4.</span> <span class="nav-text">应用程序配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装与配置搜狗输入法"><span class="nav-number">1.4.1.</span> <span class="nav-text">安装与配置搜狗输入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Typora"><span class="nav-number">1.4.2.</span> <span class="nav-text">安装 Typora</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Java-1-8-JDK"><span class="nav-number">1.4.3.</span> <span class="nav-text">安装 Java 1.8 JDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-ICEWorks"><span class="nav-number">1.4.4.</span> <span class="nav-text">安装 ICEWorks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Navicat-Premium-12-破解版"><span class="nav-number">1.4.5.</span> <span class="nav-text">安装Navicat Premium 12 破解版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Charles-抓包工具"><span class="nav-number">1.4.6.</span> <span class="nav-text">安装 Charles 抓包工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他第三方程序列表"><span class="nav-number">1.4.7.</span> <span class="nav-text">其他第三方程序列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行工具安装与配置"><span class="nav-number">1.5.</span> <span class="nav-text">命令行工具安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Homebrew-MacOS下的包管理器，类似于CentOS的yum、Debian的apt"><span class="nav-number">1.5.1.</span> <span class="nav-text">Homebrew (MacOS下的包管理器，类似于CentOS的yum、Debian的apt)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#oh-my-zsh-终端便捷操作工具"><span class="nav-number">1.5.2.</span> <span class="nav-text">oh-my-zsh 终端便捷操作工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-metasploit、tmux、nmap、masscan"><span class="nav-number">1.5.3.</span> <span class="nav-text">安装 metasploit、tmux、nmap、masscan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo安装与配置"><span class="nav-number">1.5.4.</span> <span class="nav-text">Hexo安装与配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MacPorts-MacOS下的包管理器，类似于CentOS的yum、Debian的apt"><span class="nav-number">1.5.5.</span> <span class="nav-text">MacPorts  (MacOS下的包管理器，类似于CentOS的yum、Debian的apt)</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
