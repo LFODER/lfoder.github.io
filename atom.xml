@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lfoder.github.io/"/>
-  <updated>2018-06-26T15:02:25.000Z</updated>
+  <updated>2018-06-27T06:38:05.000Z</updated>
   <id>http://lfoder.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux、Windows、MacOS端口转发全姿势</title>
+    <link href="http://lfoder.github.io/2018/06/27/Linux%E3%80%81Windows%E3%80%81MacOS%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E5%85%A8%E5%A7%BF%E5%8A%BF/"/>
+    <id>http://lfoder.github.io/2018/06/27/Linux、Windows、MacOS端口转发全姿势/</id>
+    <published>2018-06-27T06:27:00.000Z</published>
+    <updated>2018-06-27T06:38:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Windows-端口转发姿势"><a href="#Windows-端口转发姿势" class="headerlink" title="Windows 端口转发姿势"></a>Windows 端口转发姿势</h2><h3 id="通过-netsh-端口转发"><a href="#通过-netsh-端口转发" class="headerlink" title="通过 netsh 端口转发"></a>通过 netsh 端口转发</h3><h4 id="端口转发命令"><a href="#端口转发命令" class="headerlink" title="端口转发命令"></a>端口转发命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 listenport=&lt;监听端口&gt; connectaddress=&lt;目标IP&gt; connectport=&lt;目标端口&gt;</span><br></pre></td></tr></table></figure><p>例如：将任何连接到Windows的 8080 端口流量转发到 目标机器的 80 端口</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 listenport=8080 connectaddress=192.168.0.1 connectport=80</span><br></pre></td></tr></table></figure><h4 id="查看映射表"><a href="#查看映射表" class="headerlink" title="查看映射表"></a>查看映射表</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy show all</span><br></pre></td></tr></table></figure><h4 id="删除映射表"><a href="#删除映射表" class="headerlink" title="删除映射表"></a>删除映射表</h4><p>需要找到对应监听的端口</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy delete v4tov4 listenport=&lt;监听端口&gt;</span><br></pre></td></tr></table></figure><h2 id="Linux-端口转发姿势"><a href="#Linux-端口转发姿势" class="headerlink" title="Linux 端口转发姿势"></a>Linux 端口转发姿势</h2><blockquote><p>等待更新 …</p></blockquote><h2 id="MacOS-端口转发姿势"><a href="#MacOS-端口转发姿势" class="headerlink" title="MacOS 端口转发姿势"></a>MacOS 端口转发姿势</h2><blockquote><p>等待更新 …</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      各种系统下的端口转发技巧
+    
+    </summary>
+    
+      <category term="渗透技巧" scheme="http://lfoder.github.io/categories/%E6%B8%97%E9%80%8F%E6%8A%80%E5%B7%A7/"/>
+    
+    
+      <category term="端口转发" scheme="http://lfoder.github.io/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"/>
+    
+      <category term="Linux" scheme="http://lfoder.github.io/tags/Linux/"/>
+    
+      <category term="MacOS" scheme="http://lfoder.github.io/tags/MacOS/"/>
+    
+      <category term="Windows" scheme="http://lfoder.github.io/tags/Windows/"/>
+    
+  </entry>
   
   <entry>
     <title>全新MacOS系统零基础配置到使用全过程</title>
@@ -478,26 +506,6 @@
       <category term="darknet" scheme="http://lfoder.github.io/tags/darknet/"/>
     
       <category term="匿名浏览" scheme="http://lfoder.github.io/tags/%E5%8C%BF%E5%90%8D%E6%B5%8F%E8%A7%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mounty挂载失败解决方法</title>
-    <link href="http://lfoder.github.io/2018/03/12/Mounty%E6%8C%82%E8%BD%BD%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
-    <id>http://lfoder.github.io/2018/03/12/Mounty挂载失败解决方法/</id>
-    <published>2018-03-12T03:00:11.000Z</published>
-    <updated>2018-03-13T02:43:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>错误过程</strong>：</p><p>开机启动 <code>Mounty</code> 挂载NTFS磁盘时出现挂载失败的情况，磁盘在win下面没有安全删除就拔出来了，导致文件系统中有错误区块，所以在MAC中不能挂载成读写模式。</p><p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fp9ungtfepj30ng08et8x.jpg" alt=""></p><p>卷”BOOTCAMP “不可重新挂载</p><p><strong>解决方案</strong>：</p><p>到 win 下 对不可挂载的NTFS磁盘，进行 <code>chkdsk /f</code> 操作 ，并在结束后安全移除磁盘</p>]]></content>
-    
-    <summary type="html">
-    
-      Mounty挂载失败的时候，一些解决方案
-    
-    </summary>
-    
-    
-      <category term="Mounty" scheme="http://lfoder.github.io/tags/Mounty/"/>
     
   </entry>
   
