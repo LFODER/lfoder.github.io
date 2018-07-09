@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lfoder.github.io/"/>
-  <updated>2018-07-02T00:27:57.000Z</updated>
+  <updated>2018-07-09T05:28:50.831Z</updated>
   <id>http://lfoder.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>禁止Oh-my-zsh粘贴URL特殊字符时自动转义</title>
+    <link href="http://lfoder.github.io/2018/07/09/%E7%A6%81%E6%AD%A2Oh-my-zsh%E7%B2%98%E8%B4%B4URL%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E6%97%B6%E8%87%AA%E5%8A%A8%E8%BD%AC%E4%B9%89/"/>
+    <id>http://lfoder.github.io/2018/07/09/禁止Oh-my-zsh粘贴URL特殊字符时自动转义/</id>
+    <published>2018-07-09T05:26:48.000Z</published>
+    <updated>2018-07-09T05:28:50.831Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>在终端下使用zsh 粘贴时会自动把URL特殊字符转义，特别是使用SQLMAP的时候</p></blockquote><p>把 /root/.oh-my-zsh/lib/misc.zsh 文件中的第一段 if 注释掉 OK 啦 </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># if [[ $ZSH_VERSION != 5.1.1 ]]; then </span><br><span class="line"># for d in $fpath; do </span><br><span class="line"># if [[ -e &quot;$d/url-quote-magic&quot; ]]; then </span><br><span class="line"># if is-at-least 5.1; then </span><br><span class="line"># autoload -Uz bracketed-paste-magic </span><br><span class="line"># zle -N bracketed-paste bracketed-paste-magic </span><br><span class="line"># fi </span><br><span class="line"># autoload -Uz url-quote-magic </span><br><span class="line"># zle -N self-insert url-quote-magic </span><br><span class="line"># break </span><br><span class="line"># fi </span><br><span class="line"># done </span><br><span class="line"># fi</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;在终端下使用zsh 粘贴时会自动把URL特殊字符转义，特别是使用SQLMAP的时候&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;把 /root/.oh-my-zsh/lib/misc.zsh 文件中的第一段 if 注释掉 OK 啦 &lt;/p&gt;
+&lt;fig
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://lfoder.github.io/tags/Linux/"/>
+    
+      <category term="zsh" scheme="http://lfoder.github.io/tags/zsh/"/>
+    
+      <category term="终端优化" scheme="http://lfoder.github.io/tags/%E7%BB%88%E7%AB%AF%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>MacOS上微信多开插件WeChatTweak(免验证登录+消息防撤回)</title>
@@ -489,26 +520,6 @@
       <category term="lrzsz" scheme="http://lfoder.github.io/tags/lrzsz/"/>
     
       <category term="linux文件传输" scheme="http://lfoder.github.io/tags/linux%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS安装图形化操作界面</title>
-    <link href="http://lfoder.github.io/2018/04/26/CentOS%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E6%93%8D%E4%BD%9C%E7%95%8C%E9%9D%A2/"/>
-    <id>http://lfoder.github.io/2018/04/26/CentOS安装图形化操作界面/</id>
-    <published>2018-04-26T05:18:41.000Z</published>
-    <updated>2018-05-13T15:25:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="一、使用网络安装（如果网络比较快，这个方法简单）"><a href="#一、使用网络安装（如果网络比较快，这个方法简单）" class="headerlink" title="一、使用网络安装（如果网络比较快，这个方法简单）"></a>一、使用网络安装（如果网络比较快，这个方法简单）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall <span class="string">"Desktop"</span></span><br><span class="line">yum groupinstall <span class="string">"X Window System"</span></span><br><span class="line">yum groupinstall <span class="string">"Chinese Support"</span></span><br><span class="line">yum groupinstall <span class="string">"Font"</span></span><br><span class="line"></span><br><span class="line">startx</span><br></pre></td></tr></table></figure><h3 id="二、使用光盘安装（本地安装，速度快，麻烦一点）"><a href="#二、使用光盘安装（本地安装，速度快，麻烦一点）" class="headerlink" title="二、使用光盘安装（本地安装，速度快，麻烦一点）"></a>二、使用光盘安装（本地安装，速度快，麻烦一点）</h3><p>见：<a href="http://blog.163.com/tsee123@126/blog/static/3514054520118862320896/" target="_blank" rel="noopener">http://blog.163.com/tsee123@126/blog/static/3514054520118862320896/</a></p><p>1、首先进行光盘的挂载，注意光盘挂载时不会自动建立目录的，所以需要自己建立目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/cdrom</span><br><span class="line">mount /dev/cdrom /mnt/cdrom       #dev目录为设备目录</span><br></pre></td></tr></table></figure><p>2、更改本地源地址</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/yum.repos.d/         #可以看见CentOS-Base.repo和CentOS-Media.repo文件</span><br></pre></td></tr></table></figure><p>注意：<br>CentOS-Base.repo记录着网络上的yum源的地址和路径信息等<br>CentOS-Media.repo记录着可以从本地作为yum源的介质和路径<br>所以，我们更改CentOS-Media.repo就可以了</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">baseurl=file:///media/CentOS/</span><br><span class="line">              file:///media/cdrom/</span><br><span class="line">              file:///media/cdrecorder/</span><br><span class="line">              file:///mnt/cdrom    #增加这句</span><br></pre></td></tr></table></figure><p>3、我们安装gnome，但是在centos6里，gnome已经被改为Desktop了</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum --disablerepo=* --enablerepo=c6-media groupinstall <span class="string">"Desktop"</span></span><br></pre></td></tr></table></figure><p># 当然也可以看下有没有 groupinstall 改为 grouplist<br>4、安装好了gnome，还需安装X Window</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum --disablerepo=* --enablerepo=c6-media groupinstall <span class="string">"X Window System"</span></span><br></pre></td></tr></table></figure><p>5、然后我们安装中文语言</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum --disablerepo=* --enablerepo=c6-media groupinstall <span class="string">"Chinese Support"</span></span><br></pre></td></tr></table></figure><p>6、最关键的一步了，启动gnome</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">startx</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      CentOS 安装图形化操作界面步骤
-    
-    </summary>
-    
-      <category term="Linux 笔记" scheme="http://lfoder.github.io/categories/Linux-%E7%AC%94%E8%AE%B0/"/>
-    
     
   </entry>
   
