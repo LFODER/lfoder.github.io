@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lfoder.github.io/"/>
-  <updated>2018-07-09T05:28:50.831Z</updated>
+  <updated>2018-07-17T03:51:46.527Z</updated>
   <id>http://lfoder.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MetaSploit针对常用端口服务的渗透测试</title>
+    <link href="http://lfoder.github.io/2018/07/17/MetaSploit%E9%92%88%E5%AF%B9%E5%B8%B8%E7%94%A8%E7%AB%AF%E5%8F%A3%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    <id>http://lfoder.github.io/2018/07/17/MetaSploit针对常用端口服务的渗透测试/</id>
+    <published>2018-07-17T02:53:10.000Z</published>
+    <updated>2018-07-17T03:51:46.527Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="针对端口的攻击模块选择"><a href="#针对端口的攻击模块选择" class="headerlink" title="针对端口的攻击模块选择"></a>针对端口的攻击模块选择</h3><h4 id="Port-gt-21-FTP"><a href="#Port-gt-21-FTP" class="headerlink" title="Port =&gt; 21 [FTP]"></a>Port =&gt; 21 [FTP]</h4><blockquote><p>FTP 服务端开放监听端口</p></blockquote><p>模块选择:</p><ul><li>auxiliary/scanner/ftp/ftp_login        // FTP登录口令爆破</li></ul><h4 id="Port-gt-22-SSH"><a href="#Port-gt-22-SSH" class="headerlink" title="Port =&gt; 22 [SSH]"></a>Port =&gt; 22 [SSH]</h4><blockquote><p>SSH 服务开放监听端口</p></blockquote><p>模块选择:</p><ul><li>auxiliary/scanner/ssh/ssh_login     // SSH登录口令爆破</li></ul><h4 id="Port-gt-23-Telnet"><a href="#Port-gt-23-Telnet" class="headerlink" title="Port =&gt; 23 [Telnet]"></a>Port =&gt; 23 [Telnet]</h4><blockquote><p>telnet 服务开放监听端口</p></blockquote><p>模块选择:</p><ul><li>auxiliary/scanner/telnet/telnet_login    // Telnet 口令爆破</li></ul><h4 id="Port-gt-445-SMB"><a href="#Port-gt-445-SMB" class="headerlink" title="Port =&gt; 445 [SMB]"></a>Port =&gt; 445 [SMB]</h4><blockquote><p>SMB协议默认端口</p></blockquote><p>模块选择:</p><ul><li>exploit/windows/smb/ms08_067_netapi        // 远程溢出漏洞</li><li>exploit/windows/smb/ms17_010_eternalblue    // 永恒之蓝 远程命令执行</li><li>auxiliary/scanner/smb/smb_login              // SMB 登录口令爆破</li></ul><p>相关CVE:</p><ul><li>CVE-2017-7494    </li></ul><h4 id="Port-gt-3389-RDP"><a href="#Port-gt-3389-RDP" class="headerlink" title="Port =&gt; 3389 [RDP]"></a>Port =&gt; 3389 [RDP]</h4><blockquote><p>Windows远程桌面默认端口</p></blockquote><p>模块选择:</p><ul><li>auxiliary/scanner/rdp/ms12_020_check </li></ul><h4 id="Port-gt-5900-VNC"><a href="#Port-gt-5900-VNC" class="headerlink" title="Port =&gt; 5900 [VNC]"></a>Port =&gt; 5900 [VNC]</h4><blockquote><p>vnc服务默认端口</p></blockquote><p>模块选择:</p><ul><li>auxiliary/scanner/vnc/vnc_none_auth</li><li>auxiliary/scanner/vnc/vnc_login</li><li>exploit/multi/vnc/vnc_keyboard_exec</li></ul><h4 id="Port-gt-1433-SQLServer"><a href="#Port-gt-1433-SQLServer" class="headerlink" title="Port =&gt; 1433 [SQLServer]"></a>Port =&gt; 1433 [SQLServer]</h4><blockquote><p>SQLServer 默认端口</p></blockquote><p>模块选择:</p><ul><li>use auxiliary/scanner/mssql/mssql_login</li></ul><h4 id="Port-gt-3306-MySQL"><a href="#Port-gt-3306-MySQL" class="headerlink" title="Port =&gt; 3306 [MySQL]"></a>Port =&gt; 3306 [MySQL]</h4><blockquote><p>MySQL 数据库默认端口</p></blockquote><p>模块选择:</p><ul><li>auxiliary/scanner/mysql/mysql_login</li></ul><h4 id="Port-gt-27017-27018-MongoDB"><a href="#Port-gt-27017-27018-MongoDB" class="headerlink" title="Port =&gt; 27017,27018 [MongoDB]"></a>Port =&gt; 27017,27018 [MongoDB]</h4><blockquote><p>MongoDB默认端口</p></blockquote><p>模块选择:</p><ul><li>auxiliary/scanner/mongodb/mongodb_login </li></ul><h4 id="Port-gt-6379-Redis"><a href="#Port-gt-6379-Redis" class="headerlink" title="Port =&gt; 6379 [Redis]"></a>Port =&gt; 6379 [Redis]</h4><blockquote><p>Redis 默认端口</p></blockquote><p>模块选择:</p><ul><li>auxiliary/scanner/redis/redis_login</li><li>auxiliary/scanner/redis/file_upload </li></ul>]]></content>
+    
+    <summary type="html">
+    
+      针对常用的端口如何选择使用MSF的模块进行针对攻击
+    
+    </summary>
+    
+      <category term="MetaSploit 笔记" scheme="http://lfoder.github.io/categories/MetaSploit-%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="MetaSploit" scheme="http://lfoder.github.io/tags/MetaSploit/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang在macOS High Sierra 10.13.5上不用使用Debug的原因和处理方法</title>
+    <link href="http://lfoder.github.io/2018/07/10/Golang%E5%9C%A8macOS-High-Sierra-10-13-5%E4%B8%8A%E4%B8%8D%E7%94%A8%E4%BD%BF%E7%94%A8Debug%E7%9A%84%E5%8E%9F%E5%9B%A0%E5%92%8C%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/"/>
+    <id>http://lfoder.github.io/2018/07/10/Golang在macOS-High-Sierra-10-13-5上不用使用Debug的原因和处理方法/</id>
+    <published>2018-07-10T09:28:01.000Z</published>
+    <updated>2018-07-10T09:38:32.587Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="错误信息"><a href="#错误信息" class="headerlink" title="错误信息"></a>错误信息</h3><p>在 VSCode 或 Goland 中使用Debug功能是，调试窗口输出如下信息：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2018/07/10 17:19:15 server.go:73: Using API v1</span><br><span class="line">2018/07/10 17:19:15 debugger.go:98: launching process with args: [/Users/******/GolangProjects/**********]</span><br><span class="line">could not launch process: EOF</span><br><span class="line">Process exiting with code: 1</span><br></pre></td></tr></table></figure><h3 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h3><p>在 macOS 10.13 版本中，Command Line Tool不支持Golang的调试工具dlv</p><blockquote><p>参考：</p><ol><li><a href="https://link.zhihu.com/?target=https%3A//intellij-support.jetbrains.com/hc/en-us/community/posts/360000164764-Goland-Debugger-could-not-launch-process-EOF" target="_blank" rel="noopener">https://link.zhihu.com/?target=https%3A//intellij-support.jetbrains.com/hc/en-us/community/posts/360000164764-Goland-Debugger-could-not-launch-process-EOF</a></li><li><a href="https://link.zhihu.com/?target=https%3A//github.com/derekparker/delve/issues/1165" target="_blank" rel="noopener">https://link.zhihu.com/?target=https%3A//github.com/derekparker/delve/issues/1165</a></li></ol></blockquote><p>需要等待 derekparker/delve 修复这个问题</p><h3 id="临时解决方案"><a href="#临时解决方案" class="headerlink" title="临时解决方案"></a>临时解决方案</h3><p>目前只有 Workaround 的方法：</p><ol><li><p>删除当前macOS系统的Command Line Tool</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /Library/Developer/CommandLineTools</span><br></pre></td></tr></table></figure></li><li><p>登录苹果开发者平台，然后前往 <a href="https://developer.apple.com/download/more/" target="_blank" rel="noopener">https://developer.apple.com/download/more/</a> 下载 <strong>Command Line Tools (macOS 10.13) for Xcode 9.4.1</strong> </p><p>目前我写这篇博客的时候，最新版是这个版本，你可以根据你登录平台的时间寻找最新版本下载。 </p></li><li><p>安装之。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      升级了macOS系统到 macOS High Sierra 10.13.5 以后，导致Golang的Debug功能不能正常使用了，这里列举出错误原因和解决方案。
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>禁止Oh-my-zsh粘贴URL特殊字符时自动转义</title>
@@ -118,11 +158,11 @@
       <category term="渗透技巧" scheme="http://lfoder.github.io/categories/%E6%B8%97%E9%80%8F%E6%8A%80%E5%B7%A7/"/>
     
     
+      <category term="MacOS" scheme="http://lfoder.github.io/tags/MacOS/"/>
+    
       <category term="端口转发" scheme="http://lfoder.github.io/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"/>
     
       <category term="Linux" scheme="http://lfoder.github.io/tags/Linux/"/>
-    
-      <category term="MacOS" scheme="http://lfoder.github.io/tags/MacOS/"/>
     
       <category term="Windows" scheme="http://lfoder.github.io/tags/Windows/"/>
     
@@ -468,58 +508,6 @@
       <category term="树莓派" scheme="http://lfoder.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
     
       <category term="Raspberry Pi" scheme="http://lfoder.github.io/tags/Raspberry-Pi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>树莓派下使用dd克隆系统</title>
-    <link href="http://lfoder.github.io/2018/05/06/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8B%E4%BD%BF%E7%94%A8dd%E5%85%8B%E9%9A%86%E7%B3%BB%E7%BB%9F/"/>
-    <id>http://lfoder.github.io/2018/05/06/树莓派下使用dd克隆系统/</id>
-    <published>2018-05-06T12:10:50.000Z</published>
-    <updated>2018-05-12T08:58:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="情况了解"><a href="#情况了解" class="headerlink" title="情况了解"></a>情况了解</h3><blockquote><p>硬件清单：</p></blockquote><ul><li>Raspberry Pi 3B</li><li>64GB 内存卡</li><li>8G U盘</li><li>没有读卡器 没有读卡器 没有读卡器</li></ul><blockquote><p>状况简述：</p></blockquote><p>事件一 ( 树莓派从U盘启动系统 ) ： </p><p>入手了一个  <strong>树莓派3B</strong> ，很久之前 用 读卡器和一张 64GB的闲置内存卡 装了个 <code>kali arm 2.0</code> ，通过树莓派启动运行着做一个小型的渗透系统使用，但是最近系统最近被自己玩坏了，各种疑难杂症，解决方法千奇百怪，于是乎想换成 树莓派官方的专用的树莓派系统，清净一会，折腾折腾硬件。但是忽然想起来一个问题，我的读卡器出去旅行了，还没有回来，性格暴躁的我怎么可能再去淘宝上买一个新的然后等几天才收到然后重新烧写系统，虽然这样操作简单，但是我不愿意等，生命在于折腾，翻箱倒柜找到一个8G的老U盘，读写速度一般，Google了一下有没有什么办法让树莓派通过U盘启动，把官方原版系统刷到U盘上去 ，这样直接插上U盘，改点东西就能通过U盘启动了，这个东西就是<strong>引导文件</strong>，尝试修改引导通过U盘启动烧写在U盘上的树莓派官方原版系统。</p><p>事件二 ( 衍生… U盘系统已经成功启动，尝试树莓派上克隆整个系统 )：</p><p>正在运行中的U盘树莓派系统，使用 <code>dd</code> 命令来克隆U盘上的树莓派系统到原来的64G的内存卡上。从而抛弃8G的U盘，直接使用内存卡运行树莓派官方原版系统。</p><h3 id="具体实施"><a href="#具体实施" class="headerlink" title="具体实施"></a>具体实施</h3><ul><li>修改树莓派引导文件 从U盘启动系统</li></ul><blockquote><p>科普一下，树莓派的BootLoader启动顺序，树莓派会优先从TF卡(你的内存卡)启动，其次从USB端口启动。具体可以参考 <a href="http://www.52pi.net/archives/468" target="_blank" rel="noopener">这篇文章</a> ，但是因为我当前的实际情况是 kali arm 系统，不适合通过这种方式启动，因为在根目录下没有 config.txt 文件，我只能尝试直接修改根目录下的 cmdline.txt 文件 （当然是修改64G的内存卡上的 cmdline.txt）</p></blockquote><ol><li><p>首先下载官方树莓派系统 烧写到U盘，过程自行百度。</p></li><li><p>在U盘根目录下创建一个名为 <code>ssh</code> 的空文件，插上做好的U盘到树莓派上。</p></li><li><p>SSH连接到树莓派上的Kali系统，进入到 <code>/boot</code> 目录，找到 <code>cmdline.txt</code> 文件，修改文件中的 <code>root=/dev/mmcblk0p2</code>  为 <code>root=/dev/sda2</code>  </p><p>因为U盘系统做好了以后，U盘上默认有2个分区，第一个分区 为 boot引导分区 ，第二个分区为数据分区。而对于树莓派来说 ，有3个分区 ，第一个是 64G的内存卡系统，第二个是U盘的boot分区，第三个是U盘的data分区，linux下磁盘分区默认从sda后面加数字递增，所以 第一个第二个第三个分别是 sda，sda1，sda2 ，所以引导启动指定为 /dev/sda2</p></li><li><p>修改好后，直接保存 ，插上网线，然后重启</p></li><li><p>用自己的电脑执行 <code>sudo nmap -sn 192.168.1.1/24</code> ，扫描树莓派所在的网段，我是在MacOS下执行的，得加sudo，执行结果如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">lfoder in ~ λ sudo nmap -sn 192.168.1.1/24</span><br><span class="line">Starting Nmap 7.60 ( https://nmap.org ) at 2018-05-06 20:47 CST</span><br><span class="line">Nmap scan report for 192.168.1.1</span><br><span class="line">Host is up (0.0045s latency).</span><br><span class="line">MAC Address: 我是马赛克 (Sichuan Tianyi Comheart Telecomco.)</span><br><span class="line">Nmap scan report for 192.168.1.2</span><br><span class="line">Host is up (0.021s latency).</span><br><span class="line">MAC Address: 我是马赛克 (Apple)</span><br><span class="line">Nmap scan report for 192.168.1.4</span><br><span class="line">Host is up (0.027s latency).</span><br><span class="line">MAC Address: 我是马赛克 (Ampak Technology)</span><br><span class="line">Nmap scan report for 192.168.1.6</span><br><span class="line">Host is up (0.0062s latency).</span><br><span class="line">MAC Address: 我是马赛克 (Raspberry Pi Foundation)</span><br><span class="line">Nmap scan report for 192.168.1.11</span><br><span class="line">Host is up (0.0067s latency).</span><br><span class="line">MAC Address: 我是马赛克 (Huawei Technologies)</span><br><span class="line">Nmap scan report for 192.168.1.5</span><br><span class="line">Host is up.</span><br><span class="line">Nmap done: 256 IP addresses (6 hosts up) scanned in 4.58 seconds</span><br><span class="line">lfoder in ~ λ</span><br></pre></td></tr></table></figure><p>可以看到 <code>Raspberry Pi Foundation</code> ，得知树莓派的IP是 <code>192.168.1.6</code>，然后<code>ssh pi@192.168.1.6</code>登陆之( 默认pi账户的密码是raspberry )，成功从U盘启动树莓派官方系统。</p></li></ol><ul><li>U盘树莓派系统通过dd命令克隆到内存卡</li></ul><blockquote><p>PS: 我失败了…………     &gt;…&lt; il  </p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      记录坎坷的树莓派换系统经历
-    
-    </summary>
-    
-      <category term="Raspberry Pi 笔记" scheme="http://lfoder.github.io/categories/Raspberry-Pi-%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="树莓派" scheme="http://lfoder.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
-    
-      <category term="Raspberry Pi" scheme="http://lfoder.github.io/tags/Raspberry-Pi/"/>
-    
-      <category term="dd" scheme="http://lfoder.github.io/tags/dd/"/>
-    
-      <category term="系统克隆" scheme="http://lfoder.github.io/tags/%E7%B3%BB%E7%BB%9F%E5%85%8B%E9%9A%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MacOS安装配置与使用lrzsz文件传输工具</title>
-    <link href="http://lfoder.github.io/2018/04/27/MacOS%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8lrzsz%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%B7%A5%E5%85%B7/"/>
-    <id>http://lfoder.github.io/2018/04/27/MacOS安装配置与使用lrzsz文件传输工具/</id>
-    <published>2018-04-27T02:53:26.000Z</published>
-    <updated>2018-05-13T15:28:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>rz 可以很方便的从客户端传文件到服务器，sz也可以很方便的从服务器传文件到客户端，就算中间隔着跳板机也不影响。在mac下试了一下，mac的终端是不支持的，需要下载item2。另外不能在mac下用expect 自动登录服务器、执行rz或sz等操作，否则终端会挂掉。</p><h2 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h2><h3 id="安装iTerm2"><a href="#安装iTerm2" class="headerlink" title="安装iTerm2"></a>安装iTerm2</h3><p>官方下载地址:</p><p><a href="http://iterm2.com/downloads.html" target="_blank" rel="noopener">http://iterm2.com/downloads.html</a></p><p>下载完成后，解压得到 iTerm2.app 拖放到 自己应用程序(Applocation) 中即可。</p><h3 id="安装lrszs"><a href="#安装lrszs" class="headerlink" title="安装lrszs"></a>安装lrszs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install lrzsz</span><br></pre></td></tr></table></figure><p>检查是否安装成功</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -lah /usr/local/bin/sz</span><br><span class="line">ls -lah /usr/local/bin/rz</span><br></pre></td></tr></table></figure><h3 id="下载iTerm2-zmodem"><a href="#下载iTerm2-zmodem" class="headerlink" title="下载iTerm2-zmodem"></a>下载iTerm2-zmodem</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https://raw.github.com/mmastrac/iterm2-zmodem/master/iterm2-send-zmodem.sh -O /usr/local/bin/iterm2-send-zmodem.sh</span><br><span class="line"></span><br><span class="line">sudo wget https://raw.github.com/mmastrac/iterm2-zmodem/master/iterm2-recv-zmodem.sh -O /usr/local/bin/iterm2-recv-zmodem.sh</span><br><span class="line"></span><br><span class="line">sudo chmod 777 /usr/local/bin/iterm2-*</span><br></pre></td></tr></table></figure><h3 id="配置iTerm2-添加触发Trigger"><a href="#配置iTerm2-添加触发Trigger" class="headerlink" title="配置iTerm2 添加触发Trigger"></a>配置iTerm2 添加触发Trigger</h3><p>给终端iTerm2 添加触发Trigger 事件</p><p>打开iTerm2  ==&gt; 按下 组合件 <code>command</code> + <code>,</code>   ==&gt; 找到 <code>Triggers</code> 下面的<code>Edit</code> 点击 ==&gt; 弹出一个窗口</p><p>内容写如下配置:</p><table><thead><tr><th style="text-align:center">Reguler Expression</th><th style="text-align:center">Action</th><th style="text-align:center">Parameters</th><th style="text-align:center">Instant</th></tr></thead><tbody><tr><td style="text-align:center">\*\*B0100</td><td style="text-align:center">Run Slient Coprocess…</td><td style="text-align:center">/usr/local/bin/iterm2-send-zmodem.sh</td><td style="text-align:center">✔</td></tr><tr><td style="text-align:center">\*\*B00000000000000</td><td style="text-align:center">Run Slient Coprocess…</td><td style="text-align:center">/usr/local/bin/iterm2-recv-zmodem.sh</td><td style="text-align:center">✔</td></tr></tbody></table><p>配置完成，现在你可以使用MacOS下的iTerm2终端操作lrzsz 来传输文件了。</p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="从本地传输文件到远程"><a href="#从本地传输文件到远程" class="headerlink" title="从本地传输文件到远程"></a>从本地传输文件到远程</h3><p>在MacOS刚配置好的iTerm2终端下使用ssh远程登录到一台你的VPS或虚拟机上，在ssh中输入 <code>rz</code> 命令，会弹出一个选择文件的窗口，选择确定后会直接传入到远程SSH的机器上。</p><h3 id="从远程传输文件到本地"><a href="#从远程传输文件到本地" class="headerlink" title="从远程传输文件到本地"></a>从远程传输文件到本地</h3><p>在MacOS刚配置好的iTerm2终端下使用ssh远程登录到一台你的VPS或虚拟机上，在ssh中输入 <code>sz</code> 命令加你要传回来的文件路径 (例如 : <code>sz /root/lfoder.txt</code>)，会弹出一个文件保存的窗口，选择位置后直接确定，即开始从远程将文件传输至本地。</p>]]></content>
-    
-    <summary type="html">
-    
-      MacOS安装配置与使用lrzsz文件传输工具，MacOS上使用 rz 和 sz 命令进行文件相互传输。
-    
-    </summary>
-    
-      <category term="MacOS 笔记" scheme="http://lfoder.github.io/categories/MacOS-%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="lrzsz" scheme="http://lfoder.github.io/tags/lrzsz/"/>
-    
-      <category term="linux文件传输" scheme="http://lfoder.github.io/tags/linux%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/"/>
     
   </entry>
   
