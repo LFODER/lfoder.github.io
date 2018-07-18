@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lfoder.github.io/"/>
-  <updated>2018-07-17T03:51:46.527Z</updated>
+  <updated>2018-07-18T01:47:08.341Z</updated>
   <id>http://lfoder.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>纯CSS实现随机页面背景图自适应</title>
+    <link href="http://lfoder.github.io/2018/07/18/%E7%BA%AFCSS%E5%AE%9E%E7%8E%B0%E9%9A%8F%E6%9C%BA%E9%A1%B5%E9%9D%A2%E8%83%8C%E6%99%AF%E5%9B%BE%E8%87%AA%E9%80%82%E5%BA%94/"/>
+    <id>http://lfoder.github.io/2018/07/18/纯CSS实现随机页面背景图自适应/</id>
+    <published>2018-07-18T01:21:29.000Z</published>
+    <updated>2018-07-18T01:47:08.341Z</updated>
+    
+    <content type="html"><![CDATA[<p>代码:</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>随机切换网页背景图效果-css实现<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">body&#123;</span></span><br><span class="line"><span class="undefined">position: fixed;</span></span><br><span class="line"><span class="undefined">    width: 100%;</span></span><br><span class="line"><span class="undefined">    background-repeat: no-repeat;</span></span><br><span class="line"><span class="undefined">    background-size: cover;</span></span><br><span class="line"><span class="undefined">    z-index: 1;</span></span><br><span class="line"><span class="undefined">    top: 0;</span></span><br><span class="line"><span class="undefined">    left: 0;</span></span><br><span class="line"><span class="undefined">    background-position: center 0%;</span></span><br><span class="line"><span class="undefined">    background-attachment: fixed;</span></span><br><span class="line"><span class="undefined">    height: 100%;</span></span><br><span class="line"><span class="undefined">    background-image: url(https://unsplash.it/1600/900?random);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><p>效果 (尝试拉动浏览器边框改变浏览器大小)：</p><div id="test" style="            width: 100%;            background-repeat: no-repeat;            background-size: cover;            z-index: 1;            top: 0;            left: 0;            background-position: center 0%;            background-attachment: fixed;            height: 500px;            background-image: url(https://unsplash.it/1600/900?random);"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;代码:&lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="前端笔记" scheme="http://lfoder.github.io/categories/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="HTML" scheme="http://lfoder.github.io/tags/HTML/"/>
+    
+      <category term="CSS" scheme="http://lfoder.github.io/tags/CSS/"/>
+    
+      <category term="自适应" scheme="http://lfoder.github.io/tags/%E8%87%AA%E9%80%82%E5%BA%94/"/>
+    
+  </entry>
   
   <entry>
     <title>MetaSploit针对常用端口服务的渗透测试</title>
@@ -158,11 +188,11 @@
       <category term="渗透技巧" scheme="http://lfoder.github.io/categories/%E6%B8%97%E9%80%8F%E6%8A%80%E5%B7%A7/"/>
     
     
-      <category term="MacOS" scheme="http://lfoder.github.io/tags/MacOS/"/>
-    
       <category term="端口转发" scheme="http://lfoder.github.io/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"/>
     
       <category term="Linux" scheme="http://lfoder.github.io/tags/Linux/"/>
+    
+      <category term="MacOS" scheme="http://lfoder.github.io/tags/MacOS/"/>
     
       <category term="Windows" scheme="http://lfoder.github.io/tags/Windows/"/>
     
@@ -484,30 +514,6 @@
       <category term="Linux" scheme="http://lfoder.github.io/tags/Linux/"/>
     
       <category term="SSH证书登录" scheme="http://lfoder.github.io/tags/SSH%E8%AF%81%E4%B9%A6%E7%99%BB%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>树莓派系统的安装与配置</title>
-    <link href="http://lfoder.github.io/2018/05/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
-    <id>http://lfoder.github.io/2018/05/12/树莓派系统的安装与配置/</id>
-    <published>2018-05-12T07:56:08.000Z</published>
-    <updated>2018-05-12T08:58:20.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="树莓派系统的安装与配置"><a href="#树莓派系统的安装与配置" class="headerlink" title="树莓派系统的安装与配置"></a>树莓派系统的安装与配置</h3><h4 id="下载-Raspberry-Pi-系统"><a href="#下载-Raspberry-Pi-系统" class="headerlink" title="下载 Raspberry Pi 系统"></a>下载 Raspberry Pi 系统</h4><p><a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="noopener">https://www.raspberrypi.org/downloads/</a></p><p>下载完成后是一个zip压缩文件，解压出来成为一个拓展名为 <code>.img</code>  的文件</p><h4 id="烧写树莓派系统到内存卡"><a href="#烧写树莓派系统到内存卡" class="headerlink" title="烧写树莓派系统到内存卡"></a>烧写树莓派系统到内存卡</h4><p>首先你需要一个读卡器，很庆幸翻箱倒柜找到一枚N年前还是USB2.0的读卡器，谢天谢地。</p><p>然后我的测试环境是 <code>MacOS</code> ，使用的烧录软件是 <code>Etcher</code> ，这是一个烧写磁盘镜像的工具，Windows上有很多烧写磁盘的工具，具体自己找吧…   都有异曲同工之妙。</p><p>步骤很简单，界面如下：</p><p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fr8mnbp8akj318g0l40sw.jpg" alt=""></p><p>左边一个 选择好你刚才下载解压出来的img镜像文件，中间一个选择你要烧写的目标磁盘或内存卡 (默认会自动选择可移动磁盘或内存卡，不会选择系统磁盘，可放心使用)， 第三个<code>Flash！</code> 就是烧写操作，前两项选择完毕以后第三项<code>Flash！</code>以后就开始烧写了。</p><p>首先<strong>烧写之前</strong>右上角设置小齿轮里最好关掉所有选择项，慢慢你就懂了… </p><p><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1fr8msj6141j318g0l40t3.jpg" alt=""></p><p>然后根据上面的步骤开始烧写磁盘。</p><p>烧写完毕。树莓派系统就已经做好了。此时还没有结束。</p><h4 id="树莓派开机自动启动SSH服务"><a href="#树莓派开机自动启动SSH服务" class="headerlink" title="树莓派开机自动启动SSH服务"></a>树莓派开机自动启动SSH服务</h4><p>在树莓派系统的内存卡根目录中，创建一个名为 <code>ssh</code>  的空文件，这样做的目的是为了在树莓派系统启动时自动启动 ssh 服务，插上网线，重启之。</p><p>用自己的电脑执行 <code>sudo nmap -sn 192.168.1.1/24</code>  扫描树莓派所在的网段，我是在MacOS下执行的，得加sudo，执行结果如下：</p>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">lfoder in ~ λ sudo nmap -sn 192.168.1.1/24</span><br><span class="line">Starting Nmap 7.60 ( https://nmap.org ) at 2018-05-12 16:57 CST</span><br><span class="line">Nmap scan report for 192.168.1.1</span><br><span class="line">Host is up (0.0045s latency).</span><br><span class="line">MAC Address: 我是马赛克 (Sichuan Tianyi Comheart Telecomco.)</span><br><span class="line">Nmap scan report for 192.168.1.2</span><br><span class="line">Host is up (0.021s latency).</span><br><span class="line">MAC Address: 我是马赛克 (Apple)</span><br><span class="line">Nmap scan report for 192.168.1.4</span><br><span class="line">Host is up (0.027s latency).</span><br><span class="line">MAC Address: 我是马赛克 (Ampak Technology)</span><br><span class="line">Nmap scan report for 192.168.1.6</span><br><span class="line">Host is up (0.0062s latency).</span><br><span class="line">MAC Address: 我是马赛克 (Raspberry Pi Foundation)</span><br><span class="line">Nmap scan report for 192.168.1.11</span><br><span class="line">Host is up (0.0067s latency).</span><br><span class="line">MAC Address: 我是马赛克 (Huawei Technologies)</span><br><span class="line">Nmap scan report for 192.168.1.5</span><br><span class="line">Host is up.</span><br><span class="line">Nmap done: 256 IP addresses (6 hosts up) scanned in 4.58 seconds</span><br><span class="line">lfoder in ~ λ</span><br></pre></td></tr></table></figure><p>   可以看到 <code>Raspberry Pi Foundation</code> ，得知树莓派的IP是 <code>192.168.1.6</code>，然后<code>ssh pi@192.168.1.6</code>登陆之( 默认pi账户的密码是raspberry )，成功从U盘启动树莓派官方系统。</p><h4 id="树莓派开机自动连接WiFi"><a href="#树莓派开机自动连接WiFi" class="headerlink" title="树莓派开机自动连接WiFi"></a>树莓派开机自动连接WiFi</h4><p>将你的wifi 通过以下格式 改写成一个 名为 <code>wpa_supplicant.conf</code> 存放在树莓派系统所在内存卡的根目录下 (unix系统看到的是在挂载的内存卡磁盘上的 /boot 目录下)，</p><p>内容如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">country=CN</span><br><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=1</span><br><span class="line"> </span><br><span class="line">network=&#123;</span><br><span class="line">ssid=&quot;我是wifi名字&quot;</span><br><span class="line">psk=&quot;woshiwifimima&quot;</span><br><span class="line">key_mgmt=WPA-PSK</span><br><span class="line">priority=1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">network=&#123;</span><br><span class="line">ssid=&quot;WiFi-A&quot;</span><br><span class="line">psk=&quot;12345678&quot;</span><br><span class="line">key_mgmt=WPA-PSK</span><br><span class="line">priority=2</span><br><span class="line">scan_ssid=1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">network=&#123;</span><br><span class="line">ssid=&quot;WiFi-B&quot;</span><br><span class="line">psk=&quot;12345678&quot;</span><br><span class="line">key_mgmt=WPA-PSK</span><br><span class="line">priority=3</span><br><span class="line">scan_ssid=1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>network 里面的ssid是wifi的名字，psk 是wifi密码，填好后保存重启 ，树莓派将会根据优先级自动连上wifi。</p><h3 id="低电压错误处理"><a href="#低电压错误处理" class="headerlink" title="低电压错误处理"></a>低电压错误处理</h3><blockquote><p>至此 ，树莓派接上HDMI线后连接电视会出现以下错误提示信息</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Under-voltage detected! (0x00050005)</span><br></pre></td></tr></table></figure><p>期间右上角还会出现黄色的小闪电，偶尔会开机黑屏，系统都进不去…  这是电压检测不通过。</p><p>状况概览：</p><p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fr8njfc9jkj31kw16o0wy.jpg" alt=""></p><p>然后黑屏，至少我的状况是这样的..  </p><blockquote><p>解决方法：</p></blockquote><p>编辑 内存卡根目录 (unix系统打开是在挂载磁盘的 /boot 目录下) 找到 <code>config.txt</code></p><p>vim编辑此文件，追加以下信息到结尾：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Disable under-voltage warning</span><br><span class="line">avoid_warnings=1</span><br></pre></td></tr></table></figure><p>保存退出 ，重启树莓派，错误提示消失并成功开机。</p><blockquote><p>参考资料:</p></blockquote><p><a href="https://scribles.net/lightning-bolt-under-voltage-warning-on-raspberry-pi" target="_blank" rel="noopener">https://scribles.net/lightning-bolt-under-voltage-warning-on-raspberry-pi</a></p><p><a href="https://retropie.org.uk/forum/topic/1006/under-voltage-on-the-pi3" target="_blank" rel="noopener">https://retropie.org.uk/forum/topic/1006/under-voltage-on-the-pi3</a></p><p><a href="https://github.com/raspberrypi/linux/issues/2512" target="_blank" rel="noopener">https://github.com/raspberrypi/linux/issues/2512</a></p><p>这里还有一篇关于树莓派电压不足的文章，推荐使用 5V 2A 的电源。</p><p><a href="http://bbs.elecfans.com/jishu_450017_1_1.html" target="_blank" rel="noopener">http://bbs.elecfans.com/jishu_450017_1_1.html</a></p>]]></content>
-    
-    <summary type="html">
-    
-      树莓派安装系统与配置SSH并正常使用
-    
-    </summary>
-    
-      <category term="Raspberry Pi 笔记" scheme="http://lfoder.github.io/categories/Raspberry-Pi-%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="树莓派" scheme="http://lfoder.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
-    
-      <category term="Raspberry Pi" scheme="http://lfoder.github.io/tags/Raspberry-Pi/"/>
     
   </entry>
   
