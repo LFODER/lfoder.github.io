@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="An0nyMouS">
 <meta property="og:description" content="纯属个人笔记，从全新的MacOS系统开始一步一步配置MacOS成为一台超级顺手的SuperComputer">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-26T15:02:25.000Z">
+<meta property="og:updated_time" content="2018-07-27T01:14:17.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="全新MacOS系统零基础配置到使用全过程">
 <meta name="twitter:description" content="纯属个人笔记，从全新的MacOS系统开始一步一步配置MacOS成为一台超级顺手的SuperComputer">
@@ -394,7 +394,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-26 23:02:25" itemprop="dateModified" datetime="2018-06-26T23:02:25+08:00">2018-06-26</time>
+                <time title="修改时间：2018-07-27 09:14:17" itemprop="dateModified" datetime="2018-07-27T09:14:17+08:00">2018-07-27</time>
               
             
           </span>
@@ -477,6 +477,14 @@
 <p>恢复方法：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist</span><br><span class="line"><span class="comment"># 状态栏图标</span></span><br><span class="line"><span class="built_in">cd</span> /System/Library/CoreServices/</span><br><span class="line">sudo mv Search.bundle.bak/ Search.bundle/</span><br></pre></td></tr></table></figure>
 <p>设置后需要重启。</p>
+<blockquote>
+<p>当你发现 系统有大量mds、mds_stores、mdworker进程在后台疯狂工作的问题 ，CPU近乎占满的时候，来看看这里，原因是这几个进程为了Spotlight索引在疯狂的工作，禁用即可。</p>
+<p>禁用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; sudo mdutil -a -i off</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>启用方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; sudo mdutil -a -i on</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 <h3 id="显示隐藏文件"><a href="#显示隐藏文件" class="headerlink" title="显示隐藏文件"></a>显示隐藏文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示</span></span><br><span class="line">defaults write com.apple.finder AppleShowAllFiles YES</span><br><span class="line"><span class="comment"># 重启Finder</span></span><br><span class="line">killall Finder</span><br></pre></td></tr></table></figure>
 <p>隐藏只需将 <code>YES</code> 改成 <code>No</code> 执行即可。</p>
 <h3 id="禁用Dashboard功能"><a href="#禁用Dashboard功能" class="headerlink" title="禁用Dashboard功能"></a>禁用Dashboard功能</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dashboard mcx-disabled -boolean YES</span><br><span class="line">killall Dock</span><br></pre></td></tr></table></figure>
@@ -775,7 +783,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
