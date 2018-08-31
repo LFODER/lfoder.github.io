@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lfoder.github.io/"/>
-  <updated>2018-07-27T01:10:29.263Z</updated>
+  <updated>2018-08-31T02:06:36.560Z</updated>
   <id>http://lfoder.github.io/</id>
   
   <author>
@@ -15,24 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>看我如何坎坷的绕过某个奇葩的反爬虫系统</title>
-    <link href="http://lfoder.github.io/2018/07/25/%E7%9C%8B%E6%88%91%E5%A6%82%E4%BD%95%E5%9D%8E%E5%9D%B7%E7%9A%84%E7%BB%95%E8%BF%87%E6%9F%90%E4%B8%AA%E5%A5%87%E8%91%A9%E7%9A%84%E5%8F%8D%E7%88%AC%E8%99%AB%E7%B3%BB%E7%BB%9F/"/>
-    <id>http://lfoder.github.io/2018/07/25/看我如何坎坷的绕过某个奇葩的反爬虫系统/</id>
-    <published>2018-07-25T09:06:56.000Z</published>
-    <updated>2018-07-27T01:10:29.263Z</updated>
-    
-    <content type="html"><![CDATA[<p>没时间写了…  最近有点忙   什么时候想起来再写吧</p>]]></content>
-    
-    <summary type="html">
-    
-      记一次绕过反爬系统的经历
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Windows静默安装WinPcap包</title>
@@ -53,17 +35,13 @@
     <link href="http://lfoder.github.io/2018/07/18/%E7%BA%AFCSS%E5%AE%9E%E7%8E%B0%E9%9A%8F%E6%9C%BA%E9%A1%B5%E9%9D%A2%E8%83%8C%E6%99%AF%E5%9B%BE%E8%87%AA%E9%80%82%E5%BA%94/"/>
     <id>http://lfoder.github.io/2018/07/18/纯CSS实现随机页面背景图自适应/</id>
     <published>2018-07-18T01:21:29.000Z</published>
-    <updated>2018-07-18T01:47:08.341Z</updated>
+    <updated>2018-08-31T02:30:39.189Z</updated>
     
-    <content type="html"><![CDATA[<p>代码:</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>随机切换网页背景图效果-css实现<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">body&#123;</span></span><br><span class="line"><span class="undefined">position: fixed;</span></span><br><span class="line"><span class="undefined">    width: 100%;</span></span><br><span class="line"><span class="undefined">    background-repeat: no-repeat;</span></span><br><span class="line"><span class="undefined">    background-size: cover;</span></span><br><span class="line"><span class="undefined">    z-index: 1;</span></span><br><span class="line"><span class="undefined">    top: 0;</span></span><br><span class="line"><span class="undefined">    left: 0;</span></span><br><span class="line"><span class="undefined">    background-position: center 0%;</span></span><br><span class="line"><span class="undefined">    background-attachment: fixed;</span></span><br><span class="line"><span class="undefined">    height: 100%;</span></span><br><span class="line"><span class="undefined">    background-image: url(https://unsplash.it/1600/900?random);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><p>效果 (尝试拉动浏览器边框改变浏览器大小)：</p><div id="test" style="            width: 100%;            background-repeat: no-repeat;            background-size: cover;            z-index: 1;            top: 0;            left: 0;            background-position: center 0%;            background-attachment: fixed;            height: 500px;            background-image: url(https://unsplash.it/1600/900?random);"></div>]]></content>
+    <content type="html"><![CDATA[<p>纯CSS实现让页面自动随机更换背景并图片自适应操作，以下是代码部分。</p><p>客观请慢用 …</p><p>代码:</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>随机切换网页背景图效果-css实现<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">body&#123;</span></span><br><span class="line"><span class="undefined">position: fixed;</span></span><br><span class="line"><span class="undefined">    width: 100%;</span></span><br><span class="line"><span class="undefined">    background-repeat: no-repeat;</span></span><br><span class="line"><span class="undefined">    background-size: cover;</span></span><br><span class="line"><span class="undefined">    z-index: 1;</span></span><br><span class="line"><span class="undefined">    top: 0;</span></span><br><span class="line"><span class="undefined">    left: 0;</span></span><br><span class="line"><span class="undefined">    background-position: center 0%;</span></span><br><span class="line"><span class="undefined">    background-attachment: fixed;</span></span><br><span class="line"><span class="undefined">    height: 100%;</span></span><br><span class="line"><span class="undefined">    background-image: url(https://unsplash.it/1600/900?random);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><p>效果 (尝试拉动浏览器边框改变浏览器大小)：</p><div id="test" style="            width: 100%;            background-repeat: no-repeat;            background-size: cover;            z-index: 1;            top: 0;            left: 0;            background-position: center 0%;            background-attachment: fixed;            height: 500px;            background-image: url(https://unsplash.it/1600/900?random);"></div>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;代码:&lt;/p&gt;
-&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;
-      
+      纯CSS实现让页面自动随机更换背景并图片自适应操作
     
     </summary>
     
@@ -498,6 +476,30 @@
       <category term="MacOS" scheme="http://lfoder.github.io/tags/MacOS/"/>
     
       <category term="vim" scheme="http://lfoder.github.io/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树莓派配置配置VNC服务并开机启动</title>
+    <link href="http://lfoder.github.io/2018/05/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%85%8D%E7%BD%AE%E9%85%8D%E7%BD%AEVNC%E6%9C%8D%E5%8A%A1%E5%B9%B6%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/"/>
+    <id>http://lfoder.github.io/2018/05/12/树莓派配置配置VNC服务并开机启动/</id>
+    <published>2018-05-12T09:39:20.000Z</published>
+    <updated>2018-05-12T09:54:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先进入SSH进入树莓派系统</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure><p>进入树莓派配置页面</p><p>选择 第5项  <strong>5 Interfacing Options</strong>，回车进入</p><p>然后选择第3项 <strong>P3 VNC</strong>， 回车进入，选择 <code>yes</code></p><p>然后Finish  重启树莓派 SSH 登录。</p><p>开始配置树莓派VNC服务启动脚本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/init.d/vncserver</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">### BEGIN INIT INFO</span><br><span class="line"># Provides:          vncserver</span><br><span class="line"># Required-Start:    $local_fs</span><br><span class="line"># Required-Stop:     $local_fs</span><br><span class="line"># Default-Start:     2 3 4 5</span><br><span class="line"># Default-Stop:      0 1 6</span><br><span class="line"># Short-Description: Start/stop vncserver</span><br><span class="line">### END INIT INFO</span><br><span class="line"> </span><br><span class="line"># More details see:</span><br><span class="line"># http://www.penguintutor.com/linux/vnc</span><br><span class="line"> </span><br><span class="line">### Customize this entry</span><br><span class="line"># Set the USER variable to the name of the user to start vncserver under</span><br><span class="line">export USER=&apos;pi&apos;</span><br><span class="line">### End customization required</span><br><span class="line"> </span><br><span class="line">eval cd ~$USER</span><br><span class="line"> </span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">  start)</span><br><span class="line">    # 启动命令行。此处自定义分辨率、控制台号码或其它参数。</span><br><span class="line">    su $USER -c &apos;/usr/bin/vncserver -depth 16 -geometry 1024x768 :1&apos;</span><br><span class="line">    echo &quot;Starting VNC server for $USER &quot;</span><br><span class="line">    ;;</span><br><span class="line">  stop)</span><br><span class="line">    # 终止命令行。此处控制台号码与启动一致。</span><br><span class="line">    su $USER -c &apos;/usr/bin/vncserver -kill :1&apos;</span><br><span class="line">    echo &quot;vncserver stopped&quot;</span><br><span class="line">    ;;</span><br><span class="line">  *)</span><br><span class="line">    echo &quot;Usage: /etc/init.d/vncserver &#123;start|stop&#125;&quot;</span><br><span class="line">    exit 1</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure><p>写入以上内容，保存退出。</p><p>然后 修改权限</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 755 /etc/init.d/vncserver</span><br></pre></td></tr></table></figure><p>然后 添加开机启动项</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-rc.d vncserver defaults</span><br></pre></td></tr></table></figure><p>最后 重启树莓派</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      树莓派配置VNC服务并开机启动
+    
+    </summary>
+    
+      <category term="Raspberry Pi 笔记" scheme="http://lfoder.github.io/categories/Raspberry-Pi-%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="树莓派" scheme="http://lfoder.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+      <category term="Raspberry Pi" scheme="http://lfoder.github.io/tags/Raspberry-Pi/"/>
     
   </entry>
   
