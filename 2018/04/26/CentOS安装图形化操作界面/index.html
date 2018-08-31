@@ -1077,6 +1077,9 @@
                 var searchTextCount = 0;
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
+                if (data.content == undefined){
+                    data.content = ""
+                }
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
                 
                 content = unescapeHtml(content);
