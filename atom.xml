@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lfoder.github.io/"/>
-  <updated>2018-09-26T02:47:30.243Z</updated>
+  <updated>2018-10-31T06:17:49.054Z</updated>
   <id>http://lfoder.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MacOS出现/usr/bin/ulimit: line 4: ulimit: open files: cannot modify limit: Invalid argument解决方案</title>
+    <link href="http://lfoder.github.io/2018/10/31/MacOS%E5%87%BA%E7%8E%B0-usr-bin-ulimit-line-4-ulimit-open-files-cannot-modify-limit-Invalid-argument%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://lfoder.github.io/2018/10/31/MacOS出现-usr-bin-ulimit-line-4-ulimit-open-files-cannot-modify-limit-Invalid-argument解决方案/</id>
+    <published>2018-10-31T06:05:09.000Z</published>
+    <updated>2018-10-31T06:17:49.054Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="症状"><a href="#症状" class="headerlink" title="症状"></a>症状</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="built_in">ulimit</span> -n 65535</span><br><span class="line">/usr/bin/<span class="built_in">ulimit</span>: line 4: <span class="built_in">ulimit</span>: open files: cannot modify <span class="built_in">limit</span>: Invalid argument</span><br></pre></td></tr></table></figure><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ <span class="built_in">echo</span> kern.maxfiles=65535 | sudo tee -a /etc/sysctl.conf</span><br><span class="line">Password:</span><br><span class="line">kern.maxfiles=65535</span><br><span class="line">➜  ~ <span class="built_in">echo</span> kern.maxfilesperproc=65535 | sudo tee -a /etc/sysctl.conf</span><br><span class="line">kern.maxfilesperproc=65535</span><br><span class="line">➜  ~ sudo sysctl -w kern.maxfiles=65535</span><br><span class="line">kern.maxfiles: 12288 -&gt; 65535</span><br><span class="line">➜  ~ sudo sysctl -w kern.maxfilesperproc=65535</span><br><span class="line">kern.maxfilesperproc: 10240 -&gt; 65535</span><br><span class="line">➜  ~ <span class="built_in">ulimit</span> -n 65535 65535</span><br><span class="line">➜  ~ <span class="built_in">ulimit</span> -a</span><br><span class="line">-t: cpu time (seconds)              unlimited</span><br><span class="line">-f: file size (blocks)              65535</span><br><span class="line">-d: data seg size (kbytes)          unlimited</span><br><span class="line">-s: stack size (kbytes)             8192</span><br><span class="line">-c: core file size (blocks)         0</span><br><span class="line">-v: address space (kbytes)          unlimited</span><br><span class="line">-l: locked-in-memory size (kbytes)  unlimited</span><br><span class="line">-u: processes                       709</span><br><span class="line">-n: file descriptors                65535</span><br><span class="line">➜  ~</span><br></pre></td></tr></table></figure><p>Via: <a href="http://blog.mact.me/2014/10/22/yosemite-upgrade-changes-open-file-limit" target="_blank" rel="noopener">http://blog.mact.me/2014/10/22/yosemite-upgrade-changes-open-file-limit</a></p>]]></content>
+    
+    <summary type="html">
+    
+      MacOS出现/usr/bin/ulimit: line 4: ulimit: open files: cannot modify limit: Invalid argument解决方案
+    
+    </summary>
+    
+    
+      <category term="MacOS" scheme="http://lfoder.github.io/tags/MacOS/"/>
+    
+      <category term="ulimit" scheme="http://lfoder.github.io/tags/ulimit/"/>
+    
+  </entry>
   
   <entry>
     <title>asciinema终端操作最好的录制工具,谁用谁知道</title>
@@ -462,33 +484,6 @@
       <category term="Golang" scheme="http://lfoder.github.io/tags/Golang/"/>
     
       <category term="HTTPS" scheme="http://lfoder.github.io/tags/HTTPS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iTunes备份iPhone系统在MacOS上的备份文件路径</title>
-    <link href="http://lfoder.github.io/2018/06/06/iTunes%E5%A4%87%E4%BB%BDiPhone%E7%B3%BB%E7%BB%9F%E5%9C%A8MacOS%E4%B8%8A%E7%9A%84%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84/"/>
-    <id>http://lfoder.github.io/2018/06/06/iTunes备份iPhone系统在MacOS上的备份文件路径/</id>
-    <published>2018-06-06T02:47:13.000Z</published>
-    <updated>2018-06-06T02:52:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>MacOS 的存储空间相当有限，用来存储iPhone的手机备份相当浪费，一个备份20多个G，伤不起…. 于是有了本文。</p><p>最简单的找到备份文件位置的方法：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Library/Application\ Support/MobileSync/Backup</span><br><span class="line">open .</span><br></pre></td></tr></table></figure><p>此时弹出MacOS的Finder窗口，有一个Backup文件夹，这里面就是iPhone通过iTunes在MacOS上的备份文件路径，你可以拷贝到移动硬盘上以节省空间。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;MacOS 的存储空间相当有限，用来存储iPhone的手机备份相当浪费，一个备份20多个G，伤不起…. 于是有了本文。&lt;/p&gt;
-&lt;p&gt;最简单的找到备份文件位置的方法：&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cla
-      
-    
-    </summary>
-    
-    
-      <category term="iOS备份" scheme="http://lfoder.github.io/tags/iOS%E5%A4%87%E4%BB%BD/"/>
-    
-      <category term="iTunes" scheme="http://lfoder.github.io/tags/iTunes/"/>
     
   </entry>
   
