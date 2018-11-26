@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://lfoder.github.io/2018/10/31/MacOS%E5%87%BA%E7%8E%B0-usr-bin-ulimit-line-4-ulimit-open-files-cannot-modify-limit-Invalid-argument%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
-    <lastmod>2018-10-31T06:17:49.054Z</lastmod>
+    <lastmod>2018-10-31T09:17:43.500Z</lastmod>
     <data>
         <display>
         <title>MacOS出现/usr/bin/ulimit: line 4: ulimit: open files: cannot modify limit: Invalid argument解决方案</title>

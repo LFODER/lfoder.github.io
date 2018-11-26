@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="An0nyMouS">
 <meta property="og:description" content="MacOS出现/usr/bin/ulimit: line 4: ulimit: open files: cannot modify limit: Invalid argument解决方案">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-31T06:17:49.054Z">
+<meta property="og:updated_time" content="2018-10-31T09:17:43.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MacOS出现&#x2F;usr&#x2F;bin&#x2F;ulimit: line 4: ulimit: open files: cannot modify limit: Invalid argument解决方案">
 <meta name="twitter:description" content="MacOS出现/usr/bin/ulimit: line 4: ulimit: open files: cannot modify limit: Invalid argument解决方案">
@@ -377,7 +377,7 @@
                 
               
 
-              <time title="创建时间：2018-10-31 14:05:09 / 修改时间：14:17:49" itemprop="dateCreated datePublished" datetime="2018-10-31T14:05:09+08:00">2018-10-31</time>
+              <time title="创建时间：2018-10-31 14:05:09 / 修改时间：17:17:43" itemprop="dateCreated datePublished" datetime="2018-10-31T14:05:09+08:00">2018-10-31</time>
             
 
             
@@ -420,6 +420,9 @@
         <h3 id="症状"><a href="#症状" class="headerlink" title="症状"></a>症状</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="built_in">ulimit</span> -n 65535</span><br><span class="line">/usr/bin/<span class="built_in">ulimit</span>: line 4: <span class="built_in">ulimit</span>: open files: cannot modify <span class="built_in">limit</span>: Invalid argument</span><br></pre></td></tr></table></figure>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ <span class="built_in">echo</span> kern.maxfiles=65535 | sudo tee -a /etc/sysctl.conf</span><br><span class="line">Password:</span><br><span class="line">kern.maxfiles=65535</span><br><span class="line">➜  ~ <span class="built_in">echo</span> kern.maxfilesperproc=65535 | sudo tee -a /etc/sysctl.conf</span><br><span class="line">kern.maxfilesperproc=65535</span><br><span class="line">➜  ~ sudo sysctl -w kern.maxfiles=65535</span><br><span class="line">kern.maxfiles: 12288 -&gt; 65535</span><br><span class="line">➜  ~ sudo sysctl -w kern.maxfilesperproc=65535</span><br><span class="line">kern.maxfilesperproc: 10240 -&gt; 65535</span><br><span class="line">➜  ~ <span class="built_in">ulimit</span> -n 65535 65535</span><br><span class="line">➜  ~ <span class="built_in">ulimit</span> -a</span><br><span class="line">-t: cpu time (seconds)              unlimited</span><br><span class="line">-f: file size (blocks)              65535</span><br><span class="line">-d: data seg size (kbytes)          unlimited</span><br><span class="line">-s: stack size (kbytes)             8192</span><br><span class="line">-c: core file size (blocks)         0</span><br><span class="line">-v: address space (kbytes)          unlimited</span><br><span class="line">-l: locked-in-memory size (kbytes)  unlimited</span><br><span class="line">-u: processes                       709</span><br><span class="line">-n: file descriptors                65535</span><br><span class="line">➜  ~</span><br></pre></td></tr></table></figure>
 <p>Via: <a href="http://blog.mact.me/2014/10/22/yosemite-upgrade-changes-open-file-limit" target="_blank" rel="noopener">http://blog.mact.me/2014/10/22/yosemite-upgrade-changes-open-file-limit</a></p>
+<blockquote>
+<p>可以把 <code>ulimit -n 65536 65536</code> 加入到 <code>~/.bash_profile</code>中以免每次修改。</p>
+</blockquote>
 
       
     </div>
