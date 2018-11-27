@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+<meta name="baidu-site-verification" content="g30PjEYhej" />
+
+
+
+  <meta name="description" content="作者GayHub: https://github.com/TKkk-iOSer/WeChatPlugin-MacOS            微信小助手 v1.7.3 English | 中文 [ 功能 &amp;bull; 更新日志 &amp;bull; Demo演示 &amp;bull; 使用 &amp;bull; 安装 &amp;bull; 卸载 &amp;bull; TODO ] 其他插件：[ wechat-alfred-workflow">
+<meta name="keywords" content="MacOS,WeChat,插件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MacOS上微信多功能小助手">
+<meta property="og:url" content="http://lfoder.github.io/2018/11/26/MacOS上微信多功能小助手/index.html">
+<meta property="og:site_name" content="An0nyMouS">
+<meta property="og:description" content="作者GayHub: https://github.com/TKkk-iOSer/WeChatPlugin-MacOS            微信小助手 v1.7.3 English | 中文 [ 功能 &amp;bull; 更新日志 &amp;bull; Demo演示 &amp;bull; 使用 &amp;bull; 安装 &amp;bull; 卸载 &amp;bull; TODO ] 其他插件：[ wechat-alfred-workflow">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/raw/master/Other/ScreenShots/wechatplugin.png">
+<meta property="og:image" content="https://img.shields.io/badge/platform-macos-lightgrey.svg">
+<meta property="og:image" content="https://img.shields.io/badge/release-v1.7.3-brightgreen.svg">
+<meta property="og:image" content="https://img.shields.io/badge/support-wechat%202.3.19-blue.svg">
+<meta property="og:image" content="https://img.shields.io/badge/readme-english-yellow.svg">
+<meta property="og:image" content="https://img.shields.io/github/license/TKkk-iOSer/WeChatPlugin-MacOS.svg">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/965383-30cbea645661e627.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/965383-d488dce3696ba1b3.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/965383-51d8eae02d48fda9.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/965383-0cf50d9b22b02f2f.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/965383-170592b03781cbf4.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/notification_quick_reply.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/emotion_copy_export.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/voice_remote_control.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/alfred_search.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/alfred_chat_log.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/session_empty_and_clean.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/auto_reply.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/remote_control.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/wechatplugin.png">
+<meta property="og:updated_time" content="2018-11-26T09:39:25.257Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MacOS上微信多功能小助手">
+<meta name="twitter:description" content="作者GayHub: https://github.com/TKkk-iOSer/WeChatPlugin-MacOS            微信小助手 v1.7.3 English | 中文 [ 功能 &amp;bull; 更新日志 &amp;bull; Demo演示 &amp;bull; 使用 &amp;bull; 安装 &amp;bull; 卸载 &amp;bull; TODO ] 其他插件：[ wechat-alfred-workflow">
+<meta name="twitter:image" content="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/raw/master/Other/ScreenShots/wechatplugin.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="An0nyMouS" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://lfoder.github.io/2018/11/26/MacOS上微信多功能小助手/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>MacOS上微信多功能小助手 | An0nyMouS</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">An0nyMouS</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">我只是做了个笔记而已</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+    <a href="/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lfoder.github.io/2018/11/26/MacOS上微信多功能小助手/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lfoder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="An0nyMouS">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">MacOS上微信多功能小助手
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-26 17:29:35 / 修改时间：17:39:25" itemprop="dateCreated datePublished" datetime="2018-11-26T17:29:35+08:00">2018-11-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MacOS-笔记/" itemprop="url" rel="index"><span itemprop="name">MacOS 笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>作者GayHub: <a href="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS" target="_blank" rel="noopener">https://github.com/TKkk-iOSer/WeChatPlugin-MacOS</a></p>
+<p><img src="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/raw/master/Other/ScreenShots/wechatplugin.png" alt="微信小助手.png"></p>
+<p><img src="https://img.shields.io/badge/platform-macos-lightgrey.svg" alt="platform">  <a href="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/releases" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/release-v1.7.3-brightgreen.svg" alt="release"></a>  <img src="https://img.shields.io/badge/support-wechat%202.3.19-blue.svg" alt="support">  <a href="./README_EN.md"><img src="https://img.shields.io/badge/readme-english-yellow.svg" alt="Readme"></a>   <a href="./LICENSE"><img src="https://img.shields.io/github/license/TKkk-iOSer/WeChatPlugin-MacOS.svg" alt="GitHub license"></a></p>
+<h1 id="微信小助手-v1-7-3"><a href="#微信小助手-v1-7-3" class="headerlink" title="微信小助手 v1.7.3"></a>微信小助手 v1.7.3</h1><p> <strong><a href="./README_EN.md">English</a> | 中文</strong></p>
+<p>[ <a href="#功能">功能</a> &bull; <a href="#更新日志">更新日志</a> &bull; <a href="#demo演示">Demo演示</a> &bull; <a href="#使用">使用</a> &bull; <a href="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/blob/master/Install.md" target="_blank" rel="noopener">安装</a> &bull; <a href="#卸载">卸载</a> &bull; <a href="#todo">TODO</a> ]</p>
+<p>其他插件：<br>[ <a href="https://github.com/TKkk-iOSer/wechat-alfred-workflow" target="_blank" rel="noopener">wechat-alfred-workflow</a> &bull; <a href="https://github.com/TKkk-iOSer/QQPlugin-macOS" target="_blank" rel="noopener">QQ 版本</a> ]</p>
+<hr>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul>
+<li>消息自动回复</li>
+<li>消息防撤回</li>
+<li>远程控制(已支持语音)</li>
+<li>微信多开</li>
+<li>第二次登录免认证</li>
+<li>聊天置底功能(<del>类似置顶</del>)</li>
+<li>微信窗口置顶</li>
+<li>会话多选删除</li>
+<li>自动登录开关</li>
+<li>通知中心快捷回复</li>
+<li>聊天窗口表情包复制 &amp; 存储</li>
+<li>小助手检测更新提醒</li>
+<li>alfred 快捷发送消息 &amp; 打开窗口 (需安装：<a href="https://github.com/TKkk-iOSer/wechat-alfred-workflow" target="_blank" rel="noopener">wechat-alfred-workflow</a>)</li>
+<li>会话一键已读</li>
+<li>一键清除空会话</li>
+<li>支持国际化</li>
+<li>新增一键更新</li>
+<li>新增关于小助手</li>
+<li>去除微信url转链（从此直接打开抖音链接🌝</li>
+<li>史上最强 alfred 扩展🌚</li>
+<li>新增移除会话(不删除聊天记录)</li>
+<li>菜单栏(关于小助手)新增 alfred 开关 </li>
+<li>新增是否使用微信自带浏览器开关</li>
+<li>新增<a href="https://github.com/VDeamoV/WeChatHelper" target="_blank" rel="noopener">LaunchBar 扩展</a></li>
+</ul>
+<p><strong>若无使用 alfred，则不必打开 alfred 开关</strong></p>
+<p>远程控制：</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> 屏幕保护</li>
+<li style="list-style: none"><input type="checkbox" checked> 清空废纸篓</li>
+<li style="list-style: none"><input type="checkbox" checked> 锁屏、休眠、关机、重启</li>
+<li style="list-style: none"><input type="checkbox" checked> 退出QQ、WeChat、Chrome、Safari、所有程序</li>
+<li style="list-style: none"><input type="checkbox" checked> 网易云音乐(播放、暂停、下一首、上一首、喜欢、取消喜欢)</li>
+<li style="list-style: none"><input type="checkbox" checked> 小助手(获取指令、防撤回开关、自动回复开关、免认证登录开关)</li>
+</ul>
+<p><strong>若想使用远程控制网易云音乐，请在“系统偏好设置 ==&gt; 安全性与隐私 ==&gt; 隐私 ==&gt; 辅助功能”中添加微信、脚本编辑器</strong></p>
+<hr>
+<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><ul>
+<li><p><a href="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/releases/tag/v1.7.3" target="_blank" rel="noopener">适配2.3.19 &amp; 修复安全漏洞(2018-10-23)</a></p>
+</li>
+<li><p><a href="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/releases/tag/v1.7.1" target="_blank" rel="noopener">适配2.3.17 &amp; 加强 alfred 搜索(2018-07-24)</a></p>
+</li>
+<li><p><a href="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/releases/tag/v1.7" target="_blank" rel="noopener">新增好多功能…(2018-05-12)</a></p>
+</li>
+<li><p><a href="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/releases/tag/v1.6.1" target="_blank" rel="noopener">新增自动回复延迟 &amp; 修改置顶窗口快捷(2018-04-07)</a></p>
+</li>
+<li><p><a href="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/releases/tag/v1.6" target="_blank" rel="noopener">新增 Alfred 快捷发送消息 &amp; 打开聊天窗口(2018-03-18)</a></p>
+</li>
+<li><p><a href="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/releases/tag/v1.5.1" target="_blank" rel="noopener">新增语音远程控制mac &amp; 优化撤回消息、快捷回复(2018-03-03)</a></p>
+</li>
+<li><p><a href="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/releases/tag/v1.5.0" target="_blank" rel="noopener">新增小助手检测更新&amp;表情包复制存储等等 (2018-02-24)</a></p>
+</li>
+<li><p><a href="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/releases/tag/v1.4.0" target="_blank" rel="noopener">新增窗口置顶&amp;多选删除等等 (2017-10-11)</a></p>
+</li>
+<li><p><a href="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/releases/tag/v1.3.0" target="_blank" rel="noopener">新增置底&amp;免认证 (2017-09-17)</a></p>
+</li>
+<li><p><a href="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/releases/tag/v1.2.0" target="_blank" rel="noopener">修复聊天记录消失的bug (2017-09-11)</a></p>
+</li>
+<li><p><a href="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/releases/tag/v1.1.0" target="_blank" rel="noopener">重构自动回复，实现多回复 (2017-08-23)</a></p>
+</li>
+</ul>
+<p><strong>详细内容请查看</strong><a href="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/blob/master/CHANGELOG.md" target="_blank" rel="noopener">CHANGELOG</a></p>
+<hr>
+<h2 id="Demo演示"><a href="#Demo演示" class="headerlink" title="Demo演示"></a>Demo演示</h2><ul>
+<li><p>消息防撤回<br><img src="http://upload-images.jianshu.io/upload_images/965383-30cbea645661e627.gif?imageMogr2/auto-orient/strip" alt="消息防撤回.gif"></p>
+</li>
+<li><p>自动回复<br><img src="http://upload-images.jianshu.io/upload_images/965383-d488dce3696ba1b3.gif?imageMogr2/auto-orient/strip" alt="自动回复.gif"></p>
+</li>
+<li><p>微信多开<br><img src="http://upload-images.jianshu.io/upload_images/965383-51d8eae02d48fda9.gif?imageMogr2/auto-orient/strip" alt="微信多开.gif"></p>
+</li>
+<li><p>远程控制 (测试关闭Chrome、QQ、开启屏幕保护)<br><img src="http://upload-images.jianshu.io/upload_images/965383-0cf50d9b22b02f2f.gif?imageMogr2/auto-orient/strip" alt="远程控制.gif"></p>
+</li>
+<li><p>免认证 &amp; 置底 &amp; 多选删除<br><img src="http://upload-images.jianshu.io/upload_images/965383-170592b03781cbf4.gif?imageMogr2/auto-orient/strip" alt="免认证&amp;置底&amp;多选删除"></p>
+</li>
+<li><p>通知中心快捷回复<br><img src="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/notification_quick_reply.gif" alt="快捷回复"></p>
+</li>
+<li><p>聊天窗口表情复制 &amp; 存储<br><img src="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/emotion_copy_export.png" height="400" hspace="50"></p>
+</li>
+<li><p>语音远程控制 mac<br><img src="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/voice_remote_control.gif" alt="语音远程控制"></p>
+</li>
+<li><p>Alfred 快速搜索 <a href="https://github.com/TKkk-iOSer/wechat-alfred-workflow" target="_blank" rel="noopener">wechat-alfred-workflow</a><br><img src="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/alfred_search.gif" alt="alfred"></p>
+</li>
+<li><p>Alfred 搜索最近聊天列表 &amp; 查看聊天记录<br><img src="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/alfred_chat_log.gif" alt="alfred"></p>
+</li>
+<li><p>一键已读 &amp; 一键清除空回话<br><img src="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/session_empty_and_clean.gif" alt="基本操作"></p>
+</li>
+</ul>
+<hr>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
+<li>消息防撤回：点击<code>开启消息防撤回</code>或者快捷键<code>command + t</code>,即可开启、关闭。</li>
+<li>自动回复：点击<code>开启自动回复</code>或者快捷键<code>conmand + k</code>，将弹出自动回复设置的窗口，点击红色箭头的按钮设置开关。</li>
+</ul>
+<blockquote>
+<p>若关键字为 <code>*</code>，则任何信息都回复；<br>若关键字为<code>x|y</code>,则 x 和 y 都回复；<br>若关键字<strong>或者</strong>自动回复为空，则不开启该条自动回复；<br>可设置延迟回复，单位：秒；<br>若开启正则，请确认正则表达式书写正确，<a href="http://tool.oschina.net/regex/" target="_blank" rel="noopener">在线正则表达式测试</a><br><strong>若开启特定联系人回复，则原先的群聊&amp;私聊回复无效</strong></p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/auto_reply.png" alt="自动回复设置.png"></p>
+<ul>
+<li><p>微信多开：点击<code>登录新微信</code>或者快捷键<code>command + shift + n</code>,即可多开微信。</p>
+</li>
+<li><p>远程控制：点击<code>远程控制 Mac OS</code>或者快捷键<code>command + shift + c</code>,即可打开控制窗口。</p>
+</li>
+</ul>
+<p><strong>注意：仅向自己账号发送指令有效</strong></p>
+<p><img src="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/remote_control.png" alt="远程控制设置.png"></p>
+<ul>
+<li>Alfred 使用：请查看 <a href="https://github.com/TKkk-iOSer/wechat-alfred-workflow" target="_blank" rel="noopener">wechat-alfred-workflow</a></li>
+</ul>
+<hr>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>详细安装方法(或者需要重新编译)请查阅 <a href="https://github.com/TKkk-iOSer/WeChatPlugin-MacOS/blob/master/Install.md" target="_blank" rel="noopener">Install.md</a></p>
+<h4 id="1-懒癌版安装"><a href="#1-懒癌版安装" class="headerlink" title="1. 懒癌版安装"></a>1. 懒癌版安装</h4><h5 id="1-1-无需安装Git"><a href="#1-1-无需安装Git" class="headerlink" title="1.1 无需安装Git"></a>1.1 无需安装Git</h5><p>打开<code>应用程序-实用工具-Terminal(终端)</code>，执行下面的命令安装 <a href="https://github.com/lmk123/oh-my-wechat" target="_blank" rel="noopener">Oh My WeChat</a>：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- -L https://raw.githubusercontent.com/lmk123/oh-my-wechat/master/install.sh | bash -s</span><br></pre></td></tr></table></figure>
+<p>然后运行 <code>omw</code> 即可。</p>
+<blockquote>
+<p>可以访问 <a href="https://github.com/lmk123/oh-my-wechat#oh-my-wechat" target="_blank" rel="noopener">Oh My WeChat 的项目主页</a>查看更多用法。</p>
+</blockquote>
+<h5 id="1-2-需要安装Git"><a href="#1-2-需要安装Git" class="headerlink" title="1.2 需要安装Git"></a>1.2 需要安装Git</h5><p>打开<code>应用程序-实用工具-Terminal(终端)</code>，执行下面的命令安装</p>
+<p><code>cd ~/Downloads &amp;&amp; rm -rf WeChatPlugin-MacOS &amp;&amp; git clone https://github.com/TKkk-iOSer/WeChatPlugin-MacOS.git --depth=1 &amp;&amp; ./WeChatPlugin-MacOS/Other/Install.sh</code></p>
+<h4 id="2-普通安装"><a href="#2-普通安装" class="headerlink" title="2. 普通安装"></a>2. 普通安装</h4><ul>
+<li>点击<code>clone or download</code>按钮下载 WeChatPlugin 并解压，打开Terminal(终端)，拖动解压后<code>Install.sh</code> 文件(在 Other 文件夹中)到 Terminal 回车即可。</li>
+</ul>
+<h4 id="3-安装完成"><a href="#3-安装完成" class="headerlink" title="3. 安装完成"></a>3. 安装完成</h4><ul>
+<li>重启微信，在<strong>菜单栏</strong>中看到<strong>微信小助手</strong>即安装成功。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/TKkk-iOSer/WeChatPlugin-MacOS/master/Other/ScreenShots/wechatplugin.png" alt="微信小助手.png"></p>
+<hr>
+<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><p>打开Terminal(终端)，拖动解压后<code>Uninstall.sh</code> 文件(在 Other 文件夹中)到 Terminal 回车即可。</p>
+<hr>
+<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul>
+<li style="list-style: none"><input type="checkbox" checked> 增加<code>Alfred</code>搜索</li>
+<li style="list-style: none"><input type="checkbox"> 查看单向好友</li>
+<li style="list-style: none"><input type="checkbox"> 增加 brew 安装方式</li>
+<li style="list-style: none"><input type="checkbox" checked> 完善自动回复(指定好友回复)</li>
+<li style="list-style: none"><input type="checkbox" checked> 完善消息防撤回(显示撤回用户昵称)</li>
+<li style="list-style: none"><input type="checkbox" checked> <del>清除微信缓存(官方已加)</del></li>
+<li style="list-style: none"><input type="checkbox" checked> 优化小助手设置(更新后保留相关设置，更新提醒)</li>
+<li style="list-style: none"><input type="checkbox" checked> 语音远程控制 mac</li>
+<li style="list-style: none"><input type="checkbox" checked> 支持中英文</li>
+<li style="list-style: none"><input type="checkbox"> 支持深色模式</li>
+</ul>
+<hr>
+<h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><ul>
+<li><a href="https://github.com/amarcadet/XMLReader" target="_blank" rel="noopener">XMLReader</a></li>
+<li><a href="https://github.com/Tyilo/insert_dylib" target="_blank" rel="noopener">insert_dylib</a></li>
+<li><a href="https://github.com/facebook/fishhook" target="_blank" rel="noopener">fishhook</a></li>
+<li><a href="https://github.com/swisspol/GCDWebServer" target="_blank" rel="noopener">GCDWebServer</a></li>
+</ul>
+<hr>
+<h3 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h3><ul>
+<li>使用插件有风险，使用需谨慎。</li>
+<li>本项目旨在提升生活幸福感使用，不可用于商业和个人其他意图。若使用不当，请使用者自行承担。</li>
+<li>如有侵权，请联系本人。<a href="mailto:tkk.ioser@gmail.com" target="_blank" rel="noopener">tkk.ioser@gmail.com</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MacOS/" rel="tag"># MacOS</a>
+          
+            <a href="/tags/WeChat/" rel="tag"># WeChat</a>
+          
+            <a href="/tags/插件/" rel="tag"># 插件</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/31/MacOS出现-usr-bin-ulimit-line-4-ulimit-open-files-cannot-modify-limit-Invalid-argument解决方案/" rel="next" title="MacOS出现/usr/bin/ulimit: line 4: ulimit: open files: cannot modify limit: Invalid argument解决方案">
+                <i class="fa fa-chevron-left"></i> MacOS出现/usr/bin/ulimit: line 4: ulimit: open files: cannot modify limit: Invalid argument解决方案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/27/Termux神器食用姿势/" rel="prev" title="Termux神器食用姿势">
+                Termux神器食用姿势 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzM0Ni8xMzg4MA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">lfoder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#微信小助手-v1-7-3"><span class="nav-number">1.</span> <span class="nav-text">微信小助手 v1.7.3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#功能"><span class="nav-number">1.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新日志"><span class="nav-number">1.2.</span> <span class="nav-text">更新日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo演示"><span class="nav-number">1.3.</span> <span class="nav-text">Demo演示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">1.4.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.5.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-懒癌版安装"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">1. 懒癌版安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-无需安装Git"><span class="nav-number">1.5.0.1.1.</span> <span class="nav-text">1.1 无需安装Git</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-需要安装Git"><span class="nav-number">1.5.0.1.2.</span> <span class="nav-text">1.2 需要安装Git</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-普通安装"><span class="nav-number">1.5.0.2.</span> <span class="nav-text">2. 普通安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-安装完成"><span class="nav-number">1.5.0.3.</span> <span class="nav-text">3. 安装完成</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卸载"><span class="nav-number">1.6.</span> <span class="nav-text">卸载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO"><span class="nav-number">1.7.</span> <span class="nav-text">TODO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖"><span class="nav-number">1.8.</span> <span class="nav-text">依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#免责声明"><span class="nav-number">1.8.1.</span> <span class="nav-text">免责声明</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lfoder</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.2.0</div>
+
+
+
+
+<br />
+
+
+// 站点访问统计
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273743080'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1273743080%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+// 自动推送当前页面链接到百度搜索
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                if (data.content == undefined){
+                    data.content = ""
+                }
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.2.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.2.0"></script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

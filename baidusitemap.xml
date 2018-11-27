@@ -4,6 +4,54 @@
 
     
   <url>
+    <loc>http://lfoder.github.io/2018/11/27/Termux%E7%A5%9E%E5%99%A8%E9%A3%9F%E7%94%A8%E5%A7%BF%E5%8A%BF/</loc>
+    <lastmod>2018-11-27T04:03:55.718Z</lastmod>
+    <data>
+        <display>
+        <title>Termux神器食用姿势</title>
+        <pubTime>2018-11-27T03:10:40.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>Android</tag>
+         
+        <tag>Termux</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://lfoder.github.io/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lfoder.github.io/2018/11/26/MacOS%E4%B8%8A%E5%BE%AE%E4%BF%A1%E5%A4%9A%E5%8A%9F%E8%83%BD%E5%B0%8F%E5%8A%A9%E6%89%8B/</loc>
+    <lastmod>2018-11-26T09:39:25.257Z</lastmod>
+    <data>
+        <display>
+        <title>MacOS上微信多功能小助手</title>
+        <pubTime>2018-11-26T09:29:35.000Z</pubTime>
+        
+        <tag>MacOS</tag>
+         
+        <tag>WeChat</tag>
+         
+        <tag>插件</tag>
+         
+         
+           
+             
+              <breadCrumb title="MacOS 笔记" url="http://lfoder.github.io/categories/MacOS-%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://lfoder.github.io/2018/10/31/MacOS%E5%87%BA%E7%8E%B0-usr-bin-ulimit-line-4-ulimit-open-files-cannot-modify-limit-Invalid-argument%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
     <lastmod>2018-10-31T09:17:43.500Z</lastmod>
     <data>
@@ -57,7 +105,7 @@
     
   <url>
     <loc>http://lfoder.github.io/2018/09/08/For-Free-For-World-For-Google/</loc>
-    <lastmod>2018-09-11T10:43:07.762Z</lastmod>
+    <lastmod>2018-09-11T10:43:07.000Z</lastmod>
     <data>
         <display>
         <title>For Free,For World,For Google</title>
@@ -87,7 +135,7 @@
     
   <url>
     <loc>http://lfoder.github.io/2018/04/11/DarkNet/</loc>
-    <lastmod>2018-09-08T23:59:40.160Z</lastmod>
+    <lastmod>2018-09-08T23:59:40.000Z</lastmod>
     <data>
         <display>
         <title>DarkNet - 暗网导航Wiki  (持续更新)</title>
@@ -843,11 +891,11 @@
         <title>树莓派创建钓鱼WiFi实战全过程</title>
         <pubTime>2018-02-23T06:59:20.000Z</pubTime>
         
-        <tag>树莓派</tag>
-         
         <tag>钓鱼WiFi</tag>
          
         <tag>中间人劫持</tag>
+         
+        <tag>树莓派</tag>
          
          
            
