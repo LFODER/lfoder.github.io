@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lfoder.github.io/"/>
-  <updated>2018-11-27T04:03:55.718Z</updated>
+  <updated>2019-01-26T04:22:05.707Z</updated>
   <id>http://lfoder.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS安装图形化界面</title>
+    <link href="http://lfoder.github.io/2019/01/26/CentOS%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2/"/>
+    <id>http://lfoder.github.io/2019/01/26/CentOS安装图形化界面/</id>
+    <published>2019-01-26T04:13:48.000Z</published>
+    <updated>2019-01-26T04:22:05.707Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="进入root-操作模式"><a href="#进入root-操作模式" class="headerlink" title="进入root 操作模式"></a>进入root 操作模式</h3><p><img src="https://www.linuxidc.com/upload/2018_04/180422080385831.png" alt=""></p><h3 id="安装-X-窗口系统"><a href="#安装-X-窗口系统" class="headerlink" title="安装 X 窗口系统"></a>安装 X 窗口系统</h3><blockquote><p>注意有引号</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall <span class="string">"X Window System"</span> -y</span><br></pre></td></tr></table></figure><h3 id="安装图形化界面-GNOME"><a href="#安装图形化界面-GNOME" class="headerlink" title="安装图形化界面 GNOME"></a>安装图形化界面 GNOME</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall <span class="string">"GNOME Desktop"</span> <span class="string">"Graphical Administration Tools"</span> -y</span><br></pre></td></tr></table></figure><p>这时，我们可以通过命令 startx 进入图形界面，第一次进入会比较慢，请耐心等待。（可能需要重启，命令为reboot）</p><h3 id="更新系统的默认运行级别"><a href="#更新系统的默认运行级别" class="headerlink" title="更新系统的默认运行级别"></a>更新系统的默认运行级别</h3><p>经过上面的操作，系统启动默认还是命令行页面的，需要我们进行切换。如果想要使系统启动即为图形化窗口，需要执行下面的命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target</span><br></pre></td></tr></table></figure><h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><ul><li>如果安装完成后，虚拟机无法打开，我们需要调整虚拟机<strong>分配内存大小（注意不是磁盘大小），</strong>1024M基本够用。</li><li>如果安装完成后，虚拟机报错0x0000005c，请关闭虚拟机的<strong>3D加速</strong>功能（取消勾选）</li></ul><h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><p>CentOS 7 选择最小安装后安装 GNOME 桌面环境<br><a href="https://www.yuzhi100.com/article/centos-7-mimimal-install-gnome" target="_blank" rel="noopener">https://www.yuzhi100.com/article/centos-7-mimimal-install-gnome</a></p>]]></content>
+    
+    <summary type="html">
+    
+      给CentOS安装图形化界面的简单步骤
+    
+    </summary>
+    
+      <category term="Linux 笔记" scheme="http://lfoder.github.io/categories/Linux-%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Linux" scheme="http://lfoder.github.io/tags/Linux/"/>
+    
+      <category term="CentOS" scheme="http://lfoder.github.io/tags/CentOS/"/>
+    
+      <category term="GUI" scheme="http://lfoder.github.io/tags/GUI/"/>
+    
+      <category term="图形化" scheme="http://lfoder.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>Termux神器食用姿势</title>
@@ -465,30 +493,6 @@
     
       <category term="Hexo 笔记" scheme="http://lfoder.github.io/categories/Hexo-%E7%AC%94%E8%AE%B0/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Golang编写判断IP是否能够Ping通</title>
-    <link href="http://lfoder.github.io/2018/06/07/Golang%E7%BC%96%E5%86%99%E5%88%A4%E6%96%ADIP%E6%98%AF%E5%90%A6%E8%83%BD%E5%A4%9FPing%E9%80%9A/"/>
-    <id>http://lfoder.github.io/2018/06/07/Golang编写判断IP是否能够Ping通/</id>
-    <published>2018-06-07T06:10:07.000Z</published>
-    <updated>2018-06-17T15:27:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>人狠话不多，请看代码：</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line"><span class="string">"time"</span></span><br><span class="line"><span class="string">"net"</span></span><br><span class="line"><span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isping</span><span class="params">(ip <span class="keyword">string</span>)</span> <span class="params">(<span class="keyword">bool</span>)</span></span> &#123;</span><br><span class="line">recvBuf1 := <span class="built_in">make</span>([]<span class="keyword">byte</span>, <span class="number">2048</span>)</span><br><span class="line">payload:=[]<span class="keyword">byte</span>&#123;<span class="number">0x08</span>,<span class="number">0x00</span>,<span class="number">0x4d</span>,<span class="number">0x4b</span>,<span class="number">0x00</span>,<span class="number">0x01</span>,<span class="number">0x00</span>,<span class="number">0x10</span>,<span class="number">0x61</span>,<span class="number">0x62</span>,<span class="number">0x63</span>,<span class="number">0x64</span>,<span class="number">0x65</span>,<span class="number">0x66</span>,<span class="number">0x67</span>,<span class="number">0x68</span>,<span class="number">0x69</span>,<span class="number">0x6a</span>,<span class="number">0x6b</span>,<span class="number">0x6c</span>,<span class="number">0x6d</span>,<span class="number">0x6e</span>,<span class="number">0x6f</span>,<span class="number">0x70</span>,<span class="number">0x71</span>,<span class="number">0x72</span>,<span class="number">0x73</span>,<span class="number">0x74</span>,<span class="number">0x75</span>,<span class="number">0x76</span>,<span class="number">0x77</span>,<span class="number">0x61</span>,<span class="number">0x62</span>,<span class="number">0x63</span>,<span class="number">0x64</span>,<span class="number">0x65</span>,<span class="number">0x66</span>,<span class="number">0x67</span>,<span class="number">0x68</span>,<span class="number">0x69</span>&#125;</span><br><span class="line">Time, _ := time.ParseDuration(<span class="string">"3s"</span>)</span><br><span class="line">conn, err := net.DialTimeout(<span class="string">"ip4:icmp"</span>, ip,Time)</span><br><span class="line"><span class="keyword">if</span> err !=<span class="literal">nil</span> &#123;</span><br><span class="line">fmt.Println(<span class="string">"bibi"</span>)</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line">_,err=conn.Write(payload)</span><br><span class="line"><span class="keyword">if</span> err !=<span class="literal">nil</span> &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line">conn.SetReadDeadline(time.Now().Add(time.Second * <span class="number">2</span>))</span><br><span class="line">num, err := conn.Read(recvBuf1[<span class="number">0</span>:])</span><br><span class="line"><span class="keyword">if</span> err !=<span class="literal">nil</span> &#123;</span><br><span class="line"><span class="comment">//check 80 3389 443 22 port</span></span><br><span class="line">Timetcp, _ := time.ParseDuration(<span class="string">"1s"</span>)</span><br><span class="line">conn1, err := net.DialTimeout(<span class="string">"tcp"</span>, ip+<span class="string">":80"</span>,Timetcp)</span><br><span class="line"><span class="keyword">if</span> err == <span class="literal">nil</span> &#123;</span><br><span class="line"><span class="keyword">defer</span> conn1.Close()</span><br><span class="line"><span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">conn2, err := net.DialTimeout(<span class="string">"tcp"</span>, ip+<span class="string">":443"</span>,Timetcp)</span><br><span class="line"><span class="keyword">if</span> err == <span class="literal">nil</span> &#123;</span><br><span class="line"><span class="keyword">defer</span> conn2.Close()</span><br><span class="line"><span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">conn3, err := net.DialTimeout(<span class="string">"tcp"</span>, ip+<span class="string">":3389"</span>,Timetcp)</span><br><span class="line"><span class="keyword">if</span> err == <span class="literal">nil</span> &#123;</span><br><span class="line"><span class="keyword">defer</span> conn3.Close()</span><br><span class="line"><span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">conn4, err := net.DialTimeout(<span class="string">"tcp"</span>, ip+<span class="string">":22"</span>,Timetcp)</span><br><span class="line"><span class="keyword">if</span> err == <span class="literal">nil</span> &#123;</span><br><span class="line"><span class="keyword">defer</span> conn4.Close()</span><br><span class="line"><span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line">conn.SetReadDeadline(time.Time&#123;&#125;)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">string</span>(recvBuf1[<span class="number">0</span>:num]) !=<span class="string">""</span> &#123;</span><br><span class="line"><span class="keyword">return</span>  <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">ip := <span class="string">"172.8.47.213"</span></span><br><span class="line">fmt.Println(isping(ip))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      使用Golang语言编写判断IP是否能ping通的代码
-    
-    </summary>
-    
-      <category term="Golang 编程" scheme="http://lfoder.github.io/categories/Golang-%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="Golang" scheme="http://lfoder.github.io/tags/Golang/"/>
-    
-      <category term="Ping" scheme="http://lfoder.github.io/tags/Ping/"/>
     
   </entry>
   
