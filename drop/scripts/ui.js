@@ -465,7 +465,7 @@ document.copy = text => {
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker
-        .register('/service-worker.js')
+        .register('./service-worker.js')
         .then(serviceWorker => {
             console.log('Service Worker registered');
             window.serviceWorker = serviceWorker
