@@ -1,10 +1,10 @@
 var CACHE_NAME = 'snapdrop-cache-v1.0';
 var urlsToCache = [
-  '/',
-  '/styles.css',
-  '/scripts/network.js',
-  '/scripts/ui.js',
-  '/sounds/blop.mp3'
+  './',
+  './styles.css',
+  './scripts/network.js',
+  './scripts/ui.js',
+  './sounds/blop.mp3'
 ];
 
 self.addEventListener('install', function(event) {
