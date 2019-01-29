@@ -380,9 +380,9 @@
       <category term="渗透技巧" scheme="http://lfoder.github.io/categories/%E6%B8%97%E9%80%8F%E6%8A%80%E5%B7%A7/"/>
     
     
-      <category term="端口转发" scheme="http://lfoder.github.io/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"/>
-    
       <category term="Linux" scheme="http://lfoder.github.io/tags/Linux/"/>
+    
+      <category term="端口转发" scheme="http://lfoder.github.io/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"/>
     
       <category term="MacOS" scheme="http://lfoder.github.io/tags/MacOS/"/>
     
