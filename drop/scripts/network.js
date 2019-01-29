@@ -55,7 +55,7 @@ class ServerConnection {
         // hack to detect if deployment or development environment
         const protocol = location.protocol.startsWith('https') ? 'wss' : 'ws';
         const host = location.hostname.startsWith('localhost') ? 'localhost:3000' : (location.host + '/server');
-        host = 'https://snapdrop.net'
+        host = 'https://snapdrop.net/server'
         const webrtc = window.isRtcSupported ? '/webrtc' : '/fallback';
         const url = protocol + '://' + host + webrtc;
         return url;
