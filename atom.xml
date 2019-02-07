@@ -382,9 +382,9 @@
     
       <category term="Linux" scheme="http://lfoder.github.io/tags/Linux/"/>
     
-      <category term="MacOS" scheme="http://lfoder.github.io/tags/MacOS/"/>
-    
       <category term="端口转发" scheme="http://lfoder.github.io/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"/>
+    
+      <category term="MacOS" scheme="http://lfoder.github.io/tags/MacOS/"/>
     
       <category term="Windows" scheme="http://lfoder.github.io/tags/Windows/"/>
     
