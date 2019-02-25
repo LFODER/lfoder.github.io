@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lfoder.github.io/"/>
-  <updated>2019-01-26T04:22:05.707Z</updated>
+  <updated>2019-02-25T18:42:38.752Z</updated>
   <id>http://lfoder.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Go Modules(go mod) + Goland IDE快速上手</title>
+    <link href="http://lfoder.github.io/2019/02/26/Go-Modules-go-mod-Goland-IDE%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/"/>
+    <id>http://lfoder.github.io/2019/02/26/Go-Modules-go-mod-Goland-IDE快速上手/</id>
+    <published>2019-02-25T18:08:42.000Z</published>
+    <updated>2019-02-25T18:42:38.752Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Go-Module-概述"><a href="#Go-Module-概述" class="headerlink" title="Go Module 概述"></a>Go Module 概述</h3><p><a href="https://www.baidu.com/s?wd=go modules golang" target="_blank" rel="noopener">请自行百度</a></p><h3 id="Go-mod-命令解释"><a href="#Go-mod-命令解释" class="headerlink" title="Go mod 命令解释"></a>Go mod 命令解释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">go help modules</span><br><span class="line"></span><br><span class="line">go mod命令</span><br><span class="line"></span><br><span class="line">download    download modules to local cache (下载依赖的module到本地cache))</span><br><span class="line">edit        edit go.mod from tools or scripts (编辑go.mod文件)</span><br><span class="line">graph       print module requirement graph (打印模块依赖图))</span><br><span class="line">init        initialize new module in current directory (再当前文件夹下初始化一个新的module, 创建go.mod文件))</span><br><span class="line">tidy        add missing and remove unused modules (增加丢失的module，去掉未用的module)</span><br><span class="line">vendor      make vendored copy of dependencies (将依赖复制到vendor下)</span><br><span class="line">verify      verify dependencies have expected content (校验依赖)</span><br><span class="line">why         explain why packages or modules are needed (解释为什么需要依赖)</span><br><span class="line"></span><br><span class="line">初始化mod</span><br><span class="line"></span><br><span class="line">go mod init [module]可以创建一个go.mod，只有一行信息module。</span><br></pre></td></tr></table></figure><h3 id="Go-Module-快速上手"><a href="#Go-Module-快速上手" class="headerlink" title="Go Module 快速上手"></a>Go Module 快速上手</h3><p>首先 如果是老项目想使用 <code>Go Modules</code>  确保Goland中你的项目结构如下：</p><p>其中包含一个 main.go 主文件</p><p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1g0j81fx0ixj30fw09yaax.jpg" alt=""></p><p>如果创建新项目则在新建时确认如下 (新建时会在项目根目录创建一个 <code>go.mod</code> 文件)</p><p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1g0j82v331kj31760qsacw.jpg" alt=""></p><p>菜单栏 Goland ➡ Preferences… ➡ Go ➡ GOPATH 如下</p><p><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1g0j855tsebj317m0u079i.jpg" alt=""></p><p>菜单栏 Goland ➡ Preferences… ➡ Go ➡ Dep 如下</p><p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1g0j85nls6jj317m0u0jvx.jpg" alt=""></p><p>菜单栏 Goland ➡ Preferences… ➡ Go ➡ Go Modules(vgo) 如下</p><p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1g0j867azuwj317m0u0aex.jpg" alt=""></p><p>打开 Terminal 进入到项目根目录 执行 <code>go mod init [项目名]</code> ，如下：</p><p><img src="/Users/l/Library/Application Support/typora-user-images/image-20190226022457955.png" alt="image-20190226022457955"></p><p>此时已经给项目使用了 go modules</p><p>接下来执行 <code>go mod tidy</code></p><p>开始等待安装依赖库</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">➜  ProxyHunter go mod tidy </span><br><span class="line">go: finding github.com/issue9/term/colors latest</span><br><span class="line">go: finding github.com/gogf/gf/g/crypto/gmd5 latest</span><br><span class="line">go: finding github.com/gogf/gf/g/os/gfile latest</span><br><span class="line">go: finding github.com/gogf/gf/g/encoding/gjson latest</span><br><span class="line">go: finding github.com/gogf/gf/g/os/grpool latest</span><br><span class="line">go: finding github.com/gogf/gf/g/util/gconv latest</span><br><span class="line">go: finding github.com/gogf/gf/g/text/gstr latest</span><br><span class="line">go: finding github.com/gogf/gf/g/util/grand latest</span><br><span class="line">go: finding github.com/gogf/gf/g/container/gmap latest</span><br><span class="line">go: finding github.com/levigross/grequests latest</span><br><span class="line">go: downloading github.com/levigross/grequests v0.0.0-20190130132859-37c80f76a0da</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>如果速度很慢 ，请看这里：</p><p>设环境变量</p><p>GOPROXY=<a href="http://link.zhihu.com/?target=https%3A//goproxy.io/" target="_blank" rel="noopener">https://goproxy.io</a></p><p>或</p><p>GOPROXY=<a href="http://link.zhihu.com/?target=https%3A//athens.azurefd.net/" target="_blank" rel="noopener">https://athens.azurefd.net</a></p><p>可以让 1.11 引入的 go module 使用这些代理下载</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GOPROXY=<span class="string">"https://athens.azurefd.net"</span> </span><br><span class="line"><span class="built_in">export</span> GO111MODULE=on</span><br></pre></td></tr></table></figure><p><code>GO111MODULE</code>  解释, 当为 <code>on</code> 时则使用 <code>Go Modules</code>  ,go 会忽略 <code>$GOPATH</code> 和 <code>vendor</code> 文件夹,只根据<code>go.mod</code>下载依赖。当为 <code>off</code> 时则不适用新特性 <code>Go Modules</code> 支持，它会查找 <code>vendor</code>目录和 <code>$GOPATH</code> 来查找依赖关系，也就是继续使用“GOPATH模式”。当为 <code>auto</code> 时或未设置时则根据当前项目目录下是否存在 <code>go.mod</code>文件或 <code>$GOPATH/src</code> 之外并且其本身包含go.mod文件时才会使用新特性 <code>Go Modules</code>模式，并且<code>auto</code>为 <code>GO111MODULE</code> 的默认值。</p><p>科普时间:</p><blockquote><p>go.mod文件可以通过require，replace和exclude语句使用的精确软件包集。</p><p>require语句指定的依赖项模块<br>replace语句可以替换依赖项模块<br>exclude语句可以忽略依赖项模块</p><p>执行 go mod download</p><p>可以下载所需要的依赖，但是依赖并不是下载到GOPATH中，而是GOPATH/pkg/mod中，多个项目可以共享缓存的module。</p><p>执行 go clean -modcache 清除缓存</p><p>go mod 新东西偶尔还会出现问题 ,这个命令可以尝试修复,不过执行之前可以考虑备份一下pkg/mod中的包.以防不测.</p></blockquote><p>在国内访问 golang.org/x 的各个包都需要翻墙，<br>你可以在go.mod中使用replace替换成github上对应的库。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">replace (</span><br><span class="line">    golang.org/x/crypto v0.0.0-20180820150726-614d502a4dac =&gt; github.com/golang/crypto v0.0.0-20180820150726-614d502a4dac</span><br><span class="line">    golang.org/x/net v0.0.0-20180821023952-922f4815f713 =&gt; github.com/golang/net v0.0.0-20180826012351-8a410e7b638d</span><br><span class="line">    golang.org/x/text v0.3.0 =&gt; github.com/golang/text v0.3.0</span><br><span class="line">)</span><br></pre></td></tr></table></figure><blockquote><p> go mod 探索中 …</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      如何巧妙的运用 Goland + Go Modules 开发自己的项目
+    
+    </summary>
+    
+      <category term="Golang 笔记" scheme="http://lfoder.github.io/categories/Golang-%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Golang" scheme="http://lfoder.github.io/tags/Golang/"/>
+    
+      <category term="Goland" scheme="http://lfoder.github.io/tags/Goland/"/>
+    
+      <category term="Go Modules" scheme="http://lfoder.github.io/tags/Go-Modules/"/>
+    
+      <category term="go mod" scheme="http://lfoder.github.io/tags/go-mod/"/>
+    
+  </entry>
   
   <entry>
     <title>CentOS安装图形化界面</title>
@@ -382,9 +410,9 @@
     
       <category term="Linux" scheme="http://lfoder.github.io/tags/Linux/"/>
     
-      <category term="端口转发" scheme="http://lfoder.github.io/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"/>
-    
       <category term="MacOS" scheme="http://lfoder.github.io/tags/MacOS/"/>
+    
+      <category term="端口转发" scheme="http://lfoder.github.io/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"/>
     
       <category term="Windows" scheme="http://lfoder.github.io/tags/Windows/"/>
     
@@ -473,26 +501,6 @@
       <category term="Navicat" scheme="http://lfoder.github.io/tags/Navicat/"/>
     
       <category term="汉化" scheme="http://lfoder.github.io/tags/%E6%B1%89%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo+Coding.me搭建稳点免费的静态个人博客</title>
-    <link href="http://lfoder.github.io/2018/06/14/Hexo%E4%B8%8Ecoding-me%E6%90%AD%E5%BB%BA%E7%A8%B3%E7%82%B9%E5%85%8D%E8%B4%B9%E7%9A%84%E9%9D%99%E6%80%81%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://lfoder.github.io/2018/06/14/Hexo与coding-me搭建稳点免费的静态个人博客/</id>
-    <published>2018-06-14T08:20:09.000Z</published>
-    <updated>2018-06-14T08:50:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Hexo-Coding-me搭建稳点免费的静态个人博客"><a href="#Hexo-Coding-me搭建稳点免费的静态个人博客" class="headerlink" title="Hexo+Coding.me搭建稳点免费的静态个人博客"></a>Hexo+Coding.me搭建稳点免费的静态个人博客</h2><h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><p>自行百度</p><h3 id="部署Hexo博客到Coding-me"><a href="#部署Hexo博客到Coding-me" class="headerlink" title="部署Hexo博客到Coding.me"></a>部署Hexo博客到Coding.me</h3><p>首先你要登录 <a href="http://Coding.me/" target="_blank" rel="noopener">http://Coding.me</a> 然后访问 <a href="https://coding.net/user/projects" target="_blank" rel="noopener">https://coding.net/user/projects</a> 添加博客。</p><p>项目名称填写如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;username&gt;.coding.me</span><br></pre></td></tr></table></figure><p>例如我的：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lfoder.coding.me</span><br></pre></td></tr></table></figure><p>项目名称填写你的域名，这里使用的是Coding提供的二级域名。</p><p>勾选 <code>启用 README.md 文件初始化项目</code></p><p>其他选项，请随意。</p><p>然后点 <code>新建项目</code></p><p>然后再访问 <a href="https://coding.net/user/projects" target="_blank" rel="noopener">https://coding.net/user/projects</a> 点击选择你创建的项目。</p><ul><li>开启Pages服务</li></ul><p>左边选择  代码 =&gt; Pages 服务 =&gt; 静态 Pages =&gt; 部署来源 =&gt; 选择你的master分支 =&gt; 保存 </p><p>当然你也可以开启下面的 <code>强制HTTPS访问</code> 服务 (可选)</p><ul><li>部署公钥</li></ul><p>左边选择  设置 =&gt; 部署公钥 =&gt; 新建部署公钥</p><p>然后回到你本机 (我的系统是MacOS，Windows未测) 使用 <code>ssh-keygen -t rsa</code> 命令 一路回车，即可生成公钥。</p><p>然后使用 <code>cat ~/.ssh/id_rsa.pub</code> 来获取你的公钥。</p><p>回到浏览器你刚才<strong>新建部署公钥</strong>的地方，在公钥内容中填写你的公钥，并勾选<strong>授予推送权限</strong>，其他请随意，确认即可。</p><p>然后回到你的博客目录，找到 <code>_config.yml</code> 文件，编辑它！</p><p>内容部分参考这里照葫芦画瓢：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  branch: master</span><br><span class="line">  repo:</span><br><span class="line">    - git@github.com:lfoder/lfoder.github.io.git</span><br><span class="line">    - git@git.coding.net:lfoder/lfoder.coding.me.git</span><br></pre></td></tr></table></figure><p>repo是仓库列表，下面两个分别是Github的仓库和Coding的仓库，这个瓢你可以这么画:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git@&lt;仓库托管网站域名&gt;:&lt;账户名&gt;/&lt;项目名&gt;.git</span><br></pre></td></tr></table></figure><p>然后画好了按照这个格式，写到你的 <code>_config.yml</code> 文件中。</p><p>此时编辑你的博客，使用 <code>hexo s</code> 来预览效果，使用 <code>hexo d -G</code> 来上传到两个托管平台。</p><p>过一小会儿…</p><p>你就会发现两个平台都已经有你的博客了。</p><p>访问地址分别是：</p><p>Github =&gt;  <a href="http://lfoder.github.io">http://lfoder.github.io</a></p><p>Coding =&gt; <a href="http://lfoder.github.io">http://lfoder.coding.me</a></p><p>Have fun !!</p>]]></content>
-    
-    <summary type="html">
-    
-      使用 Coding.me 免费提供的Pages服务来部署托管自己的静态博客,可以尝试访问 http://lfoder.coding.me 和 http://lfoder.github.io
-    
-    </summary>
-    
-      <category term="Hexo 笔记" scheme="http://lfoder.github.io/categories/Hexo-%E7%AC%94%E8%AE%B0/"/>
-    
     
   </entry>
   
