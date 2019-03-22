@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>http://lfoder.github.io/2019/03/22/SSH-Config-%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8-%E8%AE%A9%E4%BD%A0%E7%9A%84SSH%E6%9B%B4%E6%99%BA%E8%83%BD/</loc>
+    <lastmod>2019-03-22T05:19:03.890Z</lastmod>
+    <data>
+        <display>
+        <title>SSH Config 配置与使用(让你的SSH更智能)</title>
+        <pubTime>2019-03-22T04:38:58.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>SSH自动化登录</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux 笔记" url="http://lfoder.github.io/categories/Linux-%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://lfoder.github.io/2019/03/22/SSH%E4%BD%BF%E7%94%A8%E5%85%AC%E7%A7%81%E9%92%A5authorized_keys%E6%8E%88%E6%9D%83%E8%AE%A4%E8%AF%81%E7%99%BB%E9%99%86/</loc>
+    <lastmod>2019-03-22T05:15:21.492Z</lastmod>
+    <data>
+        <display>
+        <title>SSH使用公私钥authorized_keys授权认证登陆</title>
+        <pubTime>2019-03-22T04:24:56.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>SSH免密登录</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux 笔记" url="http://lfoder.github.io/categories/Linux-%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://lfoder.github.io/2018/09/08/For-Free-For-World-For-Google/</loc>
     <lastmod>2019-03-15T09:44:02.235Z</lastmod>
     <data>
@@ -110,28 +154,6 @@
            
              
               <breadCrumb title="Golang 笔记" url="http://lfoder.github.io/categories/Golang-%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://lfoder.github.io/2018/05/12/SSH%E6%97%A0%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95-authorized-keys%E8%AE%A4%E8%AF%81%E7%99%BB%E5%BD%95/</loc>
-    <lastmod>2019-02-06T13:43:36.212Z</lastmod>
-    <data>
-        <display>
-        <title>SSH无密码登录 - authorized_keys认证登录</title>
-        <pubTime>2018-05-12T09:24:56.000Z</pubTime>
-        
-        <tag>Linux</tag>
-         
-        <tag>SSH证书登录</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux 笔记" url="http://lfoder.github.io/categories/Linux-%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>

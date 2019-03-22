@@ -424,7 +424,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -436,8 +436,6 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
-                    
-                      
                     
                       
                     
@@ -616,7 +614,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">69</span>
+                      
+                    
+                    <span class="site-state-item-count">70</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1213,7 +1213,21 @@
 
 </body>
 </html>
-                  item: resultItem,
+           if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
                     searchTextCount: searchTextCount,
                     hitCount: hitCount,
                     id: resultItems.length

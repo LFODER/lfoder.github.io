@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+<meta name="baidu-site-verification" content="g30PjEYhej" />
+
+
+
+  <meta name="description" content="SSH Config 可以配置你的SSH链接域名 以及认证 可以更便捷更智能的使用SSH">
+<meta name="keywords" content="Linux,SSH自动化登录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSH Config 配置与使用(让你的SSH更智能)">
+<meta property="og:url" content="http://lfoder.github.io/2019/03/22/SSH-Config-配置与使用-让你的SSH更智能/index.html">
+<meta property="og:site_name" content="默小文">
+<meta property="og:description" content="SSH Config 可以配置你的SSH链接域名 以及认证 可以更便捷更智能的使用SSH">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://lfoder.github.io/Users/l/Library/Application%20Support/typora-user-images/image-20190322131801697.png">
+<meta property="og:updated_time" content="2019-03-22T05:19:03.890Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SSH Config 配置与使用(让你的SSH更智能)">
+<meta name="twitter:description" content="SSH Config 可以配置你的SSH链接域名 以及认证 可以更便捷更智能的使用SSH">
+<meta name="twitter:image" content="http://lfoder.github.io/Users/l/Library/Application%20Support/typora-user-images/image-20190322131801697.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="默小文" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://lfoder.github.io/2019/03/22/SSH-Config-配置与使用-让你的SSH更智能/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>SSH Config 配置与使用(让你的SSH更智能) | 默小文</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">默小文</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">我只是做了个笔记而已</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+    <a href="/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lfoder.github.io/2019/03/22/SSH-Config-配置与使用-让你的SSH更智能/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lfoder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="默小文">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">SSH Config 配置与使用(让你的SSH更智能)
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-22 12:38:58 / 修改时间：13:19:03" itemprop="dateCreated datePublished" datetime="2019-03-22T12:38:58+08:00">2019-03-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux-笔记/" itemprop="url" rel="index"><span itemprop="name">Linux 笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">SSH Config 可以配置你的SSH链接域名 以及认证 可以更便捷更智能的使用SSH</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="使用-SSH-Config自动化-让-SSH-更智能"><a href="#使用-SSH-Config自动化-让-SSH-更智能" class="headerlink" title="使用 SSH-Config自动化  让 SSH 更智能"></a>使用 SSH-Config自动化  让 SSH 更智能</h3><ol>
+<li>首先生成你的公私钥，如果已经有了可以跳过。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">➜  .ssh ssh-keygen              </span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/Users/l/.ssh/id_rsa): </span><br><span class="line">/Users/l/.ssh/id_rsa already exists.</span><br><span class="line">Overwrite (y/n)? y</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase): </span><br><span class="line">Enter same passphrase again: </span><br><span class="line">Your identification has been saved <span class="keyword">in</span> /Users/l/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /Users/l/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:j25r4OHzWxQa9IdT6eiPtX3vTm6AXFrUpBwFhUCDcCI l@l.local</span><br><span class="line">The key<span class="string">'s randomart image is:</span></span><br><span class="line"><span class="string">+---[RSA 2048]----+</span></span><br><span class="line"><span class="string">|      E +..o=ooB+|</span></span><br><span class="line"><span class="string">|       o +.o.ooo.|</span></span><br><span class="line"><span class="string">|        . =o..o  |</span></span><br><span class="line"><span class="string">|         o.+. o  |</span></span><br><span class="line"><span class="string">|        S... =   |</span></span><br><span class="line"><span class="string">|      o  +. = .  |</span></span><br><span class="line"><span class="string">|     o o. o+ o ..|</span></span><br><span class="line"><span class="string">|      +.o.. o .oo|</span></span><br><span class="line"><span class="string">|       ==o     =*|</span></span><br><span class="line"><span class="string">+----[SHA256]-----+</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>配置 <code>~/.ssh/config</code> 文件，如果没有，请自行创建。</li>
+</ol>
+<p><img src="/Users/l/Library/Application Support/typora-user-images/image-20190322131801697.png" alt="image-20190322131801697"></p>
+<p>内容大致写成这样  <code>Host</code>  后面内容可以随意填写 </p>
+<p>然后连接过程 如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ ssh hg</span><br><span class="line">Last login: Fri Mar 22 13:02:21 2019 from 192.168.1.111</span><br><span class="line">[root@localhost ~]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<p>通过执行 <code>$ ssh example</code> 我就可以登录我的服务器。而不需要敲更多的命令 <code>$ ssh root@example.com</code>。又如我们想要向服务器传文件 <code>$ scp a.txt example:/home/user_name</code>。比以前方便多了。</p>
+<p>更过相关帮助文档请参考 <code>$ man ssh_config 5</code></p>
+<h3 id="SSH-Config-配置说明"><a href="#SSH-Config-配置说明" class="headerlink" title="SSH Config 配置说明"></a>SSH Config 配置说明</h3><p>SSH 的配置文件有两个：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ~/.ssh/config            <span class="comment"># 用户配置文件</span></span><br><span class="line">$ /etc/ssh/ssh_config      <span class="comment"># 系统配置文件</span></span><br></pre></td></tr></table></figure>
+<h4 id="SSH-Config-字段介绍"><a href="#SSH-Config-字段介绍" class="headerlink" title="SSH Config 字段介绍"></a>SSH Config 字段介绍</h4><p>~/.ssh/config 字段介绍</p>
+<p><strong>Host</strong><br>用于我们执行 SSH 命令的时候如何匹配到该配置。</p>
+<ul>
+<li><code>*</code>，匹配所有主机名。</li>
+<li><code>*.example.com</code>，匹配以 .example.com 结尾。</li>
+<li><code>!*.dialup.example.com,*.example.com</code>，以 ! 开头是排除的意思。</li>
+<li><code>192.168.0.?</code>，匹配 192.168.0.[0-9] 的 IP。</li>
+</ul>
+<p><strong>AddKeysToAgent</strong><br>是否自动将 key 加入到 <code>ssh-agent</code>，值可以为 no(default)/confirm/ask/yes。</p>
+<p>如果是 yes，key 和密码都将读取文件并以加入到 agent ，就像 <code>ssh-add</code>。其他分别是询问、确认、不加入的意思。添加到 ssh-agent 意味着将私钥和密码交给它管理，让它来进行身份认证。</p>
+<p><strong>AddressFamily</strong><br>指定连接的时候使用的地址族，值可以为 any(default)/inet(IPv4)/inet6(IPv6)。</p>
+<p><strong>BindAddress</strong><br>指定连接的时候使用的本地主机地址，只在系统有多个地址的时候有用。在 UsePrivilegedPort 值为 yes 的时候无效。</p>
+<p><strong>ChallengeResponseAuthentication</strong><br>是否响应支持的身份验证 chanllenge，yes(default)/no。</p>
+<p><strong>Compression</strong><br>是否压缩，值可以为 no(default)/yes。</p>
+<p><strong>CompressionLevel</strong><br>压缩等级，值可以为 1(fast)-9(slow)。6(default)，相当于 gzip。</p>
+<p><strong>ConnectionAttempts</strong><br>退出前尝试连接的次数，值必须为整数，1(default)。</p>
+<p><strong>ConnectTimeout</strong><br>连接 SSH 服务器超时时间，单位 s，默认系统 TCP 超时时间。</p>
+<p><strong>ControlMaster</strong><br>是否开启单一网络共享多个 session，值可以为 no(default)/yes/ask/auto。需要和 ControlPath 配合使用，当值为 yes 时，ssh 会监听该路径下的 control socket，多个 session 会去连接该 socket，它们会尽可能的复用该网络连接而不是重新建立新的。</p>
+<p><strong>ControlPath</strong><br>指定 control socket 的路径，值可以直接指定也可以用一下参数代替：</p>
+<ul>
+<li>%L 本地主机名的第一个组件</li>
+<li>%l 本地主机名（包括域名）</li>
+<li>%h 远程主机名（命令行输入）</li>
+<li>%n 远程原始主机名</li>
+<li>%p 远程主机端口</li>
+<li>%r 远程登录用户名</li>
+<li>%u 本地 ssh 正在使用的用户名</li>
+<li>%i 本地 ssh 正在使用 uid</li>
+<li>%C 值为 %l%h%p%r 的 hash</li>
+</ul>
+<p>请最大限度的保持 ControlPath 的唯一。至少包含 %h，%p，%r（或者 %C）。</p>
+<p><strong>ControlPersist</strong><br>结合 ControlMaster 使用，指定连接打开后后台保持的时间。值可以为 no/yes/整数，单位 s。如果为 no，最初的客户端关闭就关闭。如果 yes/0，无限期的，直到杀死或通过其它机制，如：ssh -O exit。</p>
+<p><strong>GatewayPorts</strong><br>指定是否允许远程主机连接到本地转发端口，值可以为 no(default)/yes。默认情况，ssh 为本地回环地址绑定了端口转发器。</p>
+<p><strong>HostName</strong><br>真实的主机名，默认值为命令行输入的值（允许 IP）。你也可以使用 %h，它将自动替换，只要替换后的地址是完整的就 ok。</p>
+<p><strong>IdentitiesOnly</strong><br>指定 ssh 只能使用配置文件指定的 identity 和 certificate 文件或通过 ssh 命令行通过身份验证，即使 ssh-agent 或 PKCS11Provider 提供了多个 identities。值可以为 no(default)/yes。</p>
+<p><strong>IdentityFile</strong><br>指定读取的认证文件路径，允许 DSA，ECDSA，Ed25519 或 RSA。值可以直接指定也可以用一下参数代替：</p>
+<ul>
+<li>%d，本地用户目录 ~</li>
+<li>%u，本地用户</li>
+<li>%l，本地主机名</li>
+<li>%h，远程主机名</li>
+<li>%r，远程用户名</li>
+</ul>
+<p><strong>LocalCommand</strong><br>指定在连接成功后，本地主机执行的命令（单纯的本地命令）。可使用 %d，%h，%l，%n，%p，%r，%u，%C 替换部分参数。只在 PermitLocalCommand 开启的情况下有效。</p>
+<p><strong>LocalForward</strong><br>指定本地主机的端口通过 ssh 转发到指定远程主机。格式：LocalForward [bind_address:]post host:hostport，支持 IPv6。</p>
+<p><strong>PasswordAuthentication</strong><br>是否使用密码进行身份验证，yes(default)/no。</p>
+<p><strong>PermitLocalCommand</strong><br>是否允许指定 LocalCommand，值可以为 no(default)/yes。</p>
+<p><strong>Port</strong><br>指定连接远程主机的哪个端口，22(default)。</p>
+<p><strong>ProxyCommand</strong><br>指定连接的服务器需要执行的命令。%h，%p，%r</p>
+<p>如：ProxyCommand /usr/bin/nc -X connect -x 192.0.2.0:8080 %h %p</p>
+<p><strong>User</strong><br>登录用户名</p>
+<h4 id="管理多组密钥对"><a href="#管理多组密钥对" class="headerlink" title="管理多组密钥对"></a>管理多组密钥对</h4><p>有时候你会针对多个服务器有不同的密钥对，每次通过指定 <code>-i</code> 参数也是非常的不方便。比如你使用 github 和 coding。那么你需要添加如下配置到 <code>~/.ssh/config</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Host github</span><br><span class="line">    HostName %h.com</span><br><span class="line">    IdentityFile ~/.ssh/id_ecdsa_github</span><br><span class="line">    User git</span><br><span class="line">Host coding</span><br><span class="line">    HostName git.coding.net</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_coding</span><br><span class="line">    User git</span><br></pre></td></tr></table></figure>
+<p>当你克隆 coding 上的某个仓库时：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 原来</span><br><span class="line">$ git clone git@git.coding.net:deepzz/test.git</span><br><span class="line"></span><br><span class="line"># 现在</span><br><span class="line">$ git clone coding:deepzz/test.git</span><br></pre></td></tr></table></figure>
+<h4 id="vim-访问远程文件"><a href="#vim-访问远程文件" class="headerlink" title="vim 访问远程文件"></a>vim 访问远程文件</h4><p>vim 可以直接编辑远程服务器上的文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vim scp://root@example.com//home/centos/docker-compose.yml</span><br><span class="line">$ vim scp://example//home/centos/docker-compose.yml</span><br></pre></td></tr></table></figure>
+<h4 id="远程服务当本地用"><a href="#远程服务当本地用" class="headerlink" title="远程服务当本地用"></a>远程服务当本地用</h4><p>通过 LocalForward 将本地端口上的数据流量通过 ssh 转发到远程主机的指定端口。感觉你是使用的本地服务，其实你使用的远程服务。如远程服务器上运行着 Postgres，端口 5432（未暴露端口给外部）。那么，你可以：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host db</span><br><span class="line">    HostName db.example.com</span><br><span class="line">    LocalForward 5433 localhost:5432</span><br></pre></td></tr></table></figure>
+<p>当你连接远程主机时，它会在本地打开一个 5433 端口，并将该端口的流量通过 ssh 转发到远程服务器上的 5432 端口。</p>
+<p>首先，建立连接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh db</span><br></pre></td></tr></table></figure>
+<p>之后，就可以通过 Postgres 客户端连接本地 5433 端口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ psql -h localhost -p 5433 orders</span><br></pre></td></tr></table></figure>
+<h4 id="多连接共享"><a href="#多连接共享" class="headerlink" title="多连接共享"></a>多连接共享</h4><p>什么是多连接共享？在你打开多个 shell 窗口时需要连接同一台服务器，如果你不想每次都输入用户名，密码，或是等待连接建立，那么你需要添加如下配置到 <code>~/.ssh/config</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ControlMaster auto</span><br><span class="line">ControlPath /tmp/%r@%h:%p</span><br></pre></td></tr></table></figure>
+<h4 id="禁用密码登录"><a href="#禁用密码登录" class="headerlink" title="禁用密码登录"></a>禁用密码登录</h4><p>如果你对服务器安全要求很高，那么禁用密码登录是必须的。因为使用密码登录服务器容易受到暴力破解的攻击，有一定的安全隐患。那么你需要编辑服务器的系统配置文件 <code>/etc/ssh/sshd_config</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PasswordAuthentication no</span><br><span class="line">ChallengeResponseAuthentication no</span><br></pre></td></tr></table></figure>
+<h4 id="关键词登录"><a href="#关键词登录" class="headerlink" title="关键词登录"></a>关键词登录</h4><p>为了更方便的登录服务器，我们也可以省略用户名和主机名，采用关键词登录。那么你需要添加如下配置到 <code>~/.ssh/config</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host deepzz                        # 别名</span><br><span class="line">    HostName deepzz.com            # 主机地址</span><br><span class="line">    User root                      # 用户名</span><br><span class="line">    # IdentityFile ~/.ssh/id_ecdsa # 认证文件</span><br><span class="line">    # Port 22                      # 指定端口</span><br></pre></td></tr></table></figure>
+<p>那么使用 <code>$ ssh deepzz</code> 就可以直接登录服务器了。</p>
+<h4 id="代理登录"><a href="#代理登录" class="headerlink" title="代理登录"></a>代理登录</h4><p>有的时候你可能没法直接登录到某台服务器，而需要使用一台中间服务器进行中转，如公司内网服务器。首先确保你已经为服务器配置了公钥访问，并开启了agent forwarding，那么你需要添加如下配置到 <code>~/.ssh/config</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Host gateway</span><br><span class="line">    HostName proxy.example.com</span><br><span class="line">    User root</span><br><span class="line">Host db</span><br><span class="line">    HostName db.internal.example.com                  # 目标服务器地址</span><br><span class="line">    User root                                         # 用户名</span><br><span class="line">    # IdentityFile ~/.ssh/id_ecdsa                    # 认证文件</span><br><span class="line">    ProxyCommand ssh gateway netcat -q 600 %h %p      # 代理命令</span><br></pre></td></tr></table></figure>
+<p>那么你现在可以使用 <code>$ ssh db</code> 连接了。</p>
+<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><p>[1] <a href="https://www.freebsd.org/cgi/man.cgi?query=ssh_config" target="_blank" rel="noopener">https://www.freebsd.org/cgi/man.cgi?query=ssh_config</a></p>
+<p>[2] <a href="https://zh.wikipedia.org/wiki/Secure_Shell" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/Secure_Shell</a></p>
+<p>[3] <a href="http://wowubuntu.com/ssh-tips.html" target="_blank" rel="noopener">http://wowubuntu.com/ssh-tips.html</a></p>
+<p>[4] <a href="https://deepzz.com/post/how-to-setup-ssh-config.html" target="_blank" rel="noopener">https://deepzz.com/post/how-to-setup-ssh-config.html</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/SSH自动化登录/" rel="tag"># SSH自动化登录</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/22/SSH使用公私钥authorized_keys授权认证登陆/" rel="next" title="SSH使用公私钥authorized_keys授权认证登陆">
+                <i class="fa fa-chevron-left"></i> SSH使用公私钥authorized_keys授权认证登陆
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzM0Ni8xMzg4MA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">lfoder</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">47</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">70</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-SSH-Config自动化-让-SSH-更智能"><span class="nav-number">1.</span> <span class="nav-text">使用 SSH-Config自动化  让 SSH 更智能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH-Config-配置说明"><span class="nav-number">2.</span> <span class="nav-text">SSH Config 配置说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH-Config-字段介绍"><span class="nav-number">2.1.</span> <span class="nav-text">SSH Config 字段介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#管理多组密钥对"><span class="nav-number">2.2.</span> <span class="nav-text">管理多组密钥对</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vim-访问远程文件"><span class="nav-number">2.3.</span> <span class="nav-text">vim 访问远程文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程服务当本地用"><span class="nav-number">2.4.</span> <span class="nav-text">远程服务当本地用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多连接共享"><span class="nav-number">2.5.</span> <span class="nav-text">多连接共享</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#禁用密码登录"><span class="nav-number">2.6.</span> <span class="nav-text">禁用密码登录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关键词登录"><span class="nav-number">2.7.</span> <span class="nav-text">关键词登录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代理登录"><span class="nav-number">2.8.</span> <span class="nav-text">代理登录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文档"><span class="nav-number">3.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lfoder</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.2.0</div>
+
+
+
+
+<br />
+
+
+<!-- 站点访问统计 -->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273743080'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1273743080%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+<!-- 自动推送当前页面链接到百度搜索 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                if (data.content == undefined){
+                    data.content = ""
+                }
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.2.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.2.0"></script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
