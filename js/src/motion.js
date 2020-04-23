@@ -348,5 +348,21 @@ $(document).ready(function () {
       integrator.next();
     }
   };
-
+  // 域名重定向
+  if (document.location.host != 'blog.lfoder.cn') {
+    var mask = document.createElement('div');
+    mask.id = 'mask'
+    mask.style.position = 'absolute';
+    mask.style.top = '0px';
+    mask.style.height = '30px';
+    mask.style.width = '100%';
+    mask.textContent = '重要提示: 本站域名更换 即将跳转到新域名 ...';
+    mask.style.textAlign = 'center';
+    mask.style.color = 'white';
+    mask.style.background = 'red';
+    document.body.appendChild(mask)
+    setTimeout(function () {
+        document.location.href = "https://blog.lfoder.cn" + document.location.pathname;
+    }, 1000)
+  }
 });
